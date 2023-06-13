@@ -27,6 +27,9 @@
 </style>
 
 <script>
+import router from "../router";
+import { useStore } from "vuex";
+import store from "../store";
 export default {
   setup: () => {},
   data() {
@@ -42,7 +45,20 @@ export default {
     const urlParams = new URLSearchParams(window.location.search);
     const codeString = urlParams.get("code");
     if (codeString) {
-      const response = await axios.post('/.netlify/functions/auth/login', { code: codeString });
+      axios
+        .post(`/.netlify/functions/auth/login`, { code: codeString })
+        .then((res) => {
+          if (!res.data.error) {
+            store.dispatch("updateCurrentUser", {
+              id: res.data.data.user._id,
+              email: res.data.data.user.email,
+              name: res.data.data.user.name,
+              token: res.data.data.token,
+              loggedIn: new Date(),
+            });
+            router.push("/home");
+          }
+        });
     }
   },
 };
