@@ -27,6 +27,9 @@
 </style>
 
 <script>
+import router from "../router";
+import { useStore } from "vuex";
+import store from "../store";
 export default {
   setup: () => {},
   data() {
@@ -45,28 +48,16 @@ export default {
       axios
         .post(`/.netlify/functions/auth/login`, { code: codeString })
         .then((res) => {
-          console.log(res);
-          // // if (!res.data.error) {
-          // //   axios.defaults.headers.common[
-          // //     "Authorization"
-          // //   ] = `bearer ${res.data.data.token}`;
-          // //   store.dispatch("updateCurrentUser", {
-          // //     id: res.data.data.user._id,
-          // //     email: response.data.email,
-          // //     name: response.data.name,
-          // //     sub: response.data.sub,
-          // //     balance: res.data.data.user.balance,
-          // //     currency: res.data.data.user.currency,
-          // //     accountTypes: res.data.data.user.accountTypes,
-          // //     expenseTypes: res.data.data.user.expenseTypes,
-          // //     incomeTypes: res.data.data.user.incomeTypes,
-          // //     avatar: response.data.picture,
-          // //     loggedIn: new Date(),
-          // //   });
-          // //   if (store.getters.getRedirectUrl)
-          // //     router.push(store.getters.getRedirectUrl);
-          // //   else router.push("/home");
-          // }
+          if (!res.data.error) {
+            store.dispatch("updateCurrentUser", {
+              id: res.data.data.user._id,
+              email: res.data.data.user.email,
+              name: res.data.data.user.name,
+              token: res.data.data.token,
+              loggedIn: new Date(),
+            });
+            router.push("/home");
+          }
         });
     }
   },

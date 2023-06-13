@@ -1,26 +1,39 @@
 <template>
-  <router-view />
+  <!-- Sidebar -->
+  <div class="p-0" :class="{ 'm-0' : showSideBar }">
+    <div class="row p-0 m-0">
+      <div v-if="showSideBar" class="col col-2 p-0 m-0 full-height">
+        <Sidebar />
+      </div>
+      <div class="p-0 m-0" :class="{ 'col col-12' : !showSideBar, 'col col-0' : showSideBar }">
+        <router-view />
+      </div>
+    </div>
+  </div>
 </template>
 
-<!-- <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import Sidebar from './components/Sidebar';
+export default {
+  setup: () => {},
+  data() {
+    return {
+      showSideBar: false
+    };
+  },
+  watch: {
+    $route: function (to, from) {
+      if (to.path == "/") this.showSideBar = false;
+      else this.showSideBar = true;
+    },
+  },
+  mounted: function(){
+    
+  },
+  components: {
+    Sidebar
   }
 }
-</style> -->
+</script>
+
+<style lang="scss"></style>
