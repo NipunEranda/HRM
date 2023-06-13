@@ -1,16 +1,22 @@
 <template>
   <div class="w-100 sideBarBackground full-height">
     <div class="sideBarButtonTop">
-      <div class="btn btn-dark w-100 p-3 sideBarTitle" @click="$router.push('/home')">
+      <div
+        class="btn btn-dark w-100 p-3 sideBarTitle"
+        @click="$router.push('/home')"
+      >
         <span><img src="../assets/img/favicon.svg" width="35" /></span>
         <span class="ms-2">TYPEFI LEAVE</span>
       </div>
     </div>
-    <div
-      class="btn btn-dark w-100 p-3 sideBarButtonBottom"
-      @click="this.$store.dispatch('logout')"
-    >
-      Sign Out
+    <div class="sideBarButtonBottom">
+      <div class="btn btn-dark w-100 p-3" @click="$router.push('/profile')">Profile</div>
+      <div
+        class="btn btn-dark w-100 p-3"
+        @click="this.$store.dispatch('logout')"
+      >
+        Sign Out
+      </div>
     </div>
   </div>
 </template>
@@ -29,6 +35,7 @@
 .sideBarButtonBottom {
   position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
 .sideBarButtonTop {
