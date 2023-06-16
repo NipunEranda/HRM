@@ -4,7 +4,9 @@
       <!-- <span
         ><img class="left-logo" src="../assets/img/banner.svg" width="190"
       /></span> -->
-      <span class="appTitle pointer" @click="$router.push('/dashboard')">GENERAL <span class="color">HR</span></span>
+      <span class="appTitle pointer" @click="$router.push('/dashboard')"
+        >GENERAL <span class="color">HR</span></span
+      >
     </div>
     <div class="col col-4 center">
       <img
@@ -48,7 +50,7 @@ export default {
   },
   methods: {},
   mounted: function () {
-    console.log(this.user);
+    // console.log(this.user);
     // this.user = { name: 'Nipun Amarasekara',  }
   },
 };
@@ -74,13 +76,13 @@ export default {
   padding-top: 10.5px;
 }
 
-.topBarIcons{
+.topBarIcons {
   padding-top: 20px;
   font-size: 20px;
   color: #a0aab6;
 }
 
-.topBarIcons:hover{
+.topBarIcons:hover {
   color: black;
 }
 </style>

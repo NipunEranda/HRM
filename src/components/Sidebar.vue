@@ -87,10 +87,7 @@ export default {
       this.activeTab = this.$route.path;
     },
   },
-  methods: {},
-  mounted: function () {
-    console.log(this.activeTab);
-  },
+  methods: {}
 };
 </script>
 

@@ -45,6 +45,8 @@ exports.systemLogin = async (event) => {
         },
       });
 
+      profileData['system'] = 'microsoft';
+
       // axios.get("https://graph.microsoft.com/v1.0/me/photo/$value", {
       //   headers: {
       //     Authorization: `Bearer ${response.data.access_token}`,
@@ -55,14 +57,20 @@ exports.systemLogin = async (event) => {
       //   console.log(e);
       // });
     }else if (content.type == "google"){
-
+      profileData = {
+        id: content.user.sub,
+        name: content.user.name,
+        email: content.user.email,
+        system: 'google'
+      }
     }
 
     //Create a User Object
     user = {
-      gid: profileData.data.id,
-      name: profileData.data.displayName,
-      email: profileData.data.mail,
+      aid: profileData.data ? profileData.data.id : profileData.id,
+      name: profileData.data ? profileData.data.displayName : profileData.name,
+      email: profileData.data ? profileData.data.mail : profileData.email,
+      loggedSystem: profileData.data ? profileData.data.system : profileData.system
     };
 
     //Check if user is already registered or not
@@ -78,6 +86,7 @@ exports.systemLogin = async (event) => {
               _id: insertedU.insertedId.toString(),
               name: user.name,
               email: user.email,
+              loggedSystem: user.loggedSystem,
               created: moment(new Date()).format("YYYY-MM-DD"),
             },
           },
@@ -91,6 +100,7 @@ exports.systemLogin = async (event) => {
     } else {
       //If user exists, Login
       token = await new Promise((resolve, reject) => {
+        result['loggedSystem'] = user.loggedSystem;
         jwt.sign(
           { user: result },
           process.env.SECRET,
@@ -113,9 +123,9 @@ exports.systemLogin = async (event) => {
     console.log(e);
     return { status: 500, response: { data: null, error: e } };
   }
-  //  finally {
-  //   if (mongoClient) mongoClient.close();
-  // }
+   finally {
+    if (mongoClient) mongoClient.close();
+  }
 };
 
 exports.verifyToken = function () {
