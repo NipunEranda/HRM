@@ -132,7 +132,7 @@ exports.systemLogin = async (event) => {
     console.log(e);
     return { status: 500, response: { data: null, error: e } };
   } finally {
-    if (mongoClient) mongoClient.close();
+    mongoClient.close();
   }
 };
 
