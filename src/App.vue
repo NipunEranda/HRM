@@ -1,11 +1,15 @@
 <template>
   <!-- Sidebar -->
-  <div class="p-0" :class="{ 'm-0' : showSideBar }">
+  <div class="p-0" :class="{ 'm-0': showSideBar }">
     <div class="row p-0 m-0">
+      <Topbar v-if="showSideBar" />
       <div v-if="showSideBar" class="col col-2 p-0 m-0 full-height">
         <Sidebar />
       </div>
-      <div class="p-0 m-0" :class="{ 'col col-12' : !showSideBar, 'col col-0' : showSideBar }">
+      <div
+        class="p-0 m-0"
+        :class="{ 'col col-12': !showSideBar, 'col col-0': showSideBar }"
+      >
         <router-view />
       </div>
     </div>
@@ -13,12 +17,13 @@
 </template>
 
 <script>
-import Sidebar from './components/Sidebar';
+import Sidebar from "./components/Sidebar";
+import Topbar from "./components/Topbar.vue";
 export default {
   setup: () => {},
   data() {
     return {
-      showSideBar: false
+      showSideBar: false,
     };
   },
   watch: {
@@ -27,13 +32,10 @@ export default {
       else this.showSideBar = true;
     },
   },
-  mounted: function(){
-    
-  },
+  mounted: function () {},
   components: {
-    Sidebar
-  }
-}
+    Sidebar,
+    Topbar,
+  },
+};
 </script>
-
-<style lang="scss"></style>

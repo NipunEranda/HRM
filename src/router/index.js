@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Index from "../views/Index.vue";
-import Home from "../views/Home.vue";
+import Dashboard from "../views/Dashboard.vue";
 import Profile from "../views/Profile.vue";
+import Leave from "../views/Leave/index.vue";
+import Staff from "../views/Staff/index.vue";
+import TimeTracking from "../views/TimeTracking/index.vue";
 import store from '../store';
 
 const routes = [
@@ -11,14 +14,29 @@ const routes = [
     component: Index,
   },
   {
-    path: "/home",
-    name: "home",
-    component: Home,
+    path: "/dashboard",
+    name: "dashboard",
+    component: Dashboard,
   },
   {
     path: "/profile",
     name: "profile",
     component: Profile,
+  },
+  {
+    path: "/leaves",
+    name: "leaves",
+    component: Leave,
+  },
+  {
+    path: "/timeTracking",
+    name: "timetracking",
+    component: TimeTracking,
+  },
+  {
+    path: "/staff",
+    name: "staff",
+    component: Staff,
   },
 ];
 
@@ -31,7 +49,7 @@ router.beforeEach((to, from) => {
   if(!store.state.auth.currentUser && to.name !== "/")
     return '/';
   if(store.state.auth.currentUser && to.name == "/")
-    return '/home';
+    return '/dashboard';
 });
 
 export default router;

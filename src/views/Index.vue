@@ -1,7 +1,7 @@
 <template>
   <div class="login-form">
     <div class="mt-4 mb-5 center">
-      <img src="../assets/img/typefi_login.svg" class="logo" />
+      <img src="../assets/img/logo.png" class="logo" />
     </div>
     <div class="center">
       <button class="btn btn-dark w-25" @click="redirectToLogin()">
@@ -18,11 +18,6 @@
 
 .logo {
   width: 200px;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
 }
 </style>
 
@@ -46,7 +41,7 @@ export default {
     const codeString = urlParams.get("code");
     if (codeString) {
       axios
-        .post(`/.netlify/functions/auth/login`, { code: codeString })
+        .post(`/.netlify/functions/auth/login`, { code: codeString, type: 'microsoft' })
         .then((res) => {
           if (!res.data.error) {
             store.dispatch("updateCurrentUser", {
@@ -56,7 +51,7 @@ export default {
               token: res.data.data.token,
               loggedIn: new Date(),
             });
-            router.push("/home");
+            router.push("/dashboard");
           }
         });
     }

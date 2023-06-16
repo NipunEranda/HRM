@@ -1,6 +1,6 @@
 <template>
   <div>
-    Homefewfwefwefewfwefwefewf
+    Home
   </div>
 </template>
 
