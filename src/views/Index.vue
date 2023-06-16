@@ -98,6 +98,7 @@ export default {
               token: res.data.data.token,
               loggedIn: new Date(),
             });
+            console.log("logged IN");
             router.push("/dashboard");
           }
         });
