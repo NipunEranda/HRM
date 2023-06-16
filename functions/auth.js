@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
-const { MongoClient } = require("mongodb");
+const { MongoClient, ServerApiVersion } = require("mongodb");
 const middy = require("middy");
 const axios = require("axios");
 const qs = require("qs");
@@ -14,7 +14,13 @@ exports.systemLogin = async (event) => {
     profileData = null,
     content = JSON.parse(event.body);
   try {
-    mongoClient = new MongoClient(process.env.MONGO_URL);
+    mongoClient = new MongoClient(process.env.MONGO_URL, {
+      serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+      },
+    });
     const clientPromise = mongoClient.connect();
     const database = (await clientPromise).db(process.env.MONGO_DB);
 
@@ -45,7 +51,7 @@ exports.systemLogin = async (event) => {
         },
       });
 
-      profileData['system'] = 'microsoft';
+      profileData["system"] = "microsoft";
 
       // axios.get("https://graph.microsoft.com/v1.0/me/photo/$value", {
       //   headers: {
@@ -56,13 +62,13 @@ exports.systemLogin = async (event) => {
       // }).catch(e => {
       //   console.log(e);
       // });
-    }else if (content.type == "google"){
+    } else if (content.type == "google") {
       profileData = {
         id: content.user.sub,
         name: content.user.name,
         email: content.user.email,
-        system: 'google'
-      }
+        system: "google",
+      };
     }
 
     //Create a User Object
@@ -70,7 +76,9 @@ exports.systemLogin = async (event) => {
       aid: profileData.data ? profileData.data.id : profileData.id,
       name: profileData.data ? profileData.data.displayName : profileData.name,
       email: profileData.data ? profileData.data.mail : profileData.email,
-      loggedSystem: profileData.data ? profileData.data.system : profileData.system
+      loggedSystem: profileData.data
+        ? profileData.data.system
+        : profileData.system,
     };
 
     //Check if user is already registered or not
@@ -100,7 +108,7 @@ exports.systemLogin = async (event) => {
     } else {
       //If user exists, Login
       token = await new Promise((resolve, reject) => {
-        result['loggedSystem'] = user.loggedSystem;
+        result["loggedSystem"] = user.loggedSystem;
         jwt.sign(
           { user: result },
           process.env.SECRET,
@@ -122,8 +130,7 @@ exports.systemLogin = async (event) => {
   } catch (e) {
     console.log(e);
     return { status: 500, response: { data: null, error: e } };
-  }
-   finally {
+  } finally {
     if (mongoClient) mongoClient.close();
   }
 };
