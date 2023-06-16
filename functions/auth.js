@@ -10,37 +10,53 @@ exports.systemLogin = async (event) => {
     user = {},
     token = null,
     insertedU = null,
-    result = null;
+    result = null,
+    profileData = null,
+    content = JSON.parse(event.body);
   try {
     mongoClient = new MongoClient(process.env.MONGO_URL);
     const clientPromise = mongoClient.connect();
     const database = (await clientPromise).db(process.env.MONGO_DB);
 
-    //Authenticate User
-    const response = await axios.post(
-      `https://login.microsoftonline.com/${process.env.AZURE_AUTH_TENENT}/oauth2/v2.0/token`,
-      qs.stringify({
-        client_id: process.env.AZURE_AUTH_CLIENT_ID,
-        scope: "user.read Files.Read.All offline_access",
-        code: JSON.parse(event.body).code,
-        redirect_uri: process.env.AZURE_AUTH_REDIRECT_URI,
-        grant_type: "authorization_code",
-        client_secret: process.env.AZURE_AUTH_CLIENT_SECRET,
-        state: 12345,
-      }),
-      {
-        Headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    );
+    if (content.type == "microsoft") {
+      //Authenticate User
+      const response = await axios.post(
+        `https://login.microsoftonline.com/${process.env.AZURE_AUTH_TENENT}/oauth2/v2.0/token`,
+        qs.stringify({
+          client_id: process.env.AZURE_AUTH_CLIENT_ID,
+          scope: "user.read Files.Read.All offline_access",
+          code: content.code,
+          redirect_uri: process.env.AZURE_AUTH_REDIRECT_URI,
+          grant_type: "authorization_code",
+          client_secret: process.env.AZURE_AUTH_CLIENT_SECRET,
+          state: 12345,
+        }),
+        {
+          Headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
 
-    //Get Profile Data
-    const profileData = await axios.get("https://graph.microsoft.com/v1.0/me", {
-      headers: {
-        Authorization: `Bearer ${response.data.access_token}`,
-      },
-    });
+      //Get Profile Data
+      profileData = await axios.get("https://graph.microsoft.com/v1.0/me", {
+        headers: {
+          Authorization: `Bearer ${response.data.access_token}`,
+        },
+      });
+
+      // axios.get("https://graph.microsoft.com/v1.0/me/photo/$value", {
+      //   headers: {
+      //     Authorization: `Bearer ${response.data.access_token}`,
+      //   },
+      // }).then(imageResponse => {
+      //   console.log(imageResponse);
+      // }).catch(e => {
+      //   console.log(e);
+      // });
+    }else if (content.type == "google"){
+
+    }
 
     //Create a User Object
     user = {

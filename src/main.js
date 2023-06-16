@@ -4,4 +4,79 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 
-createApp(App).use(store).use(router).mount("#app");
+/* import the fontawesome core */
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+/* import specific icons */
+import {
+  faWallet,
+  faCircleDollarToSlot,
+  faChartLine,
+  faUserTie,
+  faCreditCard,
+  faSackDollar,
+  faUser,
+  faIdBadge,
+  faPowerOff,
+  faPlus,
+  faClose,
+  faCoins,
+  faMoneyBill,
+  faPiggyBank,
+  faBuildingColumns,
+  faVault,
+  faPen,
+  faTimes,
+  faHome,
+  faGear,
+  faCalendarCheck,
+  faList,
+  faArrowTrendUp,
+  faCalendarDay,
+  faThumbsUp,
+  faBell,
+  faCircleQuestion,
+  faClock,
+  faUserGroup
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(
+  faWallet,
+  faCircleDollarToSlot,
+  faChartLine,
+  faUserTie,
+  faCreditCard,
+  faSackDollar,
+  faUser,
+  faIdBadge,
+  faPowerOff,
+  faPlus,
+  faClose,
+  faCoins,
+  faMoneyBill,
+  faPiggyBank,
+  faBuildingColumns,
+  faVault,
+  faPen,
+  faTimes,
+  faHome,
+  faGear,
+  faCalendarCheck,
+  faList,
+  faArrowTrendUp,
+  faCalendarDay,
+  faThumbsUp,
+  faBell,
+  faCircleQuestion,
+  faClock,
+  faUserGroup
+);
+
+createApp(App)
+  .use(store)
+  .use(router)
+  .component("font-awesome-icon", FontAwesomeIcon)
+  .mount("#app");
