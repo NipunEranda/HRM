@@ -51,7 +51,7 @@ exports.systemLogin = async (event) => {
         },
       });
 
-      profileData["system"] = "microsoft";
+      profileData['data']["system"] = "microsoft";
 
       // axios.get("https://graph.microsoft.com/v1.0/me/photo/$value", {
       //   headers: {
@@ -73,7 +73,7 @@ exports.systemLogin = async (event) => {
 
     //Create a User Object
     user = {
-      aid: profileData.data ? profileData.data.id : profileData.id,
+      sid: profileData.data ? profileData.data.id : profileData.id,
       name: profileData.data ? profileData.data.displayName : profileData.name,
       email: profileData.data ? profileData.data.mail : profileData.email,
       loggedSystem: profileData.data
@@ -109,6 +109,7 @@ exports.systemLogin = async (event) => {
       //If user exists, Login
       token = await new Promise((resolve, reject) => {
         result["loggedSystem"] = user.loggedSystem;
+        console.log(result);
         jwt.sign(
           { user: result },
           process.env.SECRET,
