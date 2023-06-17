@@ -2,14 +2,29 @@
   <div class="w-100 sideBarBackground">
     <div class="sideBarButtonTop">
       <!-- User Options -->
-      <div
-        class="w-100 row m-0 sideBarTitle text-start mobile"
-      >
-        <div class="button button_dark p-3 col col-6 p-0">
-          <span><font-awesome-icon class="icon me-2" icon="fa-user" />Profile</span>
+      <div class="w-100 row m-0 sideBarTitle text-start mobile">
+        <div
+          class="button button_dark row p-0 m-0 p-3 col col-6"
+          :class="{ button_dark_nav_active: activeTab == '/profile' }"
+          @click="navigateTo('/profile')"
+        >
+          <div class="col col-2 col-md-2 p-0">
+            <font-awesome-icon class="icon float me-2" icon="fa-user" />
+          </div>
+          <div class="col col-10 col-md-10 p-0">
+            <span>Profile</span>
+          </div>
         </div>
-        <div class="button button_dark p-3 col col-6 p-0" @click="this.$store.dispatch('logout')">
-          <span><font-awesome-icon class="icon me-2" icon="fa-power-off" />Logout</span>
+        <div
+          class="button button_dark row p-0 m-0 p-3 col col-6"
+          @click="this.$store.dispatch('logout')"
+        >
+          <div class="col col-2 p-0">
+            <font-awesome-icon class="icon float me-2" icon="fa-power-off" />
+          </div>
+          <div class="col col-10 p-0">
+            <span>Logout</span>
+          </div>
         </div>
       </div>
 
@@ -100,10 +115,10 @@ export default {
     },
   },
   methods: {
-    navigateTo: function(path){
+    navigateTo: function (path) {
       this.$router.push(path);
       $("#sideBar").css("display", "");
-    }
+    },
   },
 };
 </script>
