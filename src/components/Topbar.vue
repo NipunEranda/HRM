@@ -25,7 +25,7 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2" icon="fa-gear" />Preferences</a></li>
             <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2" icon="fa-lock" /> Security</a></li>
-            <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2" icon="fa-power-off" /> Logout</a></li>
+            <li><a class="dropdown-item profile-dropdown-item" href="#" @click="this.$store.dispatch('logout')"><font-awesome-icon class="icon me-2" icon="fa-power-off" /> Logout</a></li>
           </ul>
         </div>
         <!-- <span>
@@ -74,12 +74,11 @@ export default {
 <style scoped>
 .topBar {
   height: 60px;
-  border: 1px solid #ddd;
-  /* background-color: #ededed; */
+  border: 1px solid var(--secondary-bb-color);
 }
 
 .appTitle .color {
-  color: #ff3c00f1;
+  color: var(--secondary-background-color);
 }
 
 .userImage {
@@ -90,15 +89,11 @@ export default {
 .topBarIcons {
   padding-top: 20px;
   font-size: 20px;
-  color: #a0aab6;
+  color: var(--primary-icon-color);
 }
 
 .topBarIcons:hover {
-  color: black;
-}
-
-.profile-dropdown{
-
+  color: var(--primary-icon-hover-color);
 }
 
 .profile-dropdown-item{

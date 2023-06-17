@@ -107,7 +107,7 @@ export default {
 
 <style scoped>
 .sideBarBackground {
-  background-color: #000;
+  background-color: var(--main-bb-color);
   position: relative;
 }
 
