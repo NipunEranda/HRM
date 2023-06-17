@@ -1,3 +1,15 @@
+:root {
+  /* Background / Border = bb */
+  --main-bb-color: #000;
+  --secondary-bb-color: #ddd;
+  --main-text-color: #fff;
+  --secondary-background-color: #ff3c00f1;
+    /* Hover / Active = ha */
+  --primary-ha-background-color: #5b6770;
+  --primary-icon-color: #a0aab6;
+  --primary-icon-hover-color: var(--main-bb-color);
+}
+
 .w-25 {
   width: 25%;
 }
@@ -32,18 +44,32 @@
 }
 
 .button_dark {
-  background-color: #000;
-  border-color: #000;
-  color: white;
+  background-color: var(--main-background-color);
+  border-color: var(--main-bb-color);
+  color: var(--main-text-color);
 }
 
 .button_dark:hover {
-  background-color: #5b6770;
+  background-color: var(--primary-ha-background-color);
 }
 
 .button_dark_nav_active {
-  border-left: 3px solid #ff3c00f1;
-  background-color: #5b6770;
+  border-left: 3px solid var(--secondary-background-color);
+  background-color: var(--primary-ha-background-color);
+}
+
+.appTitle .color {
+  color: var(--secondary-background-color);
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--primary-ha-background-color);
+  color: var(--main-text-color);
+}
+
+.dropdown-menu li a:active {
+  background-color: var(--secondary-background-color);
+  color: var(--main-text-color);
 }
 
 /* Media Queries for all */
@@ -54,7 +80,7 @@
     display: none;
   }
 
-  #appView{
+  #appView {
     display: block;
   }
 
@@ -74,7 +100,7 @@
   .topBar .icon {
     padding-top: 15px;
     font-size: 20px;
-    color: #a0aab6;
+    color: var(--primary-icon-color);
   }
 
   .topBar .icon:hover {
@@ -104,7 +130,7 @@
     display: none;
   }
 
-  #appView{
+  #appView {
     display: block;
   }
 
@@ -118,12 +144,12 @@
   #sideBarToggle {
     display: none;
   }
-  
+
   #sideBar {
     display: block;
   }
-  
-  .sideBarBackground{
+
+  .sideBarBackground {
     height: calc(100vh - 60px);
   }
 
