@@ -10,7 +10,7 @@
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-home" />
         </div>
-        <div class="col col-10 col-md-2 p-0 ms-3 ms-md-2">
+        <div class="col col-11 col-md-10 p-0">
           <span>Dashboard</span>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-calendar-check" />
         </div>
-        <div class="col col-10 col-md-2 p-0 ms-3 ms-md-2">
+        <div class="col col-11 col-md-10 p-0">
           <span>Leaves</span>
         </div>
       </div>
@@ -38,7 +38,7 @@
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-clock" />
         </div>
-        <div class="col col-10 col-md-2 p-0 ms-3 ms-md-2">
+        <div class="col col-11 col-md-10 p-0">
           <span>Time</span>
         </div>
       </div>
@@ -52,7 +52,7 @@
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-user-group" />
         </div>
-        <div class="col col-10 col-md-2 p-0 ms-3 ms-md-2">
+        <div class="col col-11 col-md-10 p-0">
           <span>Staff</span>
         </div>
       </div>

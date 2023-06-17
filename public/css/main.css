@@ -45,3 +45,52 @@
   border-left: 3px solid #ff3c00f1;
   background-color: #5b6770;
 }
+
+/* Media Queries for all */
+
+/* Mobile View */
+@media (max-width: 769px) {
+  #sideBar {
+    width: 100%;
+    display: none;
+  }
+
+  .appTitle {
+    display: none;
+  }
+
+  .topBar .icon {
+    padding-top: 15px;
+    font-size: 20px;
+    color: #a0aab6;
+  }
+
+  .topBar .icon:hover {
+    color: black;
+    cursor: pointer;
+  }
+
+  .topBarDesktopOptions {
+    display: none;
+  }
+
+  .topBarmobileViewOptions {
+    display: block;
+  }
+
+  .topBarmobileViewOptions .icon {
+    float: right;
+  }
+}
+
+@media (min-width: 769px) {
+  #sideBarToggle {
+    display: none;
+  }
+  #sideBar{
+    display: block;
+  }
+  .topBarmobileViewOptions {
+    display: none;
+  }
+}

@@ -3,10 +3,11 @@
   <div class="p-0" :class="{ 'm-0': showSideBar }">
     <div class="row p-0 m-0">
       <Topbar v-if="showSideBar" />
-      <div v-if="showSideBar" class="col col-12 col-lg-2 col-md-3 p-0 m-0 full-height">
+      <div v-if="showSideBar" id="sideBar" class="p-0 m-0 full-height sideBar">
         <Sidebar />
       </div>
       <div
+        id="appView"
         class="p-0 m-0"
         :class="{ 'col col-12': !showSideBar, 'col col-0': showSideBar }"
       >
@@ -39,3 +40,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.sideBar{
+  width: 210px;
+}
+</style>
