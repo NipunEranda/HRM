@@ -5,7 +5,7 @@
       <div
         class="button button_dark w-100 row m-0 p-3 sideBarTitle text-start"
         :class="{ button_dark_nav_active: activeTab == '/dashboard' }"
-        @click="$router.push('/dashboard')"
+        @click="navigateTo('/dashboard')"
       >
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-home" />
@@ -19,7 +19,7 @@
       <div
         class="button button_dark w-100 row m-0 p-3 sideBarTitle text-start"
         :class="{ button_dark_nav_active: activeTab == '/leaves' }"
-        @click="$router.push('/leaves')"
+        @click="navigateTo('/leaves')"
       >
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-calendar-check" />
@@ -32,7 +32,7 @@
       <!-- Time Tracking -->
       <div
         class="button button_dark w-100 row m-0 p-3 sideBarTitle text-start"
-        @click="$router.push('/timeTracking')"
+        @click="navigateTo('/timeTracking')"
         :class="{ button_dark_nav_active: activeTab == '/timeTracking' }"
       >
         <div class="col col-1 col-md-2 p-0">
@@ -46,7 +46,7 @@
       <!-- Staff -->
       <div
         class="button button_dark w-100 row m-0 p-3 sideBarTitle text-start"
-        @click="$router.push('/staff')"
+        @click="navigateTo('/staff')"
         :class="{ button_dark_nav_active: activeTab == '/staff' }"
       >
         <div class="col col-1 col-md-2 p-0">
@@ -87,7 +87,12 @@ export default {
       this.activeTab = this.$route.path;
     },
   },
-  methods: {},
+  methods: {
+    navigateTo: function(path){
+      this.$router.push(path);
+      $("#sideBar").css("display", "");
+    }
+  },
 };
 </script>
 

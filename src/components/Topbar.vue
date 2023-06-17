@@ -5,7 +5,7 @@
         ><img class="left-logo" src="../assets/img/banner.svg" width="190"
       /></span> -->
       <span class="appTitle desktop pointer" @click="$router.push('/dashboard')"
-        >GENERAL <span class="color">HR</span></span
+        >GENERAL <span class="color">HRM</span></span
       >
       <span id="sideBarToggle"
         ><font-awesome-icon
@@ -14,9 +14,9 @@
           @click="toggleSideBar()"
       /></span>
     </div>
-    <div class="col col-4 center">
+    <div class="col col-4 center p-0 m-0">
       <span class="appTitle mobile pointer" @click="$router.push('/dashboard')"
-        >GENERAL <span class="color">HR</span></span
+        >GENERAL <span class="color">HRM</span></span
       >
     </div>
     <div class="col col-4">
@@ -63,8 +63,7 @@ export default {
   },
   methods: {
     toggleSideBar: function () {
-      $("#sideBar").toggle();
-      $("#appView").toggle();
+      ($("#sideBar").css("display") == 'none') ? $("#sideBar").css("display", "block") : $("#sideBar").css("display", "");
     },
   },
   mounted: function () {
