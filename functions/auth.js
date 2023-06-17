@@ -67,6 +67,7 @@ exports.systemLogin = async (event) => {
         id: content.user.sub,
         name: content.user.name,
         email: content.user.email,
+        avatar: content.user.picture,
         system: "google",
       };
     }
@@ -76,6 +77,7 @@ exports.systemLogin = async (event) => {
       sid: profileData.data ? profileData.data.id : profileData.id,
       name: profileData.data ? profileData.data.displayName : profileData.name,
       email: profileData.data ? profileData.data.mail : profileData.email,
+      avatar: profileData.data ? profileData.data.avatar : profileData.avatar,
       loggedSystem: profileData.data
         ? profileData.data.system
         : profileData.system,
@@ -106,8 +108,12 @@ exports.systemLogin = async (event) => {
         );
       });
     } else {
+
+      await database.collection('users').updateOne({ "email": result.email }, { $set: { avatar: user.avatar } });
+
       //If user exists, Login
       token = await new Promise((resolve, reject) => {
+        result["avatar"] = user.avatar;
         result["loggedSystem"] = user.loggedSystem;
         jwt.sign(
           { user: result },
