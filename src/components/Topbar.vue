@@ -7,11 +7,11 @@
       <span class="appTitle desktop pointer" @click="$router.push('/dashboard')"
         >GENERAL <span class="color">HRM</span></span
       >
-      <span id="sideBarToggle"
-        ><font-awesome-icon
-          class="icon float"
-          icon="fa-bars"
-          @click="toggleSideBar()"
+      <span
+        id="sideBarToggle"
+        class="ps-2 pe-2 pointer"
+        @click="toggleSideBar()"
+        ><font-awesome-icon class="icon" icon="fa-bars"
       /></span>
     </div>
     <div class="col col-4 center p-0 m-0">
@@ -20,7 +20,7 @@
       >
     </div>
     <div class="col col-4">
-      <div class="topBarmobileViewOptions">
+      <div class="topBarmobileViewOptions ps-2 pe-2">
         <font-awesome-icon
           class="icon float"
           icon="fa-home"
@@ -63,7 +63,11 @@ export default {
   },
   methods: {
     toggleSideBar: function () {
-      ($("#sideBar").css("display") == 'none') ? $("#sideBar").css("display", "block") : $("#sideBar").css("display", "");
+      if ($("#sideBar").css("display") == "none") {
+        $("#sideBar").css("display", "block");
+      } else {
+        $("#sideBar").css("display", "");
+      }
     },
   },
   mounted: function () {

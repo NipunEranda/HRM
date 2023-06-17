@@ -3,7 +3,7 @@
   <div class="p-0" :class="{ 'm-0': showSideBar }">
     <div class="row p-0 m-0">
       <Topbar v-if="showSideBar" />
-      <div v-if="showSideBar" id="sideBar" class="p-0 m-0 full-height sideBar">
+      <div v-if="showSideBar" id="sideBar" class="p-0 m-0 sideBar">
         <Sidebar />
       </div>
       <div

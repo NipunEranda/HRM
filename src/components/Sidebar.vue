@@ -1,6 +1,18 @@
 <template>
-  <div class="w-100 sideBarBackground full-height">
+  <div class="w-100 sideBarBackground">
     <div class="sideBarButtonTop">
+      <!-- User Options -->
+      <div
+        class="w-100 row m-0 sideBarTitle text-start mobile"
+      >
+        <div class="button button_dark p-3 col col-6 p-0">
+          <span><font-awesome-icon class="icon me-2" icon="fa-user" />Profile</span>
+        </div>
+        <div class="button button_dark p-3 col col-6 p-0" @click="this.$store.dispatch('logout')">
+          <span><font-awesome-icon class="icon me-2" icon="fa-power-off" />Logout</span>
+        </div>
+      </div>
+
       <!-- Dashboard -->
       <div
         class="button button_dark w-100 row m-0 p-3 sideBarTitle text-start"
@@ -62,8 +74,8 @@
         class="button button_dark w-100 p-3 sideBarTitle text-start"
         @click="this.$store.dispatch('logout')"
       >
-        <font-awesome-icon class="icon" icon="fa-gear" /><span class="ms-4"
-          >Settings</span
+        <font-awesome-icon class="icon" icon="fa-power-off" /><span class="ms-4"
+          >Logout</span
         >
       </div>
     </div> -->
