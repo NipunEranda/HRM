@@ -41,7 +41,8 @@ import {
   faCircleQuestion,
   faClock,
   faUserGroup,
-  faBars
+  faBars,
+  faLock
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -74,7 +75,8 @@ library.add(
   faCircleQuestion,
   faClock,
   faUserGroup,
-  faBars
+  faBars,
+  faLock
 );
 
 createApp(App)
