@@ -4,21 +4,28 @@
       <!-- <span
         ><img class="left-logo" src="../assets/img/banner.svg" width="190"
       /></span> -->
-      <span class="appTitle pointer" @click="$router.push('/dashboard')"
+      <span class="appTitle desktop pointer" @click="$router.push('/dashboard')"
         >GENERAL <span class="color">HR</span></span
       >
-      <span id="sideBarToggle"><font-awesome-icon class="icon float" icon="fa-bars" @click="toggleSideBar()"/></span>
+      <span id="sideBarToggle"
+        ><font-awesome-icon
+          class="icon float"
+          icon="fa-bars"
+          @click="toggleSideBar()"
+      /></span>
     </div>
     <div class="col col-4 center">
-      <!-- <img
-        class="left-logo"
-        src="../assets/img/customer_banner.png"
-        width="190"
-      /> -->
+      <span class="appTitle mobile pointer" @click="$router.push('/dashboard')"
+        >GENERAL <span class="color">HR</span></span
+      >
     </div>
     <div class="col col-4">
       <div class="topBarmobileViewOptions">
-        <font-awesome-icon class="icon float" icon="fa-home"  @click="$router.push('/dashboard')"/>
+        <font-awesome-icon
+          class="icon float"
+          icon="fa-home"
+          @click="$router.push('/dashboard')"
+        />
       </div>
       <div class="topBarDesktopOptions">
         <span @click="this.$store.dispatch('logout')">
@@ -55,10 +62,10 @@ export default {
     };
   },
   methods: {
-    toggleSideBar: function(){
-      $('#sideBar').toggle();
-      $('#appView').toggle();
-    }
+    toggleSideBar: function () {
+      $("#sideBar").toggle();
+      $("#appView").toggle();
+    },
   },
   mounted: function () {
     // console.log(this.user);
@@ -72,11 +79,6 @@ export default {
   height: 60px;
   border: 1px solid #ddd;
   /* background-color: #ededed; */
-}
-.appTitle {
-  font-size: 37px;
-  font-weight: 700;
-  /* letter-spacing: 2px; */
 }
 
 .appTitle .color {
