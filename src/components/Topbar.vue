@@ -65,7 +65,6 @@ export default {
     },
   },
   mounted: function () {
-    console.log(this.user);
     // this.user = { name: 'Nipun Amarasekara',  }
   },
 };

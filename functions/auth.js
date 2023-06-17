@@ -53,8 +53,6 @@ exports.systemLogin = async (event) => {
 
       profileData["data"]["system"] = "microsoft";
 
-      console.log(profileData);
-
       // const userAvatarResponse = await new Promise((resolve) => {
       //   axios
       //     .get("https://graph.microsoft.com/v1.0/me/photo/$value", {
