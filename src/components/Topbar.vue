@@ -31,7 +31,7 @@
         <span @click="this.$store.dispatch('logout')">
           <img
             class="userImage float-end pointer ms-4"
-            src="../assets/img/user.png"
+            :src="!user.avatar ? '../assets/img/user.png' : user.avatar"
             alt=""
             width="35"
         /></span>
@@ -71,7 +71,7 @@ export default {
     },
   },
   mounted: function () {
-    // console.log(this.user);
+    console.log(this.user);
     // this.user = { name: 'Nipun Amarasekara',  }
   },
 };
@@ -89,7 +89,8 @@ export default {
 }
 
 .userImage {
-  padding-top: 10.5px;
+  margin-top: 10.5px;
+  border-radius: 100px;
 }
 
 .topBarIcons {

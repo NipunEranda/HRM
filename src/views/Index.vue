@@ -38,7 +38,9 @@ export default {
   methods: {
     redirectToLogin() {
       location.href =
-        "https://login.microsoftonline.com/28b2e5d6-155a-48d7-b25d-c8af3a89ecdd/oauth2/v2.0/authorize?client_id=fc7ec7b0-98c4-4b6c-aaf8-a25482d825e9&response_type=code&redirect_uri=" + process.env.VUE_APP_URL + "&response_mode=query&scope=user.read Files.Read.All offline_access&state=12345&sso_reload=true";
+        "https://login.microsoftonline.com/28b2e5d6-155a-48d7-b25d-c8af3a89ecdd/oauth2/v2.0/authorize?client_id=fc7ec7b0-98c4-4b6c-aaf8-a25482d825e9&response_type=code&redirect_uri=" +
+        process.env.VUE_APP_URL +
+        "&response_mode=query&scope=user.read Files.Read.All offline_access&state=12345&sso_reload=true";
     },
   },
   async mounted() {
@@ -72,6 +74,7 @@ export default {
                   email: res.data.data.user.email,
                   name: res.data.data.user.name,
                   token: res.data.data.token,
+                  avatar: res.data.data.user.avatar,
                   loggedIn: new Date(),
                 });
                 router.push("/dashboard");
@@ -95,6 +98,7 @@ export default {
               email: res.data.data.user.email,
               name: res.data.data.user.name,
               token: res.data.data.token,
+              avatar: res.data.data.avatar,
               loggedIn: new Date(),
             });
             router.push("/dashboard");
