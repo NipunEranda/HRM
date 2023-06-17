@@ -1,5 +1,5 @@
-# TLeave
-Typefi Leave Application
+# GENERAL HRM
+Generic Human Resource Management System
 
 ## Project setup
 ```
