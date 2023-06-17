@@ -7,32 +7,38 @@
       <span class="appTitle pointer" @click="$router.push('/dashboard')"
         >GENERAL <span class="color">HR</span></span
       >
+      <span id="sideBarToggle"><font-awesome-icon class="icon float" icon="fa-bars" @click="toggleSideBar()"/></span>
     </div>
     <div class="col col-4 center">
-      <img
+      <!-- <img
         class="left-logo"
         src="../assets/img/customer_banner.png"
         width="190"
-      />
+      /> -->
     </div>
     <div class="col col-4">
-      <span @click="this.$store.dispatch('logout')">
-        <img
-          class="userImage float-end pointer ms-4"
-          src="../assets/img/user.png"
-          alt=""
-          width="35"
-      /></span>
-      <span
-        ><font-awesome-icon
-          class="icon float-end topBarIcons pointer ms-4"
-          icon="fa-bell"
-      /></span>
-      <span
-        ><font-awesome-icon
-          class="icon float-end topBarIcons pointer ms-4"
-          icon="fa-circle-question"
-      /></span>
+      <div class="topBarmobileViewOptions">
+        <font-awesome-icon class="icon float" icon="fa-home"  @click="$router.push('/dashboard')"/>
+      </div>
+      <div class="topBarDesktopOptions">
+        <span @click="this.$store.dispatch('logout')">
+          <img
+            class="userImage float-end pointer ms-4"
+            src="../assets/img/user.png"
+            alt=""
+            width="35"
+        /></span>
+        <span
+          ><font-awesome-icon
+            class="icon float-end topBarIcons pointer ms-4"
+            icon="fa-bell"
+        /></span>
+        <span
+          ><font-awesome-icon
+            class="icon float-end topBarIcons pointer ms-4"
+            icon="fa-circle-question"
+        /></span>
+      </div>
     </div>
   </div>
 </template>
@@ -48,7 +54,12 @@ export default {
       user: store.getters.getCurrentUser,
     };
   },
-  methods: {},
+  methods: {
+    toggleSideBar: function(){
+      $('#sideBar').toggle();
+      $('#appView').toggle();
+    }
+  },
   mounted: function () {
     // console.log(this.user);
     // this.user = { name: 'Nipun Amarasekara',  }

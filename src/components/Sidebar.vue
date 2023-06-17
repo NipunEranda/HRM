@@ -7,10 +7,10 @@
         :class="{ button_dark_nav_active: activeTab == '/dashboard' }"
         @click="$router.push('/dashboard')"
       >
-        <div class="col col-2">
-          <font-awesome-icon class="icon float-end" icon="fa-home" />
+        <div class="col col-1 col-md-2 p-0">
+          <font-awesome-icon class="icon float" icon="fa-home" />
         </div>
-        <div class="col col-10">
+        <div class="col col-11 col-md-10 p-0">
           <span>Dashboard</span>
         </div>
       </div>
@@ -21,10 +21,10 @@
         :class="{ button_dark_nav_active: activeTab == '/leaves' }"
         @click="$router.push('/leaves')"
       >
-        <div class="col col-2">
-          <font-awesome-icon class="icon float-end" icon="fa-calendar-check" />
+        <div class="col col-1 col-md-2 p-0">
+          <font-awesome-icon class="icon float" icon="fa-calendar-check" />
         </div>
-        <div class="col col-10">
+        <div class="col col-11 col-md-10 p-0">
           <span>Leaves</span>
         </div>
       </div>
@@ -35,11 +35,11 @@
         @click="$router.push('/timeTracking')"
         :class="{ button_dark_nav_active: activeTab == '/timeTracking' }"
       >
-        <div class="col col-2">
-          <font-awesome-icon class="icon float-end" icon="fa-clock" />
+        <div class="col col-1 col-md-2 p-0">
+          <font-awesome-icon class="icon float" icon="fa-clock" />
         </div>
-        <div class="col col-10">
-          <span>Time Tracking</span>
+        <div class="col col-11 col-md-10 p-0">
+          <span>Time</span>
         </div>
       </div>
 
@@ -49,10 +49,10 @@
         @click="$router.push('/staff')"
         :class="{ button_dark_nav_active: activeTab == '/staff' }"
       >
-        <div class="col col-2">
-          <font-awesome-icon class="icon float-end" icon="fa-user-group" />
+        <div class="col col-1 col-md-2 p-0">
+          <font-awesome-icon class="icon float" icon="fa-user-group" />
         </div>
-        <div class="col col-10">
+        <div class="col col-11 col-md-10 p-0">
           <span>Staff</span>
         </div>
       </div>
@@ -87,7 +87,7 @@ export default {
       this.activeTab = this.$route.path;
     },
   },
-  methods: {}
+  methods: {},
 };
 </script>
 
@@ -98,11 +98,11 @@ export default {
 }
 
 .sideBarTitle {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .sideBarTitle .icon {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .sideBarButtonBottom {

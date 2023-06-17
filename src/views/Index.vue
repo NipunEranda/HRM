@@ -60,7 +60,6 @@ export default {
           `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${googleUser.credential}`
         )
         .then((response) => {
-          console.log(response);
           axios
             .post(`/.netlify/functions/auth/login`, {
               user: response.data,
@@ -98,7 +97,6 @@ export default {
               token: res.data.data.token,
               loggedIn: new Date(),
             });
-            console.log("logged IN");
             router.push("/dashboard");
           }
         });
