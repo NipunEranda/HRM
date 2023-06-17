@@ -44,7 +44,7 @@
 }
 
 .button_dark {
-  background-color: var(--main-background-color);
+  background-color: var(--main-bb-color);
   border-color: var(--main-bb-color);
   color: var(--main-text-color);
 }
