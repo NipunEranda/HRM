@@ -31,7 +31,7 @@
         <span @click="this.$store.dispatch('logout')">
           <img
             class="userImage float-end pointer ms-4"
-            :src="!user.avatar ? '../assets/img/user.png' : user.avatar"
+            :src="user.avatar == undefined ? userImage : user.avatar"
             alt=""
             width="35"
         /></span>
@@ -53,12 +53,14 @@
 <script>
 import { useStore } from "vuex";
 import store from "../store";
+import userImage from '../assets/img/user.png';
 export default {
   setup: () => {},
   data() {
     return {
       store: useStore(),
       user: store.getters.getCurrentUser,
+      userImage: userImage
     };
   },
   methods: {

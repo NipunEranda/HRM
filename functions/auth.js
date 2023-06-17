@@ -51,17 +51,26 @@ exports.systemLogin = async (event) => {
         },
       });
 
-      profileData['data']["system"] = "microsoft";
+      profileData["data"]["system"] = "microsoft";
 
-      // axios.get("https://graph.microsoft.com/v1.0/me/photo/$value", {
-      //   headers: {
-      //     Authorization: `Bearer ${response.data.access_token}`,
-      //   },
-      // }).then(imageResponse => {
-      //   console.log(imageResponse);
-      // }).catch(e => {
-      //   console.log(e);
+      console.log(profileData);
+
+      // const userAvatarResponse = await new Promise((resolve) => {
+      //   axios
+      //     .get("https://graph.microsoft.com/v1.0/me/photo/$value", {
+      //       headers: {
+      //         Authorization: `Bearer ${response.data.access_token}`,
+      //       },
+      //     })
+      //     .then((imageResponse) => {
+      //       resolve(imageResponse);
+      //     })
+      //     .catch((e) => {
+      //       resolve(e.response.data ? e.response.data : null);
+      //     });
       // });
+
+      // console.log(userAvatarResponse);
     } else if (content.type == "google") {
       profileData = {
         id: content.user.sub,
@@ -108,8 +117,9 @@ exports.systemLogin = async (event) => {
         );
       });
     } else {
-
-      await database.collection('users').updateOne({ "email": result.email }, { $set: { avatar: user.avatar } });
+      await database
+        .collection("users")
+        .updateOne({ email: result.email }, { $set: { avatar: user.avatar } });
 
       //If user exists, Login
       token = await new Promise((resolve, reject) => {
