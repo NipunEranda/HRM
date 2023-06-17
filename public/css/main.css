@@ -50,13 +50,20 @@
 
 /* Mobile View */
 @media (max-width: 769px) {
+  .desktop {
+    display: none;
+  }
+
   #sideBar {
     width: 100%;
     display: none;
   }
 
   .appTitle {
-    display: none;
+    font-size: 22px;
+    font-weight: 700;
+    padding-top: 10px;
+    /* letter-spacing: 2px; */
   }
 
   .topBar .icon {
@@ -84,10 +91,24 @@
 }
 
 @media (min-width: 769px) {
+  .desktop {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .appTitle {
+    font-size: 37px;
+    font-weight: 700;
+    /* letter-spacing: 2px; */
+  }
+
   #sideBarToggle {
     display: none;
   }
-  #sideBar{
+  #sideBar {
     display: block;
   }
   .topBarmobileViewOptions {
