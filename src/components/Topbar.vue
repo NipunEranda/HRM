@@ -9,11 +9,11 @@
       >
     </div>
     <div class="col col-4 center">
-      <img
+      <!-- <img
         class="left-logo"
         src="../assets/img/customer_banner.png"
         width="190"
-      />
+      /> -->
     </div>
     <div class="col col-4">
       <span @click="this.$store.dispatch('logout')">

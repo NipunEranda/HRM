@@ -109,7 +109,6 @@ exports.systemLogin = async (event) => {
       //If user exists, Login
       token = await new Promise((resolve, reject) => {
         result["loggedSystem"] = user.loggedSystem;
-        console.log(result);
         jwt.sign(
           { user: result },
           process.env.SECRET,
