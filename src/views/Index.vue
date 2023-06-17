@@ -3,11 +3,11 @@
     <div class="mt-4 mb-5 center">
       <img src="../assets/img/logo.png" class="logo" />
     </div>
-    <!-- <div class="center">
+    <div class="center">
       <button class="btn btn-primary w-25" @click="redirectToLogin()">
         Continue With Microsoft
       </button>
-    </div> -->
+    </div>
     <div class="center mt-3">
       <div class="center">
         <div id="googleBtn" style="margin: auto"></div>
@@ -38,9 +38,9 @@ export default {
   methods: {
     redirectToLogin() {
       location.href =
-        "https://login.microsoftonline.com/28b2e5d6-155a-48d7-b25d-c8af3a89ecdd/oauth2/v2.0/authorize?client_id=fc7ec7b0-98c4-4b6c-aaf8-a25482d825e9&response_type=code&redirect_uri=" +
+        "https://login.microsoftonline.com/" + process.env.VUE_APP_AZURE_TENENT + "/oauth2/v2.0/authorize?client_id=" + process.env.VUE_APP_AZURE_CLIENT_ID + "&response_type=code&redirect_uri=" +
         process.env.VUE_APP_URL +
-        "&response_mode=query&scope=user.read Files.Read.All offline_access&state=12345&sso_reload=true";
+        "&response_mode=query&scope=user.read mail.read offline_access&state=12345&sso_reload=true";
     },
   },
   async mounted() {
