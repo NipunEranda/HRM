@@ -3,11 +3,11 @@
     <div class="mt-4 mb-5 center">
       <img src="../assets/img/logo.png" class="logo" />
     </div>
-    <div class="center">
+    <!-- <div class="center">
       <button class="btn btn-primary w-25" @click="redirectToLogin()">
         Continue With Microsoft
       </button>
-    </div>
+    </div> -->
     <div class="center mt-3">
       <div class="center">
         <div id="googleBtn" style="margin: auto"></div>
