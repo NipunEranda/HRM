@@ -13,7 +13,7 @@
     <div class="row m-0">
       <!-- {{ filteredStaff }} -->
       <div class="table-responsive p-0">
-        <table class="table table-hover table-bordered table-sm table-responsive">
+        <table class="table table-hover table-bordered table-sm table-responsive mb-0">
           <thead class="table-dark">
             <tr>
               <th scope="col">Name</th>
@@ -24,7 +24,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="employee in filteredStaff">
+            <tr class="pointer" v-for="employee in filteredStaff">
               <td v-text="employee.personal.info.fullName"></td>
               <td v-text="employee.personal.info.email"></td>
               <td v-text="employee.contact.address.country"></td>
@@ -59,8 +59,9 @@ export default {
   watch: {
     searchStaff: function () {
       if (this.searchStaff.trim() != '') {
-        this.filteredStaff = this.staff.filter(emp => emp.personal.info.firstName.toLowerCase().includes(this.searchStaff.toLowerCase()));
-      }
+        this.filteredStaff = this.staff.filter(emp => emp.personal.info.fullName.toLowerCase().includes(this.searchStaff.toLowerCase()));
+      } else
+        this.filteredStaff = this.staff;
     },
   },
   methods: {
@@ -68,6 +69,8 @@ export default {
       await store.dispatch("loadStaff");
       this.staff = await store.getters.getStaff;
       this.filteredStaff = $.extend(true, [], this.staff);
+      this.staff = this.staff.sort((a, b) => a.personal.info.fullName.localeCompare(b.personal.info.fullName));
+      this.filteredStaff = this.filteredStaff.sort((a, b) => a.personal.info.fullName.localeCompare(b.personal.info.fullName));
     }
   },
   mounted: async function () {
@@ -78,7 +81,7 @@ export default {
 
 <style>
 #containerView .table-responsive {
-  height: var(--table-view-height);
+  max-height: var(--table-view-height);
 }
 
 /* #containerView {
