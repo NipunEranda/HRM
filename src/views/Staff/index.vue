@@ -1,6 +1,6 @@
 <template>
   <div id="containerView">
-    <div class="row m-0 p-3 pb-0">
+    <div class="row m-0 pb-3">
       <div class="col col-10 p-0 m-0"><input class="form-control form-control-sm" type="text" name="search" id="search"
           v-model="searchStaff" placeholder=" &#x1F50E; search..." /></div>
       <div class="col col-2 p-0 m-0 ps-2">
@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-    <div class="row m-0 p-3">
+    <div class="row m-0">
       <!-- {{ filteredStaff }} -->
       <div class="table-responsive p-0">
         <table class="table table-hover table-bordered table-sm table-responsive">
@@ -77,7 +77,11 @@ export default {
 </script>
 
 <style>
-#containerView {
+#containerView .table-responsive {
+  height: var(--table-view-height);
+}
+
+/* #containerView {
   height: var(--view-container-height);
   overflow: scroll;
   scrollbar-width: none;
@@ -86,6 +90,5 @@ export default {
 
 #containerView::-webkit-scrollbar {
   display: none;
-  /* Safari and Chrome */
-}
+} */
 </style>
