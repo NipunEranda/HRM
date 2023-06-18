@@ -27,12 +27,12 @@ exports.systemLogin = async (event) => {
     if (content.type == "microsoft") {
       //Authenticate User
       const response = await axios.post(
-        `https://login.microsoftonline.com/${process.env.AZURE_AUTH_TENENT}/oauth2/v2.0/token`,
+        `https://login.microsoftonline.com/${process.env.VUE_APP_AZURE_TENENT}/oauth2/v2.0/token`,
         qs.stringify({
-          client_id: process.env.AZURE_AUTH_CLIENT_ID,
+          client_id: process.env.VUE_APP_AZURE_CLIENT_ID,
           scope: "user.read Files.Read.All offline_access",
           code: content.code,
-          redirect_uri: process.env.AZURE_AUTH_REDIRECT_URI,
+          redirect_uri: process.env.VUE_APP_AZURE_REDIRECT_URI,
           grant_type: "authorization_code",
           client_secret: process.env.AZURE_AUTH_CLIENT_SECRET,
           state: 12345,

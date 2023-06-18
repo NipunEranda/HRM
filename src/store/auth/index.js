@@ -30,5 +30,18 @@ export default {
     updateCurrentUser(context, data) {
       context.commit("updateCurrentUser", data);
     },
+    hasAccess(context, data) {
+      let accessGranted = false;
+      if (data.routes.filter(r => r.path == data.to)[0].accessBy) {
+        if (data.routes.filter(r => r.path == data.to)[0].accessBy.includes("admin")) {
+          accessGranted = process.env.VUE_APP_SYSTEM_ADMINS.split(",").includes(context.getters.getCurrentUser.email);
+        }
+        if (data.routes.filter(r => r.path == data.to)[0].accessBy.includes("hr")) {
+          accessGranted = process.env.VUE_APP_SYSTEM_ADMINS.split(",").includes(context.getters.getCurrentUser.email);
+        }
+      }else
+        return true;
+      return accessGranted;
+    }
   }
 }
