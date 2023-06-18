@@ -12,29 +12,31 @@
     </div>
     <div class="row m-0 p-3">
       <!-- {{ filteredStaff }} -->
-      <table class="table table-hover table-bordered table-sm table-responsive">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Country</th>
-            <th scope="col">Location</th>
-            <th scope="col">Department</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="employee in filteredStaff">
-            <td v-text="employee.personal.info.fullName"></td>
-            <td v-text="employee.personal.info.email"></td>
-            <td v-text="employee.contact.address.country"></td>
-            <!-- <td v-text="((employee.contact.address.city == '') ? '' : (employee.contact.address.city + ', ')) + ((employee.contact.address.country == '') ? '' : employee.contact.address.country)"></td> -->
-            <td
-              v-text="((employee.contact.address.city == '') ? '' : (employee.contact.address.city + ', ')) + ((employee.contact.address.country == '') ? '' : employee.contact.address.country)">
-            </td>
-            <td v-text="employee.work.organization.company.department"></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered table-sm table-responsive">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Country</th>
+              <th scope="col">Location</th>
+              <th scope="col">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="employee in filteredStaff">
+              <td v-text="employee.personal.info.fullName"></td>
+              <td v-text="employee.personal.info.email"></td>
+              <td v-text="employee.contact.address.country"></td>
+              <!-- <td v-text="((employee.contact.address.city == '') ? '' : (employee.contact.address.city + ', ')) + ((employee.contact.address.country == '') ? '' : employee.contact.address.country)"></td> -->
+              <td
+                v-text="((employee.contact.address.city == '') ? '' : (employee.contact.address.city + ', ')) + ((employee.contact.address.country == '') ? '' : employee.contact.address.country)">
+              </td>
+              <td v-text="employee.work.organization.company.department"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -85,4 +87,5 @@ export default {
 #containerView::-webkit-scrollbar {
   display: none;
   /* Safari and Chrome */
-}</style>
+}
+</style>
