@@ -8,7 +8,7 @@
       </div>
       <div
         id="appView"
-        class="p-0 m-0"
+        class="p-0 m-0 p-3"
         :class="{ 'col col-12': !showSideBar, 'col col-0': showSideBar }"
       >
         <router-view />

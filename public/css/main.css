@@ -11,6 +11,7 @@
   --primary-icon-color: #a0aab6;
   --primary-icon-hover-color: var(--main-bb-color);
   --view-container-height: calc(100vh - 60px);
+  --table-view-height: calc(100vh - 15vh);
 }
 
 .w-25 {
