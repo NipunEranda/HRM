@@ -2,8 +2,8 @@
   <div class="w-100 sideBarBackground">
     <div class="sideBarButtonTop">
       <!-- Dashboard -->
-      <div class="button button_dark w-100 row m-0 p-3 sideBarTitle text-start"
-        :class="{ button_dark_nav_active: activeTab == '/dashboard' }" @click="navigateTo('/dashboard')">
+      <div class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start"
+        :class="{ sideBarBtn_dark_nav_active: activeTab == '/dashboard' }" @click="navigateTo('/dashboard')">
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-home" />
         </div>
@@ -13,8 +13,8 @@
       </div>
 
       <!-- Leaves -->
-      <div class="button button_dark w-100 row m-0 p-3 sideBarTitle text-start"
-        :class="{ button_dark_nav_active: activeTab == '/leaves' }" @click="navigateTo('/leaves')">
+      <div class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start"
+        :class="{ sideBarBtn_dark_nav_active: activeTab == '/leaves' }" @click="navigateTo('/leaves')">
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-calendar-check" />
         </div>
@@ -24,8 +24,8 @@
       </div>
 
       <!-- Time Tracking -->
-      <div class="button button_dark w-100 row m-0 p-3 sideBarTitle text-start" @click="navigateTo('/timeTracking')"
-        :class="{ button_dark_nav_active: activeTab == '/timeTracking' }">
+      <div class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start" @click="navigateTo('/timeTracking')"
+        :class="{ sideBarBtn_dark_nav_active: activeTab == '/timeTracking' }">
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-clock" />
         </div>
@@ -35,8 +35,8 @@
       </div>
 
       <!-- Staff -->
-      <div class="button button_dark w-100 row m-0 p-3 sideBarTitle text-start" @click="navigateTo('/staff')"
-        :class="{ button_dark_nav_active: activeTab == '/staff' }">
+      <div class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start" @click="navigateTo('/staff')"
+        :class="{ sideBarBtn_dark_nav_active: activeTab == '/staff' }">
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-user-group" />
         </div>
@@ -47,8 +47,8 @@
 
       <!-- User Options -->
       <div class="w-100 row m-0 sideBarTitle text-start mobile">
-        <div class="button button_dark row p-0 m-0 p-3 col col-6"
-          :class="{ button_dark_nav_active: activeTab == '/profile' }" @click="navigateTo('/profile')">
+        <div class="sideBarBtn sideBarBtn_dark row p-0 m-0 p-3 col col-6"
+          :class="{ sideBarBtn_dark_nav_active: activeTab == '/profile' }" @click="navigateTo('/profile')">
           <div class="col col-2 col-md-2 p-0">
             <font-awesome-icon class="icon float me-2" icon="fa-user" />
           </div>
@@ -56,7 +56,7 @@
             <span>Profile</span>
           </div>
         </div>
-        <div class="button button_dark row p-0 m-0 p-3 col col-6" @click="this.$store.dispatch('logout')">
+        <div class="sideBarBtn sideBarBtn_dark row p-0 m-0 p-3 col col-6" @click="this.$store.dispatch('logout')">
           <div class="col col-2 p-0">
             <font-awesome-icon class="icon float me-2" icon="fa-power-off" />
           </div>
@@ -66,9 +66,9 @@
         </div>
       </div>
     </div>
-    <!-- <div class="sideBarButtonBottom">
+    <!-- <div class="sideBarsideBarBtnBottom">
       <div
-        class="button button_dark w-100 p-3 sideBarTitle text-start"
+        class="sideBarBtn sideBarBtn_dark w-100 p-3 sideBarTitle text-start"
         @click="this.$store.dispatch('logout')"
       >
         <font-awesome-icon class="icon" icon="fa-power-off" /><span class="ms-4"
@@ -119,7 +119,7 @@ export default {
   font-size: 1.2rem;
 }
 
-.sideBarButtonBottom {
+.sideBarsideBarBtnBottom {
   position: absolute;
   bottom: 0;
   width: 100%;

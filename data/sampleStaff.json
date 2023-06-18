@@ -1,0 +1,164 @@
+{
+    "_id": {
+        "$oid": "648e7ad48da5b179af396456"
+    },
+    "personal": {
+        "info": {
+            "initials": "T",
+            "firstName": "Joe",
+            "middleName": "Whos",
+            "lastName": "Mamma",
+            "fullName": "Joe Whos Mamma",
+            "email": "example@gmail.com",
+            "dob": "1988-05-18",
+            "maritalStatus": "complicated",
+            "gender": "male",
+            "title": "Mr",
+            "bloodGroup": "T+",
+            "placeOfBirth": "donno"
+        },
+        "identification": {
+            "nic": "0000000000000",
+            "passportNumber": "0000000000000",
+            "passportExpiry": "2069-12-25",
+            "drivingLicenseNumber": "0000000000000",
+            "expatriate": "no"
+        },
+        "ethnicity": {
+            "religion": "default",
+            "nationality": "default",
+            "race": "default"
+        },
+        "family": {
+            "father": {
+                "name": "Big Joe",
+                "dob": "1962-01-05",
+                "occupation": "",
+                "employerName": "",
+                "alive": true,
+                "entitledToMedicalScheme": false,
+                "nic_passport": "",
+                "contactNumber": "",
+                "address": ""
+            },
+            "mother": {
+                "name": "Lady Joe",
+                "dob": "1971-03-14",
+                "occupation": "",
+                "employerName": "",
+                "alive": true,
+                "entitledToMedicalScheme": false,
+                "nic_passport": "",
+                "contactNumber": "",
+                "address": ""
+            }
+        },
+        "livingSituation": {
+            "livingWith": "parents",
+            "monthlyIncome": 0,
+            "numberOfDependants": 0,
+            "numberOfChildren": 0
+        }
+    },
+    "work": {
+        "employeeNumbers": {
+            "number": 0,
+            "epfNumber": 0,
+            "etfNumber": 0,
+            "attendanceIdNumber": 0,
+            "previousEpfNumber": 0
+        },
+        "organization": {
+            "company": {
+                "name1": "LOL Pty",
+                "name2": "LOL Ltd",
+                "department": "Research & Development"
+            }
+        },
+        "general": {
+            "designation": "",
+            "joinedDesignation": "",
+            "reportingPerson": "",
+            "reportingDesignation": "",
+            "location": "LOL Office",
+            "jobDescription": "",
+            "costCenterCode": "",
+            "functionalReportingPersons": ""
+        },
+        "employementDetails": {
+            "info": {
+                "basicSalary": 0,
+                "housingAmount": 0,
+                "budgetaryReliefAllowance": 0,
+                "methodJoined": "",
+                "pensionScheme": "",
+                "participatedToInducation": "",
+                "shift": "General Shift"
+            },
+            "appointment": {
+                "status": false,
+                "doa": "2021-08-21",
+                "employmentType": "Permanent",
+                "priorNoticePeriod": "30",
+                "confirmationDueOn": "",
+                "orvertime": false,
+                "dor": ""
+            }
+        }
+    },
+    "contact": {
+        "address": {
+            "building": "",
+            "street": "",
+            "city": "",
+            "postalCode": "",
+            "district": "",
+            "country": ""
+        },
+        "contactInfo": {
+            "officePhone": "",
+            "extensionNumber": "",
+            "officeEmail": "",
+            "personalMobile": "",
+            "personalEmail": ""
+        },
+        "location": {
+            "province": "",
+            "district": "",
+            "electorate": "",
+            "pollingDivision": "",
+            "distanceToWorkPlace": "",
+            "travelMode": ""
+        },
+        "emergencyContact": [
+            {
+                "name": "",
+                "relationship": "",
+                "mobileNumber": "",
+                "address": {
+                    "building": "",
+                    "street": "",
+                    "city": "",
+                    "postalCode": "",
+                    "district": "",
+                    "country": "",
+                    "telephone": ""
+                }
+            },
+            {
+                "name": "",
+                "relationship": "",
+                "mobileNumber": "",
+                "address": {
+                    "building": "",
+                    "street": "",
+                    "city": "",
+                    "postalCode": "",
+                    "district": "",
+                    "country": "",
+                    "telephone": ""
+                }
+            }
+        ]
+    }
+}

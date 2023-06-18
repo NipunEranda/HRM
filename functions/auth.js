@@ -187,6 +187,22 @@ exports.verifyToken = function () {
   }
 };
 
+exports.getUserDataFromToken = function (event) {
+  try {
+      const bearerHeader = (event.headers['authorization'] != undefined) ? event.headers['authorization'] : (event.headers.authroization != undefined) ? event.headers.authroization : null;
+      if (bearerHeader != null) {
+          const bearer = bearerHeader.split(' ');
+          const bearerToken = bearer[1];
+          const data = jwt.verify(bearerToken, process.env.SECRET);
+          return data;
+      } else
+          return null;
+  } catch (e) {
+      console.log(e);
+      return null;
+  }
+}
+
 const handler = async function (event, context) {
   try {
     var result = null;
