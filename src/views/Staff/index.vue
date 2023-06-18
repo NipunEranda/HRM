@@ -12,7 +12,7 @@
     </div>
     <div class="row m-0 p-3">
       <!-- {{ filteredStaff }} -->
-      <div class="table-responsive">
+      <div class="table-responsive p-0">
         <table class="table table-hover table-bordered table-sm table-responsive">
           <thead class="table-dark">
             <tr>
