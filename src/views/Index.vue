@@ -39,7 +39,7 @@ export default {
     redirectToLogin() {
       location.href =
         "https://login.microsoftonline.com/" + process.env.VUE_APP_AZURE_TENENT + "/oauth2/v2.0/authorize?client_id=" + process.env.VUE_APP_AZURE_CLIENT_ID + "&response_type=code&redirect_uri=" +
-        process.env.VUE_APP_URL +
+        process.env.VUE_APP_AZURE_REDIRECT_URI +
         "&response_mode=query&scope=user.read mail.read offline_access&state=12345&sso_reload=true";
     },
   },

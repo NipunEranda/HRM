@@ -2,7 +2,7 @@
   <div class="w-100 sideBarBackground">
     <div class="sideBarButtonTop">
       <!-- Dashboard -->
-      <div class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start"
+      <div v-if="menues['/dashboard']" class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start"
         :class="{ sideBarBtn_dark_nav_active: activeTab == '/dashboard' }" @click="navigateTo('/dashboard')">
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-home" />
@@ -13,7 +13,7 @@
       </div>
 
       <!-- Leaves -->
-      <div class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start"
+      <div v-if="menues['/leaves']" class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start"
         :class="{ sideBarBtn_dark_nav_active: activeTab == '/leaves' }" @click="navigateTo('/leaves')">
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-calendar-check" />
@@ -24,7 +24,7 @@
       </div>
 
       <!-- Time Tracking -->
-      <div class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start" @click="navigateTo('/timeTracking')"
+      <div v-if="menues['/timeTracking']" class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start" @click="navigateTo('/timeTracking')"
         :class="{ sideBarBtn_dark_nav_active: activeTab == '/timeTracking' }">
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-clock" />
@@ -35,7 +35,7 @@
       </div>
 
       <!-- Staff -->
-      <div class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start" @click="navigateTo('/staff')"
+      <div v-if="menues['/staff']" class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start" @click="navigateTo('/staff')"
         :class="{ sideBarBtn_dark_nav_active: activeTab == '/staff' }">
         <div class="col col-1 col-md-2 p-0">
           <font-awesome-icon class="icon float" icon="fa-user-group" />
@@ -82,6 +82,7 @@
 <script>
 import { useStore } from "vuex";
 import store from "../store";
+import routes from "@/router/routes";
 export default {
   setup: () => { },
   data() {
@@ -89,6 +90,12 @@ export default {
       store: useStore(),
       user: store.getters.getCurrentUser,
       activeTab: this.$route.path,
+      menues: {
+        "/dashboard": false,
+        "/leaves": false,
+        "/timeTracking": false,
+        "/staff": false
+      }
     };
   },
   watch: {
@@ -101,7 +108,16 @@ export default {
       this.$router.push(path);
       $("#sideBar").css("display", "");
     },
+    showMenu: async function(path){
+      const show = await store.dispatch("hasAccess", { routes: routes, to: path });
+      this.menues[path] = show;
+    }
   },
+  mounted: async function(){
+    Object.keys(this.menues).forEach(async menu => {
+      await this.showMenu(menu);
+    });
+  }
 };
 </script>
 

@@ -1,54 +1,24 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Index from "../views/Index.vue";
-import Dashboard from "../views/Dashboard.vue";
-import Profile from "../views/Profile.vue";
-import Leave from "../views/Leave/index.vue";
-import Staff from "../views/Staff/index.vue";
-import TimeTracking from "../views/TimeTracking/index.vue";
 import store from '../store';
-
-const routes = [
-  {
-    path: "/",
-    name: "/",
-    component: Index,
-  },
-  {
-    path: "/dashboard",
-    name: "dashboard",
-    component: Dashboard,
-  },
-  {
-    path: "/profile",
-    name: "profile",
-    component: Profile,
-  },
-  {
-    path: "/leaves",
-    name: "leaves",
-    component: Leave,
-  },
-  {
-    path: "/timeTracking",
-    name: "timetracking",
-    component: TimeTracking,
-  },
-  {
-    path: "/staff",
-    name: "staff",
-    component: Staff,
-  },
-];
+import routes from './routes';
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes: routes
 });
 
 router.beforeEach((to, from) => {
-  if(!store.state.auth.currentUser && to.name !== "/")
+  if (routes.filter(r => r.path == to.path)[0]) {
+    if (routes.filter(r => r.path == to.path)[0].accessBy) {
+      let accessGranted = store.dispatch("hasAccess", { routes: routes, to: to.path });
+      if (!accessGranted)
+        return '/dashboard'
+    }
+  }
+
+  if (!store.state.auth.currentUser && to.name !== "/")
     return '/';
-  if(store.state.auth.currentUser && to.name == "/")
+  if (store.state.auth.currentUser && to.name == "/")
     return '/dashboard';
 });
 
