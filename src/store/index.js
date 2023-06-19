@@ -36,7 +36,7 @@ const store = createStore({
         logout(context){
             context.commit("setDarkModeStatus", 'light-theme');
             this.commit('resetState');
-            location.reload();
+            location.href = '/';
         },
         setDarkModeStatus(context, data){
             context.commit("setDarkModeStatus", data);

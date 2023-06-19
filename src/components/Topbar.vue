@@ -10,12 +10,15 @@
           icon="fa-bars" /></span>
     </div>
     <div class="col col-4 center p-0 m-0">
-      <span class="appTitle mobile pointer" @click="$router.push('/dashboard')">GENERAL <span
-          class="color">HRM</span></span>
+      <span class="appTitle mobile pointer" @click="$router.push('/dashboard')"><span class="main">GENERAL</span> <span
+          class="sub">HRM</span></span>
     </div>
     <div class="col col-4">
       <div class="topBarmobileViewOptions ps-2 pe-2">
-        <font-awesome-icon class="icon float" icon="fa-home" @click="$router.push('/dashboard')" />
+        <span>
+          <font-awesome-icon class="icon" icon="fa-home" @click="$router.push('/dashboard')" /></span>
+          <span><font-awesome-icon class="icon me-3"
+            :icon="userTheme == 'light-theme' ? 'fa-moon' : 'fa-sun'" @click="setTheme" /></span>
       </div>
       <div class="topBarDesktopOptions">
         <div class="dropdown float-end">
@@ -40,7 +43,8 @@
             width="35"
         /></span> -->
         <span><font-awesome-icon class="icon float-end topBarIcons pointer ms-4" icon="fa-bell" /></span>
-        <span><font-awesome-icon class="icon float-end topBarIcons pointer ms-4" :icon="userTheme == 'light-theme' ? 'fa-moon' : 'fa-sun'" @click="setTheme"/></span>
+        <span><font-awesome-icon class="icon float-end topBarIcons pointer ms-4"
+            :icon="userTheme == 'light-theme' ? 'fa-moon' : 'fa-sun'" @click="setTheme" /></span>
       </div>
     </div>
   </div>
@@ -111,5 +115,9 @@ export default {
 
 .profile-dropdown-item {
   font-size: 0.9rem;
+}
+
+.topBarmobileViewOptions .icon:hover{
+  color: var(--primary-icon-hover-color);
 }
 </style>
