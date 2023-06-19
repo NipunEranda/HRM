@@ -11,11 +11,6 @@ export default {
     },
     getters: {
         getStaff(state) {
-            try {
-                return state.staff;
-            } catch (e) {
-                console.log(e);
-            }
             return state.staff;
         },
     },

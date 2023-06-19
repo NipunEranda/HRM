@@ -18,7 +18,8 @@
 
 <style scoped>
 .login-form {
-  margin-top: 10%;
+  padding-top: 10%;
+  height: 100vh;
 }
 
 .logo {

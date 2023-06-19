@@ -4,8 +4,8 @@
       <!-- <span
         ><img class="left-logo" src="../assets/img/banner.svg" width="190"
       /></span> -->
-      <span class="appTitle desktop pointer" @click="$router.push('/dashboard')">GENERAL <span
-          class="color">HRM</span></span>
+      <span class="appTitle desktop pointer" @click="$router.push('/dashboard')"><span class="main">GENERAL</span> <span
+          class="sub">HRM</span></span>
       <span id="sideBarToggle" class="ps-2 pe-2 pointer" @click="toggleSideBar()"><font-awesome-icon class="icon"
           icon="fa-bars" /></span>
     </div>
@@ -23,9 +23,13 @@
             class="userImage float-end pointer ms-4" :src="user.avatar == undefined ? userImage : user.avatar" alt=""
             width="35" />
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2" icon="fa-gear" />Preferences</a></li>
-            <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2" icon="fa-lock" /> Security</a></li>
-            <li><a class="dropdown-item profile-dropdown-item" href="#" @click="this.$store.dispatch('logout')"><font-awesome-icon class="icon me-2" icon="fa-power-off" /> Logout</a></li>
+            <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2"
+                  icon="fa-gear" />Preferences</a></li>
+            <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2"
+                  icon="fa-lock" /> Security</a></li>
+            <li><a class="dropdown-item profile-dropdown-item" href="#"
+                @click="this.$store.dispatch('logout')"><font-awesome-icon class="icon me-2" icon="fa-power-off" />
+                Logout</a></li>
           </ul>
         </div>
         <!-- <span>
@@ -36,7 +40,7 @@
             width="35"
         /></span> -->
         <span><font-awesome-icon class="icon float-end topBarIcons pointer ms-4" icon="fa-bell" /></span>
-        <span><font-awesome-icon class="icon float-end topBarIcons pointer ms-4" icon="fa-circle-question" /></span>
+        <span><font-awesome-icon class="icon float-end topBarIcons pointer ms-4" :icon="userTheme == 'light-theme' ? 'fa-moon' : 'fa-sun'" @click="setTheme"/></span>
       </div>
     </div>
   </div>
@@ -52,7 +56,8 @@ export default {
     return {
       store: useStore(),
       user: store.getters.getCurrentUser,
-      userImage: userImage
+      userImage: userImage,
+      userTheme: store.getters.getDarkModeStatus
     };
   },
   methods: {
@@ -63,9 +68,17 @@ export default {
         $("#sideBar").css("display", "");
       }
     },
+    setTheme() {
+      if (this.userTheme == 'light-theme')
+        this.userTheme = 'dark-theme';
+      else
+        this.userTheme = 'light-theme';
+      store.dispatch("setDarkModeStatus", this.userTheme);
+      document.documentElement.className = this.userTheme;
+    }
   },
   mounted: function () {
-    // this.user = { name: 'Nipun Amarasekara',  }
+    document.documentElement.className = this.userTheme;
   },
 };
 </script>
@@ -73,7 +86,8 @@ export default {
 <style scoped>
 .topBar {
   height: 60px;
-  border: 1px solid var(--secondary-bb-color);
+  border: 1px solid var(--primary-topbar-border-color);
+  background-color: var(--primary-topbar-background-color);
 }
 
 .appTitle .color {
@@ -88,14 +102,14 @@ export default {
 .topBarIcons {
   padding-top: 20px;
   font-size: 20px;
-  color: var(--primary-icon-color);
+  color: var(---primary-icon-color);
 }
 
 .topBarIcons:hover {
-  color: var(--primary-icon-hover-color);
+  color: var(--white);
 }
 
-.profile-dropdown-item{
+.profile-dropdown-item {
   font-size: 0.9rem;
 }
 </style>

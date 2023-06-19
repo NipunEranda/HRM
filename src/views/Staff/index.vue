@@ -12,7 +12,7 @@
             </div>
           </div>
           <div class="col col-6 p-0 m-0 ps-2">
-            <div class="btn btn-sm btn-dark float-end w-100">
+            <div class="btn btn-sm float-end w-100" :class="{'btn-secondary' : store.getters.getDarkModeStatus == 'dark-theme', 'btn-dark': store.getters.getDarkModeStatus == 'light-theme'}">
               <span class="d-none d-lg-block">Refresh</span>
               <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-refresh" /></span>
             </div>
@@ -23,7 +23,7 @@
     <div class="row m-0">
       <!-- {{ filteredStaff }} -->
       <div class="table-responsive p-0">
-        <table class="table table-hover table-bordered table-sm table-responsive mb-0">
+        <table class="table table-hover table-bordered table-sm table-responsive mb-0" :class="{'table-dark' : store.getters.getDarkModeStatus == 'dark-theme', 'table-light': store.getters.getDarkModeStatus == 'light-theme'}">
           <thead class="table-dark">
             <tr>
               <th scope="col">Name</th>

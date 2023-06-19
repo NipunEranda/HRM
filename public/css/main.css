@@ -3,20 +3,91 @@
 :root {
   --white: #FFF;
   --black: #000;
-  
+
+  --primary-background-color: #f6f8fa;
+  --primary-text-color: #000;
+
+  /* Sidebar */
+  --primary-sidebar-border-color: #d8dee4;
+  --primary-sidebar-background-color: #f6f8fa;
+  --primary-sidebar-button: #f6f8fa;
+  --primary-sidebar-button-hover: #d0d7de;
+  --primary-sidebar-button-text: #000;
+
+  /* Topbar */
+  --primary-topbar-background-color: #161b22;
+  --primary-topbar-border-color: #010409;
+  --primary-topbar-logo-main-text: var(--white);
+
   /* Background / Border = bb */
   --secondary-bb-color: #ddd;
   --secondary-background-color: #ff3c00f1;
 
   /* Hover / Active = ha */
   --primary-ha-background-color: #5b6770;
-  --primary-icon-color: #a0aab6;
+  ---primary-icon-color: #a0aab6;
   --primary-icon-hover-color: var(--black);
-  --view-container-height: calc(100vh - 60px);
-  --table-view-height: calc(100vh - 26vh);
 
   /* Form Overlay */
   --form-overlay-background: rgba(0, 0, 0, 0.466);
+
+  /* Loader */
+  --loader-border-color: #343a40;
+  --loader-background-color: rgba(0, 0, 0, 0.5);
+
+  /* Unselectable */
+  --unselectable-color: rgb(171, 171, 171);
+
+  --view-container-height: calc(100vh - 60px);
+  --table-view-height: calc(100vh - 26vh);
+}
+
+:root.dark-theme {
+  --white: #FFF;
+  --black: #000;
+
+  --primary: #ff3c00f1;
+
+  --primary-background-color: #010409;
+  --primary-text-color: #fff;
+
+  /* Sidebar */
+  --primary-sidebar-border-color: #21262d;
+  --primary-sidebar-background-color: #0d1117;
+  --primary-sidebar-button: #0d1117;
+  --primary-sidebar-button-hover: #18202b;
+  --primary-sidebar-button-text: #fff;
+
+  /* Topbar */
+  --primary-topbar-background-color: #161b22;
+  --primary-topbar-border-color: #010409;
+  --primary-topbar-logo-main-text: var(--white);
+
+  /* Background / Border = bb */
+  --secondary-bb-color: #ddd;
+  --secondary-background-color: #ff3c00f1;
+
+  /* Hover / Active = ha */
+  --primary-ha-background-color: #5b6770;
+  ---primary-icon-color: #a0aab6;
+  --primary-icon-hover-color: var(--black);
+
+  /* Form Overlay */
+  --form-overlay-background: rgba(0, 0, 0, 0.466);
+
+  /* Loader */
+  --loader-border-color: #343a40;
+  --loader-background-color: rgba(0, 0, 0, 0.5);
+
+  /* Unselectable */
+  --unselectable-color: rgb(171, 171, 171);
+
+  /* Tables */
+  --primary-table-background-color: #212529;
+  --primary-table-text-color: var(--white);
+
+  --view-container-height: var(--view-container-height);
+  --table-view-height: var(--table-view-height);
 }
 
 .w-25 {
@@ -37,7 +108,7 @@
   justify-content: center;
 }
 
-.center-div{
+.center-div {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -77,9 +148,9 @@
 
 .loader {
   margin: auto;
-  border: 15px solid #343a40;
+  border: 15px solid var(--loader-border-color);
   border-radius: 50%;
-  border-top: 15px solid #ffffff;
+  border-top: 15px solid var(--white);
   width: 125px;
   height: 125px;
   animation: spinner 2s linear infinite;
@@ -106,7 +177,7 @@
   height: 100vh;
   margin: auto;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--loader-background-color);
 }
 
 .hidden {
@@ -117,9 +188,9 @@
   display: block;
 }
 
-.unselectable-style{
+.unselectable-style {
   cursor: not-allowed;
-  color: rgb(171, 171, 171);
+  color: var(--unselectable-color);
 }
 
 .unselectable {
@@ -135,21 +206,28 @@
   pointer-events: none
 }
 
-.small-font-size{
+.small-font-size {
   font-size: 12px;
 }
 
-.normal-font-size{
+.normal-font-size {
   font-size: 14px;
 }
 
-.large-font-size{
+.large-font-size {
   font-size: 20px
+}
+
+#appView {
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
 }
 
 /* SideBar */
 
 .sideBarBtn {
+  background-color: var(--primary-sidebar-button);
+  color: var(--primary-sidebar-button-text);
   font-weight: 400;
   line-height: 1.5;
   text-decoration: none;
@@ -160,24 +238,22 @@
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.sideBarBtn_dark {
-  background-color: var(--black);
-  border-color: var(--black);
-  color: var(--white);
-}
-
-.sideBarBtn_dark:hover {
-  background-color: var(--primary-ha-background-color);
+.sideBarBtn:hover {
+  background-color: var(--primary-sidebar-button-hover);
 }
 
 .sideBarBtn_dark_nav_active {
   border-left: 3px solid var(--secondary-background-color);
-  background-color: var(--primary-ha-background-color);
+  background-color: var(--primary-sidebar-button-hover);
 }
 
 /* TopBar */
 
-.appTitle .color {
+.appTitle .main {
+  color: var(--primary-topbar-logo-main-text);
+}
+
+.appTitle .sub {
   color: var(--secondary-background-color);
 }
 
@@ -219,11 +295,11 @@
   .topBar .icon {
     padding-top: 15px;
     font-size: 20px;
-    color: var(--primary-icon-color);
+    color: var(---primary-icon-color);
   }
 
   .topBar .icon:hover {
-    color: black;
+    color: var(--black);
     cursor: pointer;
   }
 

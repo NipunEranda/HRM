@@ -43,7 +43,9 @@ import {
   faUserGroup,
   faBars,
   faLock,
-  faRefresh
+  faRefresh,
+  faMoon,
+  faSun
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -78,7 +80,9 @@ library.add(
   faUserGroup,
   faBars,
   faLock,
-  faRefresh
+  faRefresh,
+  faMoon,
+  faSun
 );
 
 createApp(App)
