@@ -42,7 +42,8 @@ import {
   faClock,
   faUserGroup,
   faBars,
-  faLock
+  faLock,
+  faRefresh
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -76,7 +77,8 @@ library.add(
   faClock,
   faUserGroup,
   faBars,
-  faLock
+  faLock,
+  faRefresh
 );
 
 createApp(App)

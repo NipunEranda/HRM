@@ -10,7 +10,7 @@ export default {
         return getDefaultState();
     },
     getters: {
-        async getStaff(state) {
+        getStaff(state) {
             try {
                 return state.staff;
             } catch (e) {

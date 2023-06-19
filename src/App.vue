@@ -6,11 +6,10 @@
       <div v-if="showSideBar" id="sideBar" class="p-0 m-0 sideBar">
         <Sidebar />
       </div>
-      <div
-        id="appView"
-        class="p-0 m-0 p-3"
-        :class="{ 'col col-12': !showSideBar, 'col col-0': showSideBar }"
-      >
+      <div id="appView" class="p-0 m-0 p-3" :class="{ 'col col-12': !showSideBar, 'col col-0': showSideBar }">
+        <div class="container-loader">
+          <div class="loader"></div>
+        </div>
         <router-view />
       </div>
     </div>
@@ -21,7 +20,7 @@
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar.vue";
 export default {
-  setup: () => {},
+  setup: () => { },
   data() {
     return {
       showSideBar: false,
@@ -33,7 +32,7 @@ export default {
       else this.showSideBar = true;
     },
   },
-  mounted: function () {},
+  mounted: function () { },
   components: {
     Sidebar,
     Topbar,
@@ -42,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-.sideBar{
+.sideBar {
   width: 210px;
 }
 </style>

@@ -8,6 +8,11 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from) => {
+  if(Object.keys($(".container-loader")[0].classList).filter(i => ($(".container-loader")[0].classList[i] == 'hidden' || $(".container-loader")[0].classList[i] == 'show')).length == 0){
+    $(".container-loader").addClass("hidden");
+  }else{
+    $(".container-loader").removeClass("show").addClass("hidden");
+  }
   if (routes.filter(r => r.path == to.path)[0]) {
     if (routes.filter(r => r.path == to.path)[0].accessBy) {
       let accessGranted = store.dispatch("hasAccess", { routes: routes, to: to.path });

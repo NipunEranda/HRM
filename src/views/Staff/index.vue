@@ -1,12 +1,22 @@
 <template>
   <div id="containerView">
     <div class="row m-0 pb-3">
-      <div class="col col-10 p-0 m-0"><input class="form-control form-control-sm" type="text" name="search" id="search"
+      <div class="col col-9 p-0 m-0"><input class="form-control form-control-sm" type="text" name="search" id="search"
           v-model="searchStaff" placeholder=" &#x1F50E; search..." /></div>
-      <div class="col col-2 p-0 m-0 ps-2">
-        <div class="btn btn-sm btn-primary float-end w-100">
-          <span class="d-none d-lg-block">Add Employee</span>
-          <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-plus" /></span>
+      <div class="col col-3 p-0 m-0 ps-2">
+        <div class="row p-0 m-0">
+          <div class="col col-6 p-0 m-0">
+            <div class="btn btn-sm btn-primary float-end w-100">
+              <span class="d-none d-lg-block">Add</span>
+              <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-plus" /></span>
+            </div>
+          </div>
+          <div class="col col-6 p-0 m-0 ps-2">
+            <div class="btn btn-sm btn-dark float-end w-100">
+              <span class="d-none d-lg-block">Refresh</span>
+              <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-refresh" /></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -28,7 +38,6 @@
               <td v-text="employee.personal.info.fullName"></td>
               <td v-text="employee.personal.info.email"></td>
               <td v-text="employee.contact.address.country"></td>
-              <!-- <td v-text="((employee.contact.address.city == '') ? '' : (employee.contact.address.city + ', ')) + ((employee.contact.address.country == '') ? '' : employee.contact.address.country)"></td> -->
               <td
                 v-text="((employee.contact.address.city == '') ? '' : (employee.contact.address.city + ', ')) + ((employee.contact.address.country == '') ? '' : employee.contact.address.country)">
               </td>
@@ -51,8 +60,8 @@ export default {
       store: useStore(),
       user: store.getters.getCurrentUser,
       activeTab: this.$route.path,
-      staff: [],
-      filteredStaff: [],
+      staff: store.getters.getStaff,
+      filteredStaff: store.getters.getStaff,
       searchStaff: "",
     };
   },
@@ -66,32 +75,18 @@ export default {
   },
   methods: {
     loadStaff: async function () {
+      $(".container-loader").removeClass("hidden").addClass("show");
       await store.dispatch("loadStaff");
       this.staff = await store.getters.getStaff;
       this.filteredStaff = $.extend(true, [], this.staff);
       this.staff = this.staff.sort((a, b) => a.personal.info.fullName.localeCompare(b.personal.info.fullName));
       this.filteredStaff = this.filteredStaff.sort((a, b) => a.personal.info.fullName.localeCompare(b.personal.info.fullName));
+      $(".container-loader").removeClass("show").addClass("hidden");
     }
   },
   mounted: async function () {
-    await this.loadStaff();
+    if (this.staff.length == 0)
+      await this.loadStaff();
   }
 }
 </script>
-
-<style>
-#containerView .table-responsive {
-  max-height: var(--table-view-height);
-}
-
-/* #containerView {
-  height: var(--view-container-height);
-  overflow: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-#containerView::-webkit-scrollbar {
-  display: none;
-} */
-</style>
