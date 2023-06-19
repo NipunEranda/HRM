@@ -19,7 +19,6 @@ exports.getStaffList = async (event) => {
         console.log(e);
         return { status: 500, response: { data: null, error: err } };
     } finally {
-        console.log("Connection Closed");
         await mongoClient.close();
     }
 }

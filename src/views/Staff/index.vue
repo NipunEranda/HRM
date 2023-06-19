@@ -47,12 +47,14 @@
         </table>
       </div>
     </div>
+    <Staff class="hidden"/>
   </div>
 </template>
 
 <script>
 import { useStore } from "vuex";
-import store from "../../store";
+import store from "@/store";
+import Staff from "@/components/Forms/Staff.vue";
 export default {
   setup: () => { },
   data() {
@@ -87,6 +89,9 @@ export default {
   mounted: async function () {
     if (this.staff.length == 0)
       await this.loadStaff();
+  },
+  components: {
+    Staff
   }
 }
 </script>

@@ -1,17 +1,22 @@
 /* Common */
 
 :root {
+  --white: #FFF;
+  --black: #000;
+  
   /* Background / Border = bb */
-  --main-bb-color: #000;
   --secondary-bb-color: #ddd;
-  --main-text-color: #fff;
   --secondary-background-color: #ff3c00f1;
+
   /* Hover / Active = ha */
   --primary-ha-background-color: #5b6770;
   --primary-icon-color: #a0aab6;
-  --primary-icon-hover-color: var(--main-bb-color);
+  --primary-icon-hover-color: var(--black);
   --view-container-height: calc(100vh - 60px);
   --table-view-height: calc(100vh - 26vh);
+
+  /* Form Overlay */
+  --form-overlay-background: rgba(0, 0, 0, 0.466);
 }
 
 .w-25 {
@@ -49,20 +54,20 @@
   user-select: none;
   width: fit-content;
   padding: 10px;
-  border: 1px solid var(--main-bb-color);
+  border: 1px solid var(--black);
   border-radius: 10px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .button_dark {
-  background-color: var(--main-bb-color);
-  color: var(--main-text-color);
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .button_dark:hover {
   background-color: var(--secondary-background-color);
-  color: var(--main-text-color);
+  color: var(--white);
   border: 1px solid var(--secondary-background-color);
 }
 
@@ -156,9 +161,9 @@
 }
 
 .sideBarBtn_dark {
-  background-color: var(--main-bb-color);
-  border-color: var(--main-bb-color);
-  color: var(--main-text-color);
+  background-color: var(--black);
+  border-color: var(--black);
+  color: var(--white);
 }
 
 .sideBarBtn_dark:hover {
@@ -178,12 +183,12 @@
 
 .dropdown-menu li a:hover {
   background-color: var(--primary-ha-background-color);
-  color: var(--main-text-color);
+  color: var(--white);
 }
 
 .dropdown-menu li a:active {
   background-color: var(--secondary-background-color);
-  color: var(--main-text-color);
+  color: var(--white);
 }
 
 /* Media Queries for all */
