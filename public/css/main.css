@@ -170,7 +170,7 @@
 
 .login-form .login-options {
     width: 385px;
-    background-color: var(--white);
+    background-color: var(--login-option-background-color);
     height: auto;
     order: 2;
     display: flex;
@@ -181,7 +181,7 @@
 }
 
 .login-cover {
-    background-color: var(--black);
+    background-image: url('../img/cover1.jpg');
     width: calc(100vw - 385px);
     height: 100%;
     order: 2;
