@@ -6,6 +6,10 @@
         display: none;
     }
 
+    .login-form .login-options {
+        width: 100% !important;
+    }
+
     #appView {
         display: block;
     }

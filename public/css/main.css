@@ -185,7 +185,6 @@
     width: calc(100vw - 385px);
     height: 100%;
     order: 2;
-    display: block;
     -webkit-box-align: inherit;
     align-items: inherit;
     position: absolute;
