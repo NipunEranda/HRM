@@ -181,7 +181,7 @@
 }
 
 .login-cover {
-    background-image: url('../img/cover1.jpg');
+    background-image: url('../img/cover.jpg');
     width: calc(100vw - 385px);
     height: 100%;
     order: 2;
