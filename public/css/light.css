@@ -49,6 +49,9 @@
   --searchBar-text-color: #000;
   --searchBar-border-color: #d0d7de;
 
+  /* Login Screen Options */
+  --login-option-background-color: #dfedfa;
+
   --view-container-height: calc(100vh - 60px);
   --table-view-height: calc(100vh - 26vh);
 }
