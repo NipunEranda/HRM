@@ -6,7 +6,7 @@
       <div v-if="showSideBar" id="sideBar" class="p-0 m-0 sideBar">
         <Sidebar />
       </div>
-      <div id="appView" class="p-0 m-0 p-3" :class="{ 'col col-12': !showSideBar, 'col col-0': showSideBar }">
+      <div id="appView" class="p-0 m-0" :class="{ 'col col-12': !showSideBar, 'col col-0': showSideBar }">
         <div class="container-loader">
           <div class="loader"></div>
         </div>

@@ -18,8 +18,9 @@
 
 <style scoped>
 .login-form {
-  padding-top: 10%;
   height: 100vh;
+  z-index: 99;
+  position: absolute;
 }
 
 .logo {
