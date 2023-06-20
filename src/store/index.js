@@ -33,10 +33,9 @@ const store = createStore({
     },
     plugins: [createPersistedState()],
     actions: {
-        logout(context){
-            context.commit("setDarkModeStatus", 'light-theme');
+        logout(){
             this.commit('resetState');
-            location.href = '/';
+            router.push("/");
         },
         setDarkModeStatus(context, data){
             context.commit("setDarkModeStatus", data);

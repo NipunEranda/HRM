@@ -24,7 +24,7 @@
         <div class="dropdown float-end">
           <img type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
             class="userImage float-end pointer ms-4" :src="user.avatar == undefined ? userImage : user.avatar" alt=""
-            width="35" />
+            width="35" referrerpolicy="no-referrer"/>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2"
                   icon="fa-gear" />Preferences</a></li>
@@ -86,38 +86,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.topBar {
-  height: 60px;
-  border: 1px solid var(--primary-topbar-border-color);
-  background-color: var(--primary-topbar-background-color);
-}
-
-.appTitle .color {
-  color: var(--secondary-background-color);
-}
-
-.userImage {
-  margin-top: 10.5px;
-  border-radius: 100px;
-}
-
-.topBarIcons {
-  padding-top: 20px;
-  font-size: 20px;
-  color: var(---primary-icon-color);
-}
-
-.topBarIcons:hover {
-  color: var(--white);
-}
-
-.profile-dropdown-item {
-  font-size: 0.9rem;
-}
-
-.topBarmobileViewOptions .icon:hover{
-  color: var(--primary-icon-hover-color);
-}
-</style>

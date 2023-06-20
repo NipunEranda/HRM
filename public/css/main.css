@@ -231,21 +231,30 @@
 #appView {
   background-color: var(--primary-background-color);
   color: var(--primary-text-color);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.form-control, .form-select {
+.form-control,
+.form-select {
   background-color: var(--searchBar-background-color);
   color: var(--searchBar-text-color);
   border-color: var(--searchBar-border-color);
 }
 
-.form-control:focus, .form-select:focus{
+.form-control:focus,
+.form-select:focus {
   background-color: var(--searchBar-background-color);
   color: var(--searchBar-text-color);
   border-color: var(--searchBar-border-color);
 }
 
 /* SideBar */
+
+.sideBarBackground {
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 
 .sideBarBtn {
   background-color: var(--primary-sidebar-button);
@@ -269,13 +278,49 @@
   background-color: var(--primary-sidebar-button-hover);
 }
 
+.sideBarBackground {
+  border: 1px solid var(--primary-sidebar-border-color);
+  background-color: var(--primary-sidebar-background-color);
+  position: relative;
+}
+
+.sideBarTitle {
+  font-size: 0.8rem;
+}
+
+.sideBarTitle .icon {
+  font-size: 1.2rem;
+}
+
+.sideBarsideBarBtnBottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.sideBarButtonTop {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 /* TopBar */
+
+.topBar {
+  height: 60px;
+  border: 1px solid var(--primary-topbar-border-color);
+  background-color: var(--primary-topbar-background-color);
+}
 
 .appTitle .main {
   color: var(--primary-topbar-logo-main-text);
 }
 
 .appTitle .sub {
+  color: var(--secondary-background-color);
+}
+
+.appTitle .color {
   color: var(--secondary-background-color);
 }
 
@@ -287,6 +332,29 @@
 .dropdown-menu li a:active {
   background-color: var(--secondary-background-color);
   color: var(--white);
+}
+
+.userImage {
+  margin-top: 10.5px;
+  border-radius: 100px;
+}
+
+.topBarIcons {
+  padding-top: 20px;
+  font-size: 20px;
+  color: var(---primary-icon-color);
+}
+
+.topBarIcons:hover {
+  color: var(--white);
+}
+
+.profile-dropdown-item {
+  font-size: 0.9rem;
+}
+
+.topBarmobileViewOptions .icon:hover{
+  color: var(--primary-icon-hover-color);
 }
 
 /* Media Queries for all */

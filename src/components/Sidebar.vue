@@ -120,31 +120,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.sideBarBackground {
-  border: 1px solid var(--primary-sidebar-border-color);
-  background-color: var(--primary-sidebar-background-color);
-  position: relative;
-}
-
-.sideBarTitle {
-  font-size: 0.8rem;
-}
-
-.sideBarTitle .icon {
-  font-size: 1.2rem;
-}
-
-.sideBarsideBarBtnBottom {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.sideBarButtonTop {
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-</style>
