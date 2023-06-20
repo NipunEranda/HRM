@@ -1,0 +1,260 @@
+/* General */
+
+.w-25 {
+    width: 25%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.full-height {
+    /* Full height reduced by topbar height */
+    height: calc(100vh - 60px);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.center-div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.button {
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button_dark {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.button_dark:hover {
+    background-color: var(--secondary-background-color);
+    color: var(--white);
+    border: 1px solid var(--secondary-background-color);
+}
+
+#containerView .table-responsive {
+    max-height: var(--table-view-height);
+}
+
+.loader {
+    margin: auto;
+    border: 15px solid var(--loader-border-color);
+    border-radius: 50%;
+    border-top: 15px solid var(--white);
+    width: 125px;
+    height: 125px;
+    animation: spinner 2s linear infinite;
+    z-index: 100;
+    margin-top: 40vh;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    margin: auto;
+    z-index: 100;
+    background-color: var(--loader-background-color);
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.unselectable-style {
+    cursor: not-allowed;
+    color: var(--unselectable-color);
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.disableClick {
+    pointer-events: none
+}
+
+.small-font-size {
+    font-size: 12px;
+}
+
+.normal-font-size {
+    font-size: 14px;
+}
+
+.large-font-size {
+    font-size: 20px
+}
+
+/* Appview */
+
+#appView {
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-control,
+  .form-select {
+    background-color: var(--searchBar-background-color);
+    color: var(--searchBar-text-color);
+    border-color: var(--searchBar-border-color);
+  }
+  
+  .form-control:focus,
+  .form-select:focus {
+    background-color: var(--searchBar-background-color);
+    color: var(--searchBar-text-color);
+    border-color: var(--searchBar-border-color);
+  }
+  
+  /* SideBar */
+  
+  .sideBarBackground {
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .sideBarBtn {
+    background-color: var(--primary-sidebar-button);
+    color: var(--primary-sidebar-button-text);
+    font-weight: 400;
+    line-height: 1.5;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .sideBarBtn:hover {
+    background-color: var(--primary-sidebar-button-hover);
+  }
+  
+  .sideBarBtn_dark_nav_active {
+    border-left: 3px solid var(--secondary-background-color);
+    background-color: var(--primary-sidebar-button-hover);
+  }
+  
+  .sideBarBackground {
+    border: 1px solid var(--primary-sidebar-border-color);
+    background-color: var(--primary-sidebar-background-color);
+    position: relative;
+  }
+  
+  .sideBarTitle {
+    font-size: 0.8rem;
+  }
+  
+  .sideBarTitle .icon {
+    font-size: 1.2rem;
+  }
+  
+  .sideBarsideBarBtnBottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .sideBarButtonTop {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* TopBar */
+  
+  .topBar {
+    height: 60px;
+    border: 1px solid var(--primary-topbar-border-color);
+    background-color: var(--primary-topbar-background-color);
+  }
+  
+  .appTitle .main {
+    color: var(--primary-topbar-logo-main-text);
+  }
+  
+  .appTitle .sub {
+    color: var(--secondary-background-color);
+  }
+  
+  .appTitle .color {
+    color: var(--secondary-background-color);
+  }
+  
+  .dropdown-menu li a:hover {
+    background-color: var(--primary-ha-background-color);
+    color: var(--white);
+  }
+  
+  .dropdown-menu li a:active {
+    background-color: var(--secondary-background-color);
+    color: var(--white);
+  }
+  
+  .userImage {
+    margin-top: 10.5px;
+    border-radius: 100px;
+  }
+  
+  .topBarIcons {
+    padding-top: 20px;
+    font-size: 20px;
+    color: var(---primary-icon-color);
+  }
+  
+  .topBarIcons:hover {
+    color: var(--white);
+  }
+  
+  .profile-dropdown-item {
+    font-size: 0.9rem;
+  }
+  
+  .topBarmobileViewOptions .icon:hover{
+    color: var(--primary-icon-hover-color);
+  }

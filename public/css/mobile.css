@@ -1,0 +1,48 @@
+/* Media Queries for all */
+
+/* Mobile View */
+@media (max-width: 769px) {
+    .desktop {
+        display: none;
+    }
+
+    #appView {
+        display: block;
+    }
+
+    #sideBar {
+        width: 100%;
+        height: fit-content;
+        display: none;
+    }
+
+    .appTitle {
+        font-size: 22px;
+        font-weight: 700;
+        padding-top: 10px;
+        /* letter-spacing: 2px; */
+    }
+
+    .topBar .icon {
+        padding-top: 15px;
+        font-size: 20px;
+        color: var(---primary-icon-color);
+    }
+
+    .topBar .icon:hover {
+        color: var(--black);
+        cursor: pointer;
+    }
+
+    .topBarDesktopOptions {
+        display: none;
+    }
+
+    .topBarmobileViewOptions {
+        display: block;
+    }
+
+    .topBarmobileViewOptions .icon {
+        float: right;
+    }
+}

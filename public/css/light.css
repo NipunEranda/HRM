@@ -1,0 +1,46 @@
+:root {
+  --white: #FFF;
+  --black: #000;
+
+  --primary-background-color: #f6f8fa;
+  --primary-text-color: #000;
+
+  /* Sidebar */
+  --primary-sidebar-border-color: #d8dee4;
+  --primary-sidebar-background-color: #f6f8fa;
+  --primary-sidebar-button: #f6f8fa;
+  --primary-sidebar-button-hover: #d0d7de;
+  --primary-sidebar-button-text: #000;
+
+  /* Topbar */
+  --primary-topbar-background-color: #161b22;
+  --primary-topbar-border-color: #010409;
+  --primary-topbar-logo-main-text: var(--white);
+
+  /* Background / Border = bb */
+  --secondary-bb-color: #ddd;
+  --secondary-background-color: #ff3c00f1;
+
+  /* Hover / Active = ha */
+  --primary-ha-background-color: #5b6770;
+  ---primary-icon-color: #a0aab6;
+  --primary-icon-hover-color: var(--white);
+
+  /* Form Overlay */
+  --form-overlay-background: rgba(0, 0, 0, 0.466);
+
+  /* Loader */
+  --loader-border-color: #343a40;
+  --loader-background-color: rgba(0, 0, 0, 0.5);
+
+  /* Unselectable */
+  --unselectable-color: rgb(171, 171, 171);
+
+  /* Searchbar */
+  --searchBar-background-color: #ffffff;
+  --searchBar-text-color: #000;
+  --searchBar-border-color: #d0d7de;
+
+  --view-container-height: calc(100vh - 60px);
+  --table-view-height: calc(100vh - 26vh);
+}
