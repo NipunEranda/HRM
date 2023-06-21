@@ -76,6 +76,7 @@ exports.systemLogin = async (event) => {
         email: content.user.email,
         avatar: content.user.picture,
         system: "google",
+        theme: "light-theme"
       };
     }
 
@@ -88,6 +89,7 @@ exports.systemLogin = async (event) => {
       loggedSystem: profileData.data
         ? profileData.data.system
         : profileData.system,
+      theme: "light-theme"
     };
 
     //Check if user is already registered or not
@@ -157,8 +159,8 @@ exports.verifyToken = function () {
           handler.event.headers["authorization"] != undefined
             ? handler.event.headers["authorization"]
             : handler.event.headers.authroization != undefined
-            ? handler.event.headers.authroization
-            : null;
+              ? handler.event.headers.authroization
+              : null;
         if (bearerHeader != null) {
           const bearer = bearerHeader.split(" ");
           const bearerToken = bearer[1];
@@ -189,17 +191,17 @@ exports.verifyToken = function () {
 
 exports.getUserDataFromToken = function (event) {
   try {
-      const bearerHeader = (event.headers['authorization'] != undefined) ? event.headers['authorization'] : (event.headers.authroization != undefined) ? event.headers.authroization : null;
-      if (bearerHeader != null) {
-          const bearer = bearerHeader.split(' ');
-          const bearerToken = bearer[1];
-          const data = jwt.verify(bearerToken, process.env.SECRET);
-          return data;
-      } else
-          return null;
-  } catch (e) {
-      console.log(e);
+    const bearerHeader = (event.headers['authorization'] != undefined) ? event.headers['authorization'] : (event.headers.authroization != undefined) ? event.headers.authroization : null;
+    if (bearerHeader != null) {
+      const bearer = bearerHeader.split(' ');
+      const bearerToken = bearer[1];
+      const data = jwt.verify(bearerToken, process.env.SECRET);
+      return data;
+    } else
       return null;
+  } catch (e) {
+    console.log(e);
+    return null;
   }
 }
 

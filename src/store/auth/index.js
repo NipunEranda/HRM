@@ -22,6 +22,9 @@ export default {
     updateCurrentUser(state, data) {
       state.currentUser = data;
     },
+    setUserTheme(state, data) {
+      state.currentUser.theme = data;
+    }
   },
   actions: {
     resetState({ commit }) {
@@ -29,6 +32,14 @@ export default {
     },
     updateCurrentUser(context, data) {
       context.commit("updateCurrentUser", data);
+    },
+    async setUserTheme(context, data) {
+      await axios.put(`/.netlify/functions/user/theme?value=${data}`, {}, {
+        headers: {
+          Authorization: `Bearer ${this.getters.getCurrentUser.token}`
+        }
+      });
+      context.commit("setUserTheme", data);
     },
     hasAccess(context, data) {
       let accessGranted = false;
@@ -39,7 +50,7 @@ export default {
         if (data.routes.filter(r => r.path == data.to)[0].accessBy.includes("hr")) {
           accessGranted = process.env.VUE_APP_SYSTEM_ADMINS.split(",").includes(context.getters.getCurrentUser.email);
         }
-      }else
+      } else
         return true;
       return accessGranted;
     }

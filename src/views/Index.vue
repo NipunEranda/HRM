@@ -93,43 +93,51 @@ export default {
           }
         });
     } else {
-      google.accounts.id.initialize({
-        client_id: process.env.VUE_APP_GOOGLE_ID,
-        callback: onSignIn,
-      });
-      google.accounts.id.prompt();
-      google.accounts.id.renderButton(document.getElementById("googleBtn"), {
-        theme: "outline",
-        size: "large",
-        text: "signin_with",
-        type: "standard",
-        logo_alignment: "left",
-      });
-      function onSignIn(googleUser) {
-        axios
-          .get(
-            `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${googleUser.credential}`
-          )
-          .then((response) => {
-            axios
-              .post(`/.netlify/functions/auth/login`, {
-                user: response.data,
-                type: "google",
-              })
-              .then((res) => {
-                if (!res.data.error) {
-                  store.dispatch("updateCurrentUser", {
-                    id: res.data.data.user._id,
-                    email: res.data.data.user.email,
-                    name: res.data.data.user.name,
-                    token: res.data.data.token,
-                    avatar: res.data.data.user.avatar,
-                    loggedIn: new Date(),
-                  });
-                  router.push("/dashboard");
-                }
-              });
-          });
+      let googleAuthNotAvailable = false;
+      try {
+        google.accounts.id.initialize({
+          client_id: process.env.VUE_APP_GOOGLE_ID,
+          callback: onSignIn,
+        });
+        google.accounts.id.prompt();
+        google.accounts.id.renderButton(document.getElementById("googleBtn"), {
+          theme: "outline",
+          size: "large",
+          text: "signin_with",
+          type: "standard",
+          logo_alignment: "left",
+        });
+        function onSignIn(googleUser) {
+          axios
+            .get(
+              `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${googleUser.credential}`
+            )
+            .then((response) => {
+              axios
+                .post(`/.netlify/functions/auth/login`, {
+                  user: response.data,
+                  type: "google",
+                })
+                .then((res) => {
+                  if (!res.data.error) {
+                    store.dispatch("updateCurrentUser", {
+                      id: res.data.data.user._id,
+                      email: res.data.data.user.email,
+                      name: res.data.data.user.name,
+                      token: res.data.data.token,
+                      avatar: res.data.data.user.avatar,
+                      theme: res.data.data.user.theme,
+                      loggedIn: new Date(),
+                    });
+                    router.push("/dashboard");
+                  }
+                });
+            });
+        }
+      } catch (e) {
+        console.log(e);
+        googleAuthNotAvailable = true;
+        location.reload();
       }
     }
   },

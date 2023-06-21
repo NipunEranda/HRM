@@ -6,7 +6,6 @@ import router from '@/router';
 
 const getDefaultState = () => {
     return {
-        darkMode: 'light-theme',
     }
 }
 
@@ -15,17 +14,11 @@ const store = createStore({
         return getDefaultState();
     },
     getters: {
-        getDarkModeStatus(state){
-            return state.darkMode;
-        }
     },
     mutations: {
         resetState(state) {
             Object.assign(state, getDefaultState());
         },
-        setDarkModeStatus(state, data){
-            state.darkMode = data;
-        }
     },
     modules: {
         auth: auth,
@@ -37,9 +30,6 @@ const store = createStore({
             this.commit('resetState');
             router.push("/");
         },
-        setDarkModeStatus(context, data){
-            context.commit("setDarkModeStatus", data);
-        }
     },
 });
 

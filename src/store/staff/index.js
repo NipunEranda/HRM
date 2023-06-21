@@ -29,7 +29,7 @@ export default {
         async loadStaff(context, data) {
             try {
                 let temp = [];
-                const response = await await axios.get('/.netlify/functions/staff', {
+                const response = await axios.get('/.netlify/functions/staff', {
                     headers: {
                         Authorization: `Bearer ${index.getters.getCurrentUser.token}`
                     }

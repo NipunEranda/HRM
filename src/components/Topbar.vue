@@ -61,7 +61,7 @@ export default {
       store: useStore(),
       user: store.getters.getCurrentUser,
       userImage: userImage,
-      userTheme: store.getters.getDarkModeStatus
+      userTheme: 'light-theme',
     };
   },
   methods: {
@@ -77,11 +77,12 @@ export default {
         this.userTheme = 'dark-theme';
       else
         this.userTheme = 'light-theme';
-      store.dispatch("setDarkModeStatus", this.userTheme);
+      store.dispatch("setUserTheme", this.userTheme);
       document.documentElement.className = this.userTheme;
     }
   },
   mounted: function () {
+    this.userTheme = store.getters.getCurrentUser.theme;
     document.documentElement.className = this.userTheme;
   },
 };
