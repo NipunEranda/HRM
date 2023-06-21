@@ -4,7 +4,7 @@
 @import './themes/light.css';
 @import './themes/dark.css';
 @import './devices/mobile.css';
-@import './devices/non_mobile.css';
+@import './devices/desktop.css';
 @import './pages/index.css';
 @import './pages/staff.css';
 

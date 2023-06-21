@@ -6,14 +6,21 @@
         display: none;
     }
 
+    .mobile {
+        display: flex;
+    }
+
+    /* Login */
     .login-form .login-options {
         width: 100% !important;
     }
 
+    /* App view */
     #appView {
         display: block;
     }
 
+    /* Sidebar */
     #sideBar {
         width: 100%;
         height: fit-content;
@@ -27,6 +34,7 @@
         /* letter-spacing: 2px; */
     }
 
+    /* Topbar */
     .topBar .icon {
         padding-top: 15px;
         font-size: 20px;
@@ -48,5 +56,10 @@
 
     .topBarmobileViewOptions .icon {
         float: right;
+    }
+
+    /* Tables */
+    table tbody tr td {
+        font-size: 0.75rem;
     }
 }

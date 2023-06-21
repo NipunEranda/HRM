@@ -318,6 +318,14 @@
 }
 
 /* Tables */
+table tr{
+    vertical-align: middle;
+}
+
+table tbody tr td{
+    padding: 10px !important;
+}
+
 .table-row-delete-col {
     width: 1%;
     white-space: nowrap;
