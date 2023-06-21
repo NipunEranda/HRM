@@ -46,7 +46,7 @@
       </div>
 
       <!-- User Options -->
-      <div class="w-100 row m-0 sideBarTitle text-start mobile">
+      <div class="w-100 row m-0 sideBarTitle sideBarTitle_small text-start">
         <div class="sideBarBtn sideBarBtn_dark row p-0 m-0 p-3 col col-6"
           :class="{ sideBarBtn_dark_nav_active: activeTab == '/profile' }" @click="navigateTo('/profile')">
           <div class="col col-2 col-md-2 p-0">

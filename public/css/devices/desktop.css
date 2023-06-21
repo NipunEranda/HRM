@@ -1,12 +1,5 @@
 @media (min-width: 769px) {
-  .desktop {
-    display: flex;
-  }
-
-  .mobile {
-    display: none;
-  }
-
+  
   /* App view */
   #appView {
     display: block;
@@ -24,6 +17,14 @@
     /* letter-spacing: 2px; */
   }
 
+  .appTitle_small{
+    display: none;
+  }
+
+  .sideBarTitle_small{
+    display: none;
+  }
+
   #sideBarToggle {
     display: none;
   }
@@ -33,7 +34,7 @@
   }
 
   /* Topbar */
-  .topBarmobileViewOptions {
+  .topBarSmallViewOptions {
     display: none;
   }
 

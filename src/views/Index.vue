@@ -18,7 +18,7 @@
         <div id="googleBtn" class="hidden" style="margin: auto"></div>
       </div>
     </div>
-    <div class="desktop login-cover"></div>
+    <div class="login-cover"></div>
   </div>
 </template>
 

@@ -187,11 +187,18 @@
     background-color: var(--primary-topbar-background-color);
 }
 
+.topBar .icon:hover {
+    color: var(--white);
+    cursor: pointer;
+}
+
 .appTitle .main {
+    vertical-align: middle;
     color: var(--primary-topbar-logo-main-text);
 }
 
 .appTitle .sub {
+    vertical-align: middle;
     color: var(--secondary-background-color);
 }
 
@@ -214,7 +221,7 @@
     color: var(--white);
 }
 
-.topBarmobileViewOptions .icon:hover {
+.topBarSmallViewOptions .icon:hover {
     color: var(--primary-icon-hover-color);
 }
 
@@ -318,11 +325,11 @@
 }
 
 /* Tables */
-table tr{
+table tr {
     vertical-align: middle;
 }
 
-table tbody tr td{
+table tbody tr td {
     padding: 10px !important;
 }
 
