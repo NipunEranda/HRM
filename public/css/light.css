@@ -52,6 +52,10 @@
   /* Login Screen Options */
   --login-option-background-color: #dfedfa;
 
+  /* Tables */
+  /* --primary-table-background-color: #212529;
+  --primary-table-text-color: var(--white); */
+
   --view-container-height: calc(100vh - 60px);
   --table-view-height: calc(100vh - 26vh);
 }

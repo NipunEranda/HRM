@@ -28,6 +28,12 @@
     ---primary-icon-color: #a0aab6;
     --primary-icon-hover-color: var(--white);
 
+    /* Button */
+    --primary-btn-background-color: #fff;
+    --primary-btn-border-color: #a0aab6;
+    --primary-btn-hover-background-color: #f8f8f8;
+    --primary-btn-text-color: #161b22;
+
     /* Form Overlay */
     --form-overlay-background: rgba(0, 0, 0, 0.466);
 
@@ -38,14 +44,17 @@
     /* Unselectable */
     --unselectable-color: rgb(171, 171, 171);
 
-    /* Tables */
-    --primary-table-background-color: #212529;
-    --primary-table-text-color: var(--white);
-
     /* Searchbar */
     --searchBar-background-color: #010409;
     --searchBar-text-color: #fff;
     --searchBar-border-color: #30363d;
+
+    /* Login Screen Options */
+    --login-option-background-color: #dfedfa;
+
+    /* Tables */
+    /* --primary-table-background-color: #212529;
+    --primary-table-text-color: var(--white); */
 
     --view-container-height: calc(100vh - 60px);
     --table-view-height: calc(100vh - 26vh);
