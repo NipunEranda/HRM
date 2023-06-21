@@ -68,7 +68,6 @@ exports.systemLogin = async (event) => {
       //     });
       // });
 
-      // console.log(userAvatarResponse);
     } else if (content.type == "google") {
       profileData = {
         id: content.user.sub,

@@ -10,7 +10,9 @@
         <div class="container-loader">
           <div class="loader"></div>
         </div>
-        <router-view />
+        <div id="containerView">
+          <router-view />
+        </div>
       </div>
     </div>
   </div>

@@ -10,7 +10,6 @@ const auth = require('./auth');
 exports.updateUserTheme = async (event) => {
     let mongoClient;
     try {
-        console.log();
         mongoClient = new MongoClient(process.env.MONGO_URL);
         const clientPromise = mongoClient.connect();
         const data = auth.getUserDataFromToken(event);
