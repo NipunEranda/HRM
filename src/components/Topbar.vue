@@ -25,12 +25,12 @@
           <img type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
             class="userImage float-end pointer ms-4" :src="user.avatar == undefined ? userImage : user.avatar" alt=""
             width="35" referrerpolicy="no-referrer"/>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2"
+          <ul class="dropdown-menu" :class="{ 'dropdown-menu-dark' : user.theme == 'dark-theme', 'dropdown-menu-light': user.theme == 'light-theme' }" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#"><font-awesome-icon class="icon me-2"
                   icon="fa-gear" />Preferences</a></li>
-            <li><a class="dropdown-item profile-dropdown-item" href="#"><font-awesome-icon class="icon me-2"
+            <li><a class="dropdown-item" href="#"><font-awesome-icon class="icon me-2"
                   icon="fa-lock" /> Security</a></li>
-            <li><a class="dropdown-item profile-dropdown-item" href="#"
+            <li><a class="dropdown-item" href="#"
                 @click="this.$store.dispatch('logout')"><font-awesome-icon class="icon me-2" icon="fa-power-off" />
                 Logout</a></li>
           </ul>

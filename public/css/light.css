@@ -52,6 +52,10 @@
   /* Login Screen Options */
   --login-option-background-color: #dfedfa;
 
+  /* Dropdowns */
+  --primary-dropdown-background-hover-color: #d0d7de; 
+  --primary-dropdown-text-color: var(--black); 
+
   /* Tables */
   /* --primary-table-background-color: #212529;
   --primary-table-text-color: var(--white); */
