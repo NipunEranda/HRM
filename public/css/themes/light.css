@@ -9,8 +9,8 @@
 
   /* Sidebar */
   --primary-sidebar-border-color: #d8dee4;
-  --primary-sidebar-background-color: #f6f8fa;
-  --primary-sidebar-button: #f6f8fa;
+  --primary-sidebar-background-color: #ffffff;
+  --primary-sidebar-button: #ffffff;
   --primary-sidebar-button-hover: #d0d7de;
   --primary-sidebar-button-text: #000;
 
@@ -53,12 +53,18 @@
   --login-option-background-color: #dfedfa;
 
   /* Dropdowns */
-  --primary-dropdown-background-hover-color: #d0d7de; 
-  --primary-dropdown-text-color: var(--black); 
+  --primary-dropdown-background-hover-color: #d0d7de;
+  --primary-dropdown-text-hover-color: var(--black);
+  --primary-dropdown-text-color: var(--black);
 
   /* Tables */
   /* --primary-table-background-color: #212529;
   --primary-table-text-color: var(--white); */
+
+  /* Modals */
+  --modal-primary-border-color: #f6f8fa;
+  --modal-primary-background-color: #f6f8fa;
+  --modal-secondary-background-color: #ffffff;
 
   --view-container-height: calc(100vh - 60px);
   --table-view-height: calc(100vh - 26vh);
