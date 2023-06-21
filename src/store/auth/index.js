@@ -34,12 +34,12 @@ export default {
       context.commit("updateCurrentUser", data);
     },
     async setUserTheme(context, data) {
-      await axios.put(`/.netlify/functions/user/theme?value=${data}`, {}, {
+      context.commit("setUserTheme", data);
+      axios.put(`/.netlify/functions/user/theme?value=${data}`, {}, {
         headers: {
           Authorization: `Bearer ${this.getters.getCurrentUser.token}`
         }
       });
-      context.commit("setUserTheme", data);
     },
     hasAccess(context, data) {
       let accessGranted = false;
