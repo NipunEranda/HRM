@@ -2,12 +2,9 @@
 
 /* Mobile View */
 @media (max-width: 769px) {
-    .desktop {
-        display: none;
-    }
 
-    .mobile {
-        display: flex;
+    .login-cover {
+        display: none;
     }
 
     /* Login */
@@ -27,6 +24,10 @@
         display: none;
     }
 
+    .appTitle_large {
+        display: none;
+    }
+
     .appTitle {
         font-size: 22px;
         font-weight: 700;
@@ -36,25 +37,21 @@
 
     /* Topbar */
     .topBar .icon {
-        padding-top: 15px;
+        padding-top: 20px;
         font-size: 20px;
+        vertical-align: middle;
         color: var(---primary-icon-color);
     }
 
-    .topBar .icon:hover {
-        color: var(--black);
-        cursor: pointer;
-    }
-
-    .topBarDesktopOptions {
+    .topBarLargeViewOptions {
         display: none;
     }
 
-    .topBarmobileViewOptions {
+    .topBarSmallViewOptions {
         display: block;
     }
 
-    .topBarmobileViewOptions .icon {
+    .topBarSmallViewOptions .icon {
         float: right;
     }
 
