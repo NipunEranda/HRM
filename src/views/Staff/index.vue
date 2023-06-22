@@ -25,43 +25,10 @@
     </div>
 
     <!-- Staff Form -->
-    <div class="row m-0 pb-3" v-if="staffMode == 'add' || staffMode == 'edit'">
-      <div class="staff-form p-3">
-        staff
-      </div>
-    </div>
+    <StaffForm v-if="staffMode == 'add' || staffMode == 'edit'" />
 
     <!-- Staff View -->
-    <div class="row m-0">
-      <div class="table-responsive p-0">
-        <table class="table table-hover table-bordered table-sm table-responsive mb-0"
-          :class="{ 'table-dark': user.theme == 'dark-theme', 'table-light': user.theme == 'light-theme' }">
-          <thead class="table-dark">
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Country</th>
-              <th scope="col">Location</th>
-              <th scope="col">Department</th>
-              <th scope="col" class="table-row-delete-col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="pointer" v-for="employee in filteredStaff">
-              <td v-text="employee.personal.info.fullName" @click="openEditModal"></td>
-              <td v-text="employee.personal.info.email" @click="openEditModal"></td>
-              <td v-text="employee.contact.address.country" @click="openEditModal"></td>
-              <td
-                v-text="((employee.contact.address.city == '') ? '' : (employee.contact.address.city + ', ')) + ((employee.contact.address.country == '') ? '' : employee.contact.address.country)"
-                @click="openEditModal">
-              </td>
-              <td v-text="employee.work.organization.company.department" @click="openEditModal"></td>
-              <td class="table-row-delete-col"><font-awesome-icon icon="fa-trash" /></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <StaffList :filteredStaff="filteredStaff" :openEditModal="openEditModal" :user="user" />
 
   </div>
 </template>
@@ -69,6 +36,8 @@
 <script>
 import { useStore } from "vuex";
 import store from "@/store";
+import StaffForm from '@/components/Forms/Staff.vue';
+import StaffList from '@/components/Views/StaffList.vue';
 export default {
   setup: () => { },
   data() {
@@ -121,6 +90,10 @@ export default {
   mounted: async function () {
     if (this.staff.length == 0)
       await this.loadStaff();
+  },
+  components: {
+    StaffForm,
+    StaffList
   }
 }
 </script>
