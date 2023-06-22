@@ -8,12 +8,12 @@
         </span>
       </div>
       <div class="center">
-        <button class="login-btn w-100" @click="redirectToLogin()">
+        <button id="login-btn-microsoft" class="login-btn w-100" @click="redirectToLogin()">
           <span><span><img src="../assets/img/microsoft.png" width="25"></span><span class="ms-3">Microsoft</span></span>
         </button>
       </div>
       <div class="center">
-        <div class="login-btn w-100 mt-3" @click="clickSignInButton()"><span><span><img src="../assets/img/google.png"
+        <div id="login-btn-google" class="login-btn w-100 mt-3" @click="clickSignInButton()"><span><span><img src="../assets/img/google.png"
                 width="25"></span><span class="ms-3">Google</span></span></div>
         <div id="googleBtn" class="hidden" style="margin: auto"></div>
       </div>
@@ -22,7 +22,12 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+  .login-btn-disabled{
+    pointer-events: none;
+    opacity: 0.5
+  }
+</style>
 
 <script>
 import router from "../router";
@@ -71,6 +76,7 @@ export default {
     }
   },
   async mounted() {
+    $('#login-btn-google').removeClass('login-btn-disabled');
     const urlParams = new URLSearchParams(window.location.search);
     const codeString = urlParams.get("code");
     if (codeString) {
@@ -136,8 +142,7 @@ export default {
         }
       } catch (e) {
         console.log(e);
-        googleAuthNotAvailable = true;
-        location.reload();
+        $('#login-btn-google').addClass('login-btn-disabled');
       }
     }
   },
