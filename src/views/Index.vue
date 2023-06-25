@@ -132,7 +132,7 @@ export default {
                       name: res.data.data.user.name,
                       token: res.data.data.token,
                       avatar: res.data.data.user.avatar,
-                      theme: res.data.data.user.theme,
+                      theme: res.data.data.user.theme ? res.data.data.user.theme : localStorage.getItem(`${res.data.data.user.email}-user-theme`),
                       loggedIn: new Date(),
                     });
                     router.push("/dashboard");

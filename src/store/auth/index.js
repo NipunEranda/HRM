@@ -35,11 +35,13 @@ export default {
     },
     async setUserTheme(context, data) {
       context.commit("setUserTheme", data);
-      axios.put(`/.netlify/functions/user/theme?value=${data}`, {}, {
-        headers: {
-          Authorization: `Bearer ${this.getters.getCurrentUser.token}`
-        }
-      });
+
+      // Set themes in profile. Just set menu in local here to save request quota
+      // axios.put(`/.netlify/functions/user/theme?value=${data}`, {}, {
+      //   headers: {
+      //     Authorization: `Bearer ${this.getters.getCurrentUser.token}`
+      //   }
+      // });
     },
     hasAccess(context, data) {
       let accessGranted = false;

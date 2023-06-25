@@ -25,10 +25,10 @@
     </div>
 
     <!-- Staff Form -->
-    <StaffForm v-if="staffMode == 'add' || staffMode == 'edit'" />
+    <staffForm v-if="staffMode == 'add' || staffMode == 'edit'" />
 
     <!-- Staff View -->
-    <StaffList :filteredStaff="filteredStaff" :openEditModal="openEditModal" :user="user" />
+    <staffList :filteredStaff="filteredStaff" :openEditModal="openEditModal" :user="user" />
 
   </div>
 </template>
@@ -36,8 +36,8 @@
 <script>
 import { useStore } from "vuex";
 import store from "@/store";
-import StaffForm from '@/components/Forms/Staff.vue';
-import StaffList from '@/components/Views/StaffList.vue';
+import staffForm from '@/components/Forms/Staff.vue';
+import staffList from '@/components/Views/Tables/StaffList.vue';
 export default {
   setup: () => { },
   data() {
@@ -92,8 +92,8 @@ export default {
       await this.loadStaff();
   },
   components: {
-    StaffForm,
-    StaffList
+    staffForm,
+    staffList
   }
 }
 </script>
