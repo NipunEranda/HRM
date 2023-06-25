@@ -25,10 +25,12 @@
     </div>
 
     <!-- Staff Form -->
-    <staffForm v-if="staffMode == 'add' || staffMode == 'edit'" />
+    <staffForm id="staffForm" v-if="form.mode == 'add' || form.mode == 'edit'" :form="form"
+      :inputData="selectedEmployee ? selectedEmployee : newEmployee" :hideForm="hideForm"
+      :staffFormOperation="staffFormOperation" />
 
     <!-- Staff View -->
-    <staffList :filteredStaff="filteredStaff" :openEditModal="openEditModal" :user="user" />
+    <staffList v-if="!(form.mode == 'add' || form.mode == 'edit')" :filteredStaff="filteredStaff" :openEditModal="openEditModal" :user="user" />
 
   </div>
 </template>
@@ -48,7 +50,9 @@ export default {
       staff: store.getters.getStaff,
       filteredStaff: store.getters.getStaff,
       searchStaff: "",
-      staffMode: null,
+      form: { formTitle: '', buttonProcessName: '', mode: '' },
+      newEmployee: this.generateNewEmployee(),
+      selectedEmployee: null,
     };
   },
   watch: {
@@ -70,10 +74,175 @@ export default {
       $(".container-loader").removeClass("show").addClass("hidden");
     },
     openCreateModal: function () {
-      this.staffMode = 'add';
+      this.selectedEmployee = null;
+      this.form = { formTitle: 'Add Employee', buttonProcessName: 'Save', mode: 'add' };
     },
-    openEditModal: function () {
-      this.staffMode = 'edit';
+    openEditModal: function (employee) {
+      this.selectedEmployee = employee;
+      this.form = { formTitle: 'Edit Employee', buttonProcessName: 'Update', mode: 'edit' };
+    },
+    generateNewEmployee: function () {
+      return {
+        personal: {
+          info: {
+            initials: "",
+            firstName: "",
+            middleName: "",
+            lastName: "",
+            fullName: "",
+            email: "",
+            dob: "",
+            maritalStatus: "",
+            gender: "",
+            title: "",
+            bloodGroup: "",
+            placeOfBirth: ""
+          },
+          identification: {
+            nic: "",
+            passportNumber: "",
+            passportExpiry: "",
+            drivingLicenseNumber: "",
+            expatriate: ""
+          },
+          ethnicity: {
+            religion: "",
+            nationality: "",
+            race: ""
+          },
+          family: {
+            father: {
+              name: "",
+              dob: "",
+              occupation: "",
+              employerName: "",
+              alive: true,
+              entitledToMedicalScheme: false,
+              nic_passport: "",
+              contactNumber: "",
+              address: ""
+            },
+            mother: {
+              name: "",
+              dob: "",
+              occupation: "",
+              employerName: "",
+              alive: true,
+              entitledToMedicalScheme: false,
+              nic_passport: "",
+              contactNumber: "",
+              address: ""
+            }
+          },
+          livingSituation: {
+            livingWith: "",
+            monthlyIncome: 0,
+            numberOfDependants: 0,
+            numberOfChildren: 0
+          }
+        },
+        work: {
+          employeeNumbers: {
+            number: 0,
+            epfNumber: 0,
+            etfNumber: 0,
+            attendanceIdNumber: 0,
+            previousEpfNumber: 0
+          },
+          organization: {
+            company: {
+              name1: "",
+              name2: "",
+              department: ""
+            }
+          },
+          general: {
+            designation: "",
+            joinedDesignation: "",
+            reportingPerson: "",
+            reportingDesignation: "",
+            location: "",
+            jobDescription: "",
+            costCenterCode: "",
+            functionalReportingPersons: ""
+          },
+          "employementDetails": {
+            info: {
+              basicSalary: 0,
+              housingAmount: 0,
+              budgetaryReliefAllowance: 0,
+              methodJoined: "",
+              pensionScheme: "",
+              participatedToInducation: "",
+              shift: ""
+            },
+            appointment: {
+              status: false,
+              doa: "",
+              employmentType: "",
+              priorNoticePeriod: "",
+              confirmationDueOn: "",
+              orvertime: false,
+              dor: ""
+            }
+          }
+        },
+        contact: {
+          address: {
+            building: "",
+            street: "",
+            city: "",
+            postalCode: "",
+            district: "",
+            country: ""
+          },
+          contactInfo: {
+            officePhone: "",
+            extensionNumber: "",
+            officeEmail: "",
+            personalMobile: "",
+            personalEmail: ""
+          },
+          location: {
+            province: "",
+            district: "",
+            electorate: "",
+            pollingDivision: "",
+            distanceToWorkPlace: "",
+            travelMode: ""
+          },
+          emergencyContact: [
+            {
+              name: "",
+              relationship: "",
+              mobileNumber: "",
+              address: {
+                building: "",
+                street: "",
+                city: "",
+                postalCode: "",
+                district: "",
+                country: "",
+                telephone: ""
+              }
+            },
+            {
+              name: "",
+              relationship: "",
+              mobileNumber: "",
+              address: {
+                building: "",
+                street: "",
+                city: "",
+                postalCode: "",
+                district: "",
+                country: "",
+                telephone: ""
+              }
+            }
+          ]
+        }
+      }
     },
     create: function () {
 
@@ -84,7 +253,14 @@ export default {
     delete: function () {
 
     },
-    staffModalClick: async function () {
+    staffFormOperation: function (employee) {
+      console.log(employee);
+    },
+    hideForm: function () {
+      this.selectedEmployee = null;
+      this.newEmployee = this.generateNewEmployee();
+      this.newEmployee =
+        this.form.mode = '';
     }
   },
   mounted: async function () {

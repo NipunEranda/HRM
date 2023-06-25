@@ -1,11 +1,15 @@
 /* General */
 
 .w-25 {
-    width: 25%;
+    width: 25% !important;
 }
 
 .w-75 {
-    width: 75%;
+    width: 75% !important;
+}
+
+.w-100{
+    width: 100% !important;
 }
 
 .full-height {
@@ -336,4 +340,24 @@ table tbody tr td {
 .table-row-delete-col {
     width: 1%;
     white-space: nowrap;
+}
+
+/* Nav tabs */
+.nav-item .nav-link{
+    text-decoration: none;
+    color: var(--nav-tab-color) !important;
+}
+
+.nav-item .nav-link:hover{
+    background-color: var(--nav-tab-hover-background-color) !important;
+    color: var(--nav-tab-hover-color-color) !important;
+}
+
+.nav-item .active{
+    background-color: var(--nav-tab-active-background-color) !important;
+    color: var(--nav-tab-active-color-color) !important;
+}
+
+.nav-tabs{
+    border-bottom: 1px solid var(--nav-tab-bottom-border-color);
 }
