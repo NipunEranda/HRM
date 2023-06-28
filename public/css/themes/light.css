@@ -3,6 +3,7 @@
   --black: #000;
 
   --primary: #ff3c00f1;
+  --primary-transparent: #ff3c0085;
 
   --primary-background-color: #f6f8fa;
   --primary-text-color: #000;
@@ -62,9 +63,10 @@
   --primary-table-text-color: var(--white); */
 
   /* Modals */
-  --modal-primary-border-color: #f6f8fa;
-  --modal-primary-background-color: #f6f8fa;
-  --modal-secondary-background-color: #ffffff;
+  --modal-primary-border-color: #d0d7de;
+  --modal-primary-background-color: #f0f0f0;
+  --modal-secondary-background-color: #f0f0f0;
+  --modal-primary-text-color: #000000;
 
   /* Nav tabs */
   --nav-tab-color: var(--primary-text-color);
