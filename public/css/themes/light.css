@@ -70,9 +70,10 @@
 
   /* Nav tabs */
   --nav-tab-color: var(--primary-text-color);
-  --nav-tab-active-background-color: #000000;
+  --nav-tab-border-color: #dee2e6;
+  --nav-tab-active-background-color: #ff3c00f1;
   --nav-tab-active-color-color: #ffffff;
-  --nav-tab-hover-background-color: #000000;
+  --nav-tab-hover-background-color: #ff3c00f1;
   --nav-tab-hover-color-color: #ffffff;
   --nav-tab-bottom-border-color: #dee2e6;
 

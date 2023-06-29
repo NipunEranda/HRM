@@ -1,6 +1,7 @@
 /* All Imports */
 
 @import './common.css';
+@import './themes/common.css';
 @import './themes/light.css';
 @import './themes/dark.css';
 @import './devices/mobile.css';

@@ -38,6 +38,38 @@
     box-shadow: 0 0 0 2px #ff3c0057 !important;
 } */
 
+.btn {
+    border: 1px solid transparent;
+}
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:visited {
+    background-color: var(--btn-primary-background-color);
+    color: var(--btn-primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-primary-background-color-hover);
+    border: 1px solid var(--btn-primary-border-transparent);
+    box-shadow: 0 0 0 4px var(--btn-primary-background-color);
+}
+
+.btn-primary:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    border: 1px solid var(--btn-primary-border-transparent);
+    box-shadow: 0 0 0 4px var(--btn-primary-background-color);
+}
+
+.btn-primary:active {
+    outline-color: transparent;
+    outline-style: solid;
+    border: 1px solid var(--btn-primary-border-transparent);
+    box-shadow: 0 0 0 4px var(--btn-primary-background-color);
+}
+
 .button {
     text-decoration: none;
     vertical-align: middle;
@@ -379,11 +411,11 @@
     border-color: var(--searchBar-border-color);
 }
 
-input:focus{
+input:focus {
     box-shadow: 0 0 0 2px var(--primary-transparent) !important;
 }
 
-input:active{
+input:active {
     box-shadow: 0 0 0 2px var(--primary-transparent) !important;
 }
 
@@ -401,18 +433,23 @@ table tbody tr td {
     white-space: nowrap;
 }
 
+.nav-link{
+    transition: none;
+}
+
 /* Nav tabs */
 .nav-item .nav-link {
+    border: 1px solid var(--nav-tab-border-color);
     text-decoration: none;
     color: var(--nav-tab-color) !important;
 }
 
 .nav-item .nav-link:hover {
-    background-color: var(--nav-tab-hover-background-color) !important;
-    color: var(--nav-tab-hover-color-color) !important;
+    border-color: var(--nav-tab-border-color);
 }
 
 .nav-item .active {
+    border: none;
     background-color: var(--nav-tab-active-background-color) !important;
     color: var(--nav-tab-active-color-color) !important;
 }

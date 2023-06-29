@@ -70,10 +70,11 @@
 
     /* Nav tabs */
     --nav-tab-color: var(--primary-text-color);
-    --nav-tab-active-background-color: #ffffff;
-    --nav-tab-active-color-color: #000000;
-    --nav-tab-hover-background-color: #ffffff;
-    --nav-tab-hover-color-color: #000000;
+    --nav-tab-border-color: #30363d;
+    --nav-tab-active-background-color: #ff3c00f1;
+    --nav-tab-active-color-color: #ffffff;
+    --nav-tab-hover-background-color: #ff3c00f1;
+    --nav-tab-hover-color-color: #ffffff;
     --nav-tab-bottom-border-color: #30363d;
 
     --view-container-height: calc(100vh - 60px);
