@@ -3,6 +3,7 @@
   --black: #000;
 
   --primary: #ff3c00f1;
+  --primary-transparent: #ff3c0085;
 
   --primary-background-color: #f6f8fa;
   --primary-text-color: #000;
@@ -24,7 +25,7 @@
   --secondary-background-color: #ff3c00f1;
 
   /* Hover / Active = ha */
-  --primary-ha-background-color: #5b6770;
+  --primary-ha-background-color: #ddd;
   ---primary-icon-color: #a0aab6;
   --primary-icon-hover-color: var(--white);
 
@@ -62,9 +63,19 @@
   --primary-table-text-color: var(--white); */
 
   /* Modals */
-  --modal-primary-border-color: #f6f8fa;
-  --modal-primary-background-color: #f6f8fa;
-  --modal-secondary-background-color: #ffffff;
+  --modal-primary-border-color: #d0d7de;
+  --modal-primary-background-color: #f0f0f0;
+  --modal-secondary-background-color: #f0f0f0;
+  --modal-primary-text-color: #000000;
+
+  /* Nav tabs */
+  --nav-tab-color: var(--primary-text-color);
+  --nav-tab-border-color: #dee2e6;
+  --nav-tab-active-background-color: #ff3c00f1;
+  --nav-tab-active-color-color: #ffffff;
+  --nav-tab-hover-background-color: #ff3c00f1;
+  --nav-tab-hover-color-color: #ffffff;
+  --nav-tab-bottom-border-color: #dee2e6;
 
   --view-container-height: calc(100vh - 60px);
   --table-view-height: calc(100vh - 26vh);

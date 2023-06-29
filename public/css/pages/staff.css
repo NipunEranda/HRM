@@ -1,3 +1,16 @@
 .staff-form{
-    border: 1px solid var(--searchBar-border-color);
+    /* border: 1px solid var(--searchBar-border-color); */
+}
+
+.staff-form .form-control{
+    width: 99%;
+}
+
+.staff-form .form-label{
+    width: 99%;
+}
+
+#staffForm .innerForm{
+    max-height: 70vh;
+    overflow-y: scroll;
 }

@@ -3,6 +3,7 @@
     --black: #000;
 
     --primary: #ff3c00f1;
+    --primary-transparent: #ff3c0085;
 
     --primary-background-color: #010409;
     --primary-text-color: #fff;
@@ -51,7 +52,6 @@
 
     /* Login Screen Options */
     --login-option-background-color: #dfedfa;
-    --primary-dropdown-text-color: var(--white); 
 
     /* Dropdowns */
     --primary-dropdown-background-hover-color: #262b30;
@@ -62,10 +62,20 @@
     /* --primary-table-background-color: #212529;
     --primary-table-text-color: var(--white); */
 
+    /* Modals */
     --modal-primary-border-color: #212529;
-    --modal-primary-background-color: #212529;
-    --modal-secondary-background-color: #343a40;
+    --modal-primary-background-color: #161b22;
+    --modal-secondary-background-color: #0d1117;
+    --modal-primary-text-color: #ffffff;
 
+    /* Nav tabs */
+    --nav-tab-color: var(--primary-text-color);
+    --nav-tab-border-color: #30363d;
+    --nav-tab-active-background-color: #ff3c00f1;
+    --nav-tab-active-color-color: #ffffff;
+    --nav-tab-hover-background-color: #ff3c00f1;
+    --nav-tab-hover-color-color: #ffffff;
+    --nav-tab-bottom-border-color: #30363d;
 
     --view-container-height: calc(100vh - 60px);
     --table-view-height: calc(100vh - 26vh);
