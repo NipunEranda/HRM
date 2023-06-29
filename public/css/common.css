@@ -457,3 +457,29 @@ table tbody tr td {
 .nav-tabs {
     border-bottom: 1px solid var(--nav-tab-bottom-border-color);
 }
+
+/* Cards */
+.card-body{
+    color: var(--card-text-color);
+    background-color: var(--card-body-color);
+}
+
+.card-body input{
+    color: var(--card-text-color);
+    background-color: var(--card-body-color) !important;
+}
+
+.card-header{
+    color: var(--card-text-color);
+    background-color: var(--card-body-header-color);
+}
+
+.card-title{
+    margin: 0.5rem 0;
+}
+
+.card{
+    padding: 0 !important;
+    border: none;
+    border-left: 2px solid var(--primary);
+}

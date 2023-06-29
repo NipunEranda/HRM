@@ -39,4 +39,9 @@
     --nav-tab-hover-background-color: #ff3c00f1;
     --nav-tab-hover-color-color: #ffffff;
     --nav-tab-bottom-border-color: #30363d;
+
+    /* Cards */
+    --card-body-color: #161b22;
+    --card-body-header-color: #1f2630;
+    --card-text-color: #ffffff;
 }
