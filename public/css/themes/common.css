@@ -1,6 +1,41 @@
 :root {
+    --white: #FFF;
+    --black: #000;
+
+    --primary: #ff3c00f1;
+    --primary-transparent: #ff3c0085;
+
+    /* Button */
+    --primary-btn-background-color: #fff;
+    --primary-btn-border-color: #a0aab6;
+    --primary-btn-hover-background-color: #f8f8f8;
+    --primary-btn-text-color: #161b22;
+
+    /* Bootstrap Buttons */
     --btn-primary-background-color: #ff3c00f1;
     --btn-primary-background-color-hover: #ca2f00f1;
     --btn-primary-color: #ffffff;
     --btn-primary-border-transparent: #ff3c0085;
+
+    /* Topbar */
+    --primary-topbar-background-color: #161b22;
+    --primary-topbar-border-color: #010409;
+    --primary-topbar-logo-main-text: var(--white);
+
+    /* Background / Border = bb */
+    --secondary-bb-color: #ddd;
+    --secondary-background-color: #ff3c00f1;
+
+    /* Loader */
+    --loader-border-color: #343a40;
+    --loader-background-color: rgba(0, 0, 0, 0.5);
+
+    /* Unselectable */
+    --unselectable-color: rgb(171, 171, 171);
+
+    /* Login Screen Options */
+    --login-option-background-color: #dfedfa;
+
+    --view-container-height: calc(100vh - 60px);
+    --table-view-height: calc(100vh - 26vh);
 }

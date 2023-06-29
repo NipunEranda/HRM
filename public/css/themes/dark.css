@@ -1,9 +1,4 @@
 :root.dark-theme {
-    --white: #FFF;
-    --black: #000;
-
-    --primary: #ff3c00f1;
-    --primary-transparent: #ff3c0085;
 
     --primary-background-color: #010409;
     --primary-text-color: #fff;
@@ -15,52 +10,20 @@
     --primary-sidebar-button-hover: #18202b;
     --primary-sidebar-button-text: #fff;
 
-    /* Topbar */
-    --primary-topbar-background-color: #161b22;
-    --primary-topbar-border-color: #010409;
-    --primary-topbar-logo-main-text: var(--white);
-
-    /* Background / Border = bb */
-    --secondary-bb-color: #ddd;
-    --secondary-background-color: #ff3c00f1;
-
     /* Hover / Active = ha */
     --primary-ha-background-color: #5b6770;
     ---primary-icon-color: #a0aab6;
     --primary-icon-hover-color: var(--white);
-
-    /* Button */
-    --primary-btn-background-color: #fff;
-    --primary-btn-border-color: #a0aab6;
-    --primary-btn-hover-background-color: #f8f8f8;
-    --primary-btn-text-color: #161b22;
-
-    /* Form Overlay */
-    --form-overlay-background: rgba(0, 0, 0, 0.466);
-
-    /* Loader */
-    --loader-border-color: #343a40;
-    --loader-background-color: rgba(0, 0, 0, 0.5);
-
-    /* Unselectable */
-    --unselectable-color: rgb(171, 171, 171);
 
     /* Searchbar */
     --searchBar-background-color: var(--primary-background-color);
     --searchBar-text-color: #fff;
     --searchBar-border-color: #30363d;
 
-    /* Login Screen Options */
-    --login-option-background-color: #dfedfa;
-
     /* Dropdowns */
     --primary-dropdown-background-hover-color: #262b30;
     --primary-dropdown-text-hover-color: var(--white);
     --primary-dropdown-text-color: var(--white);
-
-    /* Tables */
-    /* --primary-table-background-color: #212529;
-    --primary-table-text-color: var(--white); */
 
     /* Modals */
     --modal-primary-border-color: #212529;
@@ -76,7 +39,4 @@
     --nav-tab-hover-background-color: #ff3c00f1;
     --nav-tab-hover-color-color: #ffffff;
     --nav-tab-bottom-border-color: #30363d;
-
-    --view-container-height: calc(100vh - 60px);
-    --table-view-height: calc(100vh - 26vh);
 }
