@@ -31,7 +31,7 @@
                         <div class="tab-pane fade show active" id="personal" role="tabpanel" aria-labelledby="personal-tab">
                             <!-- Personal -->
                             <div class="innerForm row p-0 m-0 mt-1">
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">PERSONAL INFORMATION</h6>
                                     </div>
@@ -100,7 +100,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">IDENTIFICATION INFORMATION</h6>
                                     </div>
@@ -132,7 +132,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">ETHNIC INFORMATION</h6>
                                     </div>
@@ -161,7 +161,7 @@
                         <div class="tab-pane fade" id="work" role="tabpanel" aria-labelledby="work-tab">
                             <!-- Work -->
                             <div class="innerForm row p-0 m-0 mt-1">
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">EMPLOYEE NUMBERS</h6>
                                     </div>
@@ -197,7 +197,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">GENERAL INFORMATION</h6>
                                     </div>
@@ -252,7 +252,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">EMPLOYMENT DETAILS</h6>
                                     </div>
@@ -295,42 +295,49 @@
                                                 <input type="text" class="form-control form-control-sm float-start"
                                                     id="firstName">
                                             </div>
-                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 ps-sm-1">
+                                        </div>
+                                        <div class="row p-0 m-0 pt-4">
+                                            <span class="p-0">
+                                                <h6>APPOINTMENT</h6>
+                                            </span>
+                                            <hr class="m-0" />
+                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 pe-1">
                                                 <label for="firstName" class="form-label float-start">Status</label>
                                                 <input type="email" class="form-control form-control-sm float-end"
                                                     id="lastName">
                                             </div>
-                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 pe-1">
+                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 ps-sm-1">
                                                 <label for="firstName" class="form-label float-start">Date Of
                                                     Appointment</label>
                                                 <input type="text" class="form-control form-control-sm float-start"
                                                     id="firstName">
                                             </div>
-                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 ps-sm-1">
+                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 pe-1">
                                                 <label for="firstName" class="form-label float-start">Employment
                                                     Type</label>
                                                 <input type="email" class="form-control form-control-sm float-end"
                                                     id="lastName">
                                             </div>
-                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 pe-1">
+                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 ps-sm-1">
                                                 <label for="firstName" class="form-label float-start">Prior Notice
                                                     Period</label>
                                                 <input type="text" class="form-control form-control-sm float-start"
                                                     id="firstName">
                                             </div>
-                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 ps-sm-1">
+                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 pe-1">
                                                 <label for="firstName" class="form-label float-start">Confirmation Due
                                                     On</label>
                                                 <input type="email" class="form-control form-control-sm float-end"
                                                     id="lastName">
                                             </div>
-                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 pe-1">
+                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 ps-sm-1">
                                                 <label for="firstName" class="form-label float-start">Overtime</label>
                                                 <input type="text" class="form-control form-control-sm float-start"
                                                     id="firstName">
                                             </div>
-                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 ps-sm-1">
-                                                <label for="firstName" class="form-label float-start">Date of Retirement</label>
+                                            <div class="col col-12 col-sm-6 p-0 m-0 mt-3 pe-1">
+                                                <label for="firstName" class="form-label float-start">Date of
+                                                    Retirement</label>
                                                 <input type="email" class="form-control form-control-sm float-end"
                                                     id="lastName">
                                             </div>
@@ -342,7 +349,7 @@
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             <!-- Contact -->
                             <div class="innerForm row p-0 m-0 mt-1">
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">ADDRESS DETAILS</h6>
                                     </div>
@@ -381,7 +388,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">CONTACT INFORMATION</h6>
                                     </div>
@@ -417,7 +424,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">LOCATION INFORMATION</h6>
                                     </div>
@@ -439,7 +446,7 @@
                                                     id="lastName">
                                             </div>
                                             <div class="col col-12 col-sm-6 p-0 m-0 mt-3 ps-sm-1">
-                                                <label for="firstName" class="form-label float-start">pPlling
+                                                <label for="firstName" class="form-label float-start">Polling
                                                     Division</label>
                                                 <input type="text" class="form-control form-control-sm float-start"
                                                     id="firstName">
@@ -458,12 +465,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card text-white mb-2 mt-2 w-100">
+                                <div class="card text-white mb-2 mt-3 w-100">
                                     <div class="card-header">
                                         <h6 class="card-title">EMERGENCY CONTACTS INFORMATION</h6>
                                     </div>
                                     <div class="card-body pt-0">
-                                        <div class="row p-0 m-0">
+                                        <div class="row p-0 m-0 pt-3">
+                                            <span class="p-0"><h6>Contact 1</h6></span>
                                             <div class="col col-12 col-sm-6 p-0 m-0 mt-3 pe-1">
                                                 <label for="firstName" class="form-label float-start">Name</label>
                                                 <input type="email" class="form-control form-control-sm float-end"
@@ -515,14 +523,9 @@
                                                     id="firstName">
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card text-white mb-2 mt-2 w-100">
-                                    <div class="card-header">
-                                        <h6 class="card-title">PERSONAL INFORMATION</h6>
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row p-0 m-0">
+                                        <div class="row p-0 m-0 pt-3">
+                                            <hr class="mb-3 mt-4" />
+                                            <span class="p-0"><h6>Contact 2</h6></span>
                                             <div class="col col-12 col-sm-6 p-0 m-0 mt-3 pe-1">
                                                 <label for="firstName" class="form-label float-start">Name</label>
                                                 <input type="email" class="form-control form-control-sm float-end"

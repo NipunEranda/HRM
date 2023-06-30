@@ -44,4 +44,7 @@
     --card-body-color: #161b22;
     --card-body-header-color: #1f2630;
     --card-text-color: #ffffff;
+
+    /* hr */
+    --hr-color: #30363d;
 }

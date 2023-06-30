@@ -483,3 +483,9 @@ table tbody tr td {
     border: none;
     border-left: 2px solid var(--primary);
 }
+
+/* hr */
+hr{
+    background-color: var(--hr-color);
+    opacity: 1;
+}
