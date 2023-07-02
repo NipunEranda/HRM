@@ -1,11 +1,11 @@
 <template>
     <div class="modal fade" id="staffModal" tabindex="-1" role="dialog" aria-labelledby="staffModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-95" role="document">
+        <div class="modal-dialog modal-dialog-centered modal-95" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staffModalLabel">{{ modal.modalTitle }}</h5>
-                    <button class="btn btn-sm ps-2 pe-2 shadow-none" @click="closeModal"><font-awesome-icon icon="fa-close"
+                    <button class="btn btn-sm ps-2 pe-2" @click="closeModal"><font-awesome-icon icon="fa-close"
                             class="ms-1 me-1" />
                     </button>
                 </div>
@@ -584,9 +584,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary shadow-none" @click="closeModal">Close</button>
-                    <button type="button" class="btn btn-primary shadow-none me-0"
-                        @click="staffModalOperation(inputData)">{{ modal.buttonProcessName }}</button>
+                    <button type="button" class="btn btn-secondary" @click="closeModal">Close</button>
+                    <button type="button" class="btn btn-primary me-0"
+                        @click="staffModalOperation(modal.mode, inputData)">{{ modal.buttonProcessName }}</button>
                 </div>
             </div>
         </div>

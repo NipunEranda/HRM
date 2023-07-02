@@ -32,14 +32,17 @@
     cursor: pointer;
 }
 
-/* .btn:hover {
-    outline-color: transparent !important;
-    outline-style:solid !important;
-    box-shadow: 0 0 0 2px #ff3c0057 !important;
-} */
+/* Buttons */
 
 .btn {
     border: 1px solid transparent;
+}
+
+.btn:hover, .btn:focus, .btn:active{
+    box-shadow: none!important;
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px var(--btn-primary-background-color);
 }
 
 .btn-primary,
@@ -50,24 +53,9 @@
     color: var(--btn-primary-color);
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     background-color: var(--btn-primary-background-color-hover);
     border: 1px solid var(--btn-primary-border-transparent);
-    box-shadow: 0 0 0 4px var(--btn-primary-background-color);
-}
-
-.btn-primary:focus {
-    outline-color: transparent;
-    outline-style: solid;
-    border: 1px solid var(--btn-primary-border-transparent);
-    box-shadow: 0 0 0 4px var(--btn-primary-background-color);
-}
-
-.btn-primary:active {
-    outline-color: transparent;
-    outline-style: solid;
-    border: 1px solid var(--btn-primary-border-transparent);
-    box-shadow: 0 0 0 4px var(--btn-primary-background-color);
 }
 
 .button {
@@ -224,6 +212,10 @@
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
+}
+
+#modal-body #message{
+    font-size: 15px;
 }
 
 .modal-footer {
