@@ -25,13 +25,14 @@
     </div>
 
     <!-- Staff Modal -->
-    <staffModal :modal="modal" :closeModal="closeModal" :staffModalOperation="staffModalOperation" :inputData="selectedEmployee"/>
+    <staffModal :modal="modal" :staffModalOperation="staffModalOperation" :inputData="selectedEmployee" />
 
     <!-- Staff View -->
-    <staffList :filteredStaff="filteredStaff" :openEditModal="openEditModal" :openActionModal="openActionModal" :user="user" />
-    
+    <staffList :filteredStaff="filteredStaff" :openEditModal="openEditModal" :openActionModal="openActionModal"
+      :user="user" />
+
     <!-- Action Modal -->
-    <ActionModal :modal="modal" :action="removeEmployee"/>
+    <ActionModal :modal="modal" :action="removeEmployee" />
 
   </div>
 </template>
@@ -84,13 +85,10 @@ export default {
       this.modal = { modalTitle: 'Edit Employee', buttonProcessName: 'Update', message: null, mode: 'edit' };
       $('#staffModal').modal("show");
     },
-    openActionModal: function(employee){
+    openActionModal: function (employee) {
       this.modal.modalTitle = "Remove Employee";
       this.modal = { modalTitle: 'Remove Employee', buttonProcessName: 'Remove', message: `Do you want to remove ${employee.personal.info.firstName} ${employee.personal.info.lastName} from the system.`, mode: 'delete', data: employee };
       $('#actionModal').modal("show");
-    },
-    closeModal: function () {
-      $('#staffModal').modal("hide");
     },
     generateNewEmployee: function () {
       return {
@@ -263,7 +261,12 @@ export default {
     },
     removeEmployee: function (data) {
       //Remove Employee
-      console.log(data);
+      $(".container-loader").removeClass("hidden").addClass("show");
+      store.dispatch("deleteStaff", data).then((result) => {
+        this.staff = result.data;
+        this.$router.go(0);
+      });
+      $(".container-loader").removeClass("show").addClass("hidden");
     },
     staffModalOperation: function (mode, employee) {
       //Create or Update process call

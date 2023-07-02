@@ -5,7 +5,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staffModalLabel">{{ modal.modalTitle }}</h5>
-                    <button class="btn btn-sm ps-2 pe-2" @click="closeModal"><font-awesome-icon icon="fa-close"
+                    <button class="btn btn-sm ps-2 pe-2"  data-bs-dismiss="modal"><font-awesome-icon icon="fa-close"
                             class="ms-1 me-1" />
                     </button>
                 </div>
@@ -584,9 +584,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" @click="closeModal">Close</button>
+                    <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary me-0"
-                        @click="staffModalOperation(modal.mode, inputData)">{{ modal.buttonProcessName }}</button>
+                        @click="staffModalOperation(modal.mode, inputData)" data-bs-dismiss="modal">{{ modal.buttonProcessName }}</button>
                 </div>
             </div>
         </div>
@@ -604,7 +604,6 @@ export default {
     props: {
         modal: Object,
         inputData: Object,
-        closeModal: { type: Function },
         staffModalOperation: { type: Function },
     }
 }
