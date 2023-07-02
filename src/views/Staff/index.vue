@@ -8,13 +8,13 @@
       <div class="col col-3 p-0 m-0 ps-2">
         <div class="row p-0 m-0">
           <div class="col col-6 p-0 m-0">
-            <div class="btn btn-sm btn-primary shadow-none float-end w-100" @click="openCreateModal">
+            <div class="btn btn-sm btn-primary float-end w-100" @click="openCreateModal">
               <span class="d-none d-lg-block">Add</span>
               <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-plus" /></span>
             </div>
           </div>
           <div class="col col-6 p-0 m-0 ps-2">
-            <div class="btn btn-sm shadow-none float-end w-100" @click="loadStaff"
+            <div class="btn btn-sm float-end w-100" @click="loadStaff"
               :class="{ 'btn-secondary': user.theme == 'dark-theme', 'btn-dark': user.theme == 'light-theme' }">
               <span class="d-none d-lg-block">Refresh</span>
               <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-refresh" /></span>
@@ -25,10 +25,14 @@
     </div>
 
     <!-- Staff Modal -->
-    <staffModal :modal="modal" :closeModal="closeModal" :staffModalOperation="staffModalOperation" :inputData="selectedEmployee"/>
+    <staffModal :modal="modal" :staffModalOperation="staffModalOperation" :inputData="selectedEmployee" />
 
     <!-- Staff View -->
-    <staffList :filteredStaff="filteredStaff" :openEditModal="openEditModal" :user="user" />
+    <staffList :filteredStaff="filteredStaff" :openEditModal="openEditModal" :openActionModal="openActionModal"
+      :user="user" />
+
+    <!-- Action Modal -->
+    <ActionModal :modal="modal" :action="removeEmployee" />
 
   </div>
 </template>
@@ -38,6 +42,7 @@ import { useStore } from "vuex";
 import store from "@/store";
 import staffList from '@/components/Views/Tables/StaffList.vue';
 import staffModal from '@/components/Modals/StaffModal.vue';
+import ActionModal from '@/components/Modals/Common/ActionModal.vue';
 export default {
   setup: () => { },
   data() {
@@ -48,7 +53,7 @@ export default {
       staff: store.getters.getStaff,
       filteredStaff: store.getters.getStaff,
       searchStaff: "",
-      modal: { modalTitle: '', buttonProcessName: '', mode: '' },
+      modal: { modalTitle: '', buttonProcessName: '', message: null, mode: '', data: null },
       selectedEmployee: null,
     };
   },
@@ -72,16 +77,18 @@ export default {
     },
     openCreateModal: function () {
       this.selectedEmployee = this.generateNewEmployee();
-      this.modal = { modalTitle: 'Add Employee', buttonProcessName: 'Save', mode: 'add' };
+      this.modal = { modalTitle: 'Add Employee', buttonProcessName: 'Save', message: null, mode: 'add' };
       $('#staffModal').modal("show");
     },
     openEditModal: function (employee) {
       this.selectedEmployee = employee;
-      this.modal = { modalTitle: 'Edit Employee', buttonProcessName: 'Update', mode: 'edit' };
+      this.modal = { modalTitle: 'Edit Employee', buttonProcessName: 'Update', message: null, mode: 'edit' };
       $('#staffModal').modal("show");
     },
-    closeModal: function () {
-      $('#staffModal').modal("hide");
+    openActionModal: function (employee) {
+      this.modal.modalTitle = "Remove Employee";
+      this.modal = { modalTitle: 'Remove Employee', buttonProcessName: 'Remove', message: `Do you want to remove ${employee.personal.info.firstName} ${employee.personal.info.lastName} from the system.`, mode: 'delete', data: employee };
+      $('#actionModal').modal("show");
     },
     generateNewEmployee: function () {
       return {
@@ -252,11 +259,17 @@ export default {
     update: function () {
 
     },
-    delete: function () {
-
+    removeEmployee: function (data) {
+      //Remove Employee
+      $(".container-loader").removeClass("hidden").addClass("show");
+      store.dispatch("deleteStaff", data).then((result) => {
+        this.staff = result.data;
+        this.$router.go(0);
+      });
+      $(".container-loader").removeClass("show").addClass("hidden");
     },
-    staffModalOperation: function (employee) {
-      console.log(employee);
+    staffModalOperation: function (mode, employee) {
+      //Create or Update process call
     },
   },
   mounted: async function () {
@@ -265,7 +278,8 @@ export default {
   },
   components: {
     staffList,
-    staffModal
+    staffModal,
+    ActionModal
   }
 }
 </script>

@@ -22,7 +22,7 @@
                             @click="openEditModal(employee)">
                         </td>
                         <td v-text="employee.work.organization.company.department" @click="openEditModal(employee)"></td>
-                        <td class="table-row-delete-col"><font-awesome-icon icon="fa-trash" /></td>
+                        <td class="table-row-delete-col"><font-awesome-icon icon="fa-trash" @click="openActionModal(employee)" /></td>
                     </tr>
                 </tbody>
             </table>
@@ -40,6 +40,7 @@ export default {
         user: Object,
         filteredStaff: Array,
         openEditModal: { type: Function },
+        openActionModal: { type: Function },
     },
 }
 </script>

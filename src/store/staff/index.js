@@ -38,7 +38,7 @@ export default {
             } catch (e) {
                 return [];
             }
-        }
+        },
         // async addExpense(context, data) {
         //     try {
         //         const response = await axios.post('/.netlify/functions/transaction/expenses/add', data);
@@ -49,16 +49,20 @@ export default {
         //         return helper.methods.handleError(e);
         //     }
         // },
-        // async deleteExpense(context, data) {
-        //     try{
-        //         const response = await axios.delete(`/.netlify/functions/transaction/expenses/delete?id=${data._id}`);
-        //         context.commit("setExpenses", response.data.data.expenses);
-        //         return response.data;
-        //     } catch (e) {
-        //         console.log(e);
-        //         return helper.methods.handleError(e);
-        //     }
-        // },
+        async deleteStaff(context, data) {
+            try {
+                const response = await axios.delete(`/.netlify/functions/staff?id=${data._id}`, {
+                    headers: {
+                        Authorization: `Bearer ${index.getters.getCurrentUser.token}`
+                    }
+                });
+                context.commit("setStaff", response.data.data);
+                return response.data;
+            } catch (e) {
+                console.log(e);
+                return helper.methods.handleError(e);
+            }
+        },
         // async updateExpense(context, data){
         //     try{
         //         const response = await axios.put(`/.netlify/functions/transaction/expenses/update?id=${data._id}`, data);

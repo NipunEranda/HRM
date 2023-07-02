@@ -1,0 +1,70 @@
+[
+    {
+        "id": "personal",
+        "name": "Personal",
+        "next": [
+            {
+                "id": "personal_information",
+                "name": "PERSONAL INFORMATION",
+                "next": []
+            },
+            {
+                "id": "identification_information",
+                "name": "IDENTIFICATION INFORMATION",
+                "next": []
+            },
+            {
+                "id": "ethnic_information",
+                "name": "ETHNIC INFORMATION",
+                "next": []
+            }
+        ]
+    },
+    {
+        "id": "work",
+        "name": "Work",
+        "next": [
+            {
+                "id": "employee_numbers",
+                "name": "EMPLOYEE NUMBERS",
+                "next": []
+            },
+            {
+                "id": "general_information",
+                "name": "GENERAL INFORMATION",
+                "next": []
+            },
+            {
+                "id": "employeement_details",
+                "name": "EMPLOYMENT DETAILS",
+                "next": []
+            },
+        ]
+    },
+    {
+        "id": "contact",
+        "name": "Contact",
+        "next": [
+            {
+                "id": "address_details",
+                "name": "ADDRESS DETAILS",
+                "next": []
+            },
+            {
+                "id": "contact_information",
+                "name": "CONTACT INFORMATION",
+                "next": []
+            },
+            {
+                "id": "location_information",
+                "name": "LOCATION INFORMATION",
+                "next": []
+            },
+            {
+                "id": "emergency_contacts_information",
+                "name": "EMERGENCY CONTACTS INFORMATION",
+                "next": []
+            }
+        ]
+    },
+]
