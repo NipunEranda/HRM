@@ -55,7 +55,7 @@ export default {
       filteredStaff: store.getters.getStaff,
       searchStaff: "",
       modal: { modalTitle: '', buttonProcessName: '', message: null, mode: '', data: null },
-      selectedEmployee: null,
+      selectedEmployee: utils.generateEmployee(),
     };
   },
   watch: {
@@ -103,10 +103,15 @@ export default {
     staffModalOperation: function (mode, employee) {
       //Create or Update process call
       if (mode == 'add') {
-        console.log(employee);
+        // console.log(employee);
         store.dispatch("addStaff", employee).then((result) => {
-          console.log(result);
-          // this.staff = result.data;
+          // console.log(result);
+          this.staff = result.data;
+          this.$router.go(0);
+        });
+      } else if (mode == 'edit'){
+        store.dispatch("updateStaff", employee).then((result) => {
+          this.staff = result.data;
           this.$router.go(0);
         });
       }

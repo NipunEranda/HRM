@@ -476,6 +476,19 @@ table tbody tr td {
     background-color: var(--card-body-color) !important;
 }
 
+.card-body input:-webkit-autofill,
+.card-body input:-webkit-autofill:hover, 
+.card-body input:-webkit-autofill:focus,
+.card-body textarea:-webkit-autofill,
+.card-body textarea:-webkit-autofill:hover,
+.card-body textarea:-webkit-autofill:focus,
+.card-body select:-webkit-autofill,
+.card-body select:-webkit-autofill:hover,
+.card-body select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--card-text-color);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .card-body select {
     color: var(--card-text-color);
     background-color: var(--card-body-color) !important;

@@ -54,16 +54,20 @@ export default {
                 index.dispatch("handleRequestErrors", e);
             }
         },
-        // async addExpense(context, data) {
-        //     try {
-        //         const response = await axios.post('/.netlify/functions/transaction/expenses/add', data);
-        //         context.commit("setExpenses", response.data.data.expenses);
-        //         return response.data;
-        //     } catch (e) {
-        //         console.log(e);
-        //         return helper.methods.handleError(e);
-        //     }
-        // },
+        async updateStaff(context, data) {
+            try {
+                const response = await axios.put(`/.netlify/functions/staff?id=${data._id}`, data, {
+                    headers: {
+                        Authorization: `Bearer ${index.getters.getCurrentUser.token}`
+                    }
+                });
+                context.commit("setStaff", response.data.data);
+                return response.data;
+            } catch (e) {
+                console.log(e);
+                index.dispatch("handleRequestErrors", e);
+            }
+        },
         async deleteStaff(context, data) {
             try {
                 const response = await axios.delete(`/.netlify/functions/staff?id=${data._id}`, {
@@ -75,7 +79,7 @@ export default {
                 return response.data;
             } catch (e) {
                 console.log(e);
-                return helper.methods.handleError(e);
+                index.dispatch("handleRequestErrors", e);
             }
         },
         // async updateExpense(context, data){

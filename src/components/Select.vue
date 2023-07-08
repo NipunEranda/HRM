@@ -24,10 +24,10 @@ export default {
             type: Array,
             required: true,
         },
-        default: {
+        selected: {
             type: Number,
             required: false,
-            default: null,
+            default: 0,
         },
         tabindex: {
             type: Number,
@@ -37,7 +37,6 @@ export default {
     },
     data() {
         return {
-            selected: this.default ? this.default : 0,
             open: false,
         };
     },
