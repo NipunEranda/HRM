@@ -5,7 +5,7 @@
             {{ options[selected] }}
         </div>
         <div class="items" :class="{ selectHide: !open }">
-            <div class="item" v-for="(option, o) of options" :key="o" @click="
+            <div class="item" :class="{ 'selected-item': selected == o }" v-for="(option, o) of options" :key="o" @click="
                 selected = o;
             open = false;
             $emit('output', o);
@@ -92,7 +92,7 @@ export default {
     left: 0;
     right: 0;
     z-index: 1;
-    max-height: 128px;
+    max-height: 134px;
     overflow: scroll;
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -120,5 +120,9 @@ export default {
 
 .selectHide {
     display: none;
+}
+
+.selected-item{
+    background-color: var(--primary);
 }
 </style>
