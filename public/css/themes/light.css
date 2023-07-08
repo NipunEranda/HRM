@@ -34,9 +34,9 @@
   /* Nav tabs */
   --nav-tab-color: var(--primary-text-color);
   --nav-tab-border-color: #dee2e6;
-  --nav-tab-active-background-color: #ff3c00f1;
+  --nav-tab-active-background-color: var(--primary);;
   --nav-tab-active-color-color: #ffffff;
-  --nav-tab-hover-background-color: #ff3c00f1;
+  --nav-tab-hover-background-color: var(--primary);;
   --nav-tab-hover-color-color: #ffffff;
   --nav-tab-bottom-border-color: #dee2e6;
 
@@ -46,4 +46,10 @@
   --card-text-color: #000000;
 
   --hr-color: #d0d7de;
+
+  /* DatePicker */
+  --date-picker-icon-color-inversion: 0;
+  --date-picker-text-color: #000000;
+
+  --color-scheme: light;
 }

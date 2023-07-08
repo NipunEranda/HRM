@@ -26,10 +26,16 @@ const store = createStore({
     },
     plugins: [createPersistedState()],
     actions: {
-        logout(){
+        logout() {
             this.commit('resetState');
             router.push("/");
         },
+        handleRequestErrors(context, data) {
+            if (data.response.status == 403) {
+                this.commit('resetState');
+                router.push("/");
+            }
+        }
     },
 });
 

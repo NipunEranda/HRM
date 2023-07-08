@@ -34,9 +34,9 @@
     /* Nav tabs */
     --nav-tab-color: var(--primary-text-color);
     --nav-tab-border-color: #30363d;
-    --nav-tab-active-background-color: #ff3c00f1;
+    --nav-tab-active-background-color: var(--primary);;
     --nav-tab-active-color-color: #ffffff;
-    --nav-tab-hover-background-color: #ff3c00f1;
+    --nav-tab-hover-background-color: var(--primary);;
     --nav-tab-hover-color-color: #ffffff;
     --nav-tab-bottom-border-color: #30363d;
 
@@ -47,4 +47,10 @@
 
     /* hr */
     --hr-color: #30363d;
+
+    /* DatePicker */
+    --date-picker-icon-color-inversion: 1;
+    --date-picker-text-color: #ffffff;
+
+    --color-scheme: dark;
 }

@@ -25,7 +25,7 @@
     </div>
 
     <!-- Staff Modal -->
-    <staffModal :modal="modal" :staffModalOperation="staffModalOperation" :inputData="selectedEmployee" />
+    <staffModal :modal="modal" :staffModalOperation="staffModalOperation" :staff="selectedEmployee" />
 
     <!-- Staff View -->
     <staffList :filteredStaff="filteredStaff" :openEditModal="openEditModal" :openActionModal="openActionModal"
@@ -43,6 +43,7 @@ import store from "@/store";
 import staffList from '@/components/Views/Tables/StaffList.vue';
 import staffModal from '@/components/Modals/StaffModal.vue';
 import ActionModal from '@/components/Modals/Common/ActionModal.vue';
+import utils from '@/utils';
 export default {
   setup: () => { },
   data() {
@@ -76,7 +77,7 @@ export default {
       $(".container-loader").removeClass("show").addClass("hidden");
     },
     openCreateModal: function () {
-      this.selectedEmployee = this.generateNewEmployee();
+      this.selectedEmployee = utils.generateEmployee();
       this.modal = { modalTitle: 'Add Employee', buttonProcessName: 'Save', message: null, mode: 'add' };
       $('#staffModal').modal("show");
     },
@@ -90,175 +91,6 @@ export default {
       this.modal = { modalTitle: 'Remove Employee', buttonProcessName: 'Remove', message: `Do you want to remove ${employee.personal.info.firstName} ${employee.personal.info.lastName} from the system.`, mode: 'delete', data: employee };
       $('#actionModal').modal("show");
     },
-    generateNewEmployee: function () {
-      return {
-        personal: {
-          info: {
-            initials: "",
-            firstName: "",
-            middleName: "",
-            lastName: "",
-            fullName: "",
-            email: "",
-            dob: "",
-            maritalStatus: "",
-            gender: "",
-            title: "",
-            bloodGroup: "",
-            placeOfBirth: ""
-          },
-          identification: {
-            nic: "",
-            passportNumber: "",
-            passportExpiry: "",
-            drivingLicenseNumber: "",
-            expatriate: ""
-          },
-          ethnicity: {
-            religion: "",
-            nationality: "",
-            race: ""
-          },
-          family: {
-            father: {
-              name: "",
-              dob: "",
-              occupation: "",
-              employerName: "",
-              alive: true,
-              entitledToMedicalScheme: false,
-              nic_passport: "",
-              contactNumber: "",
-              address: ""
-            },
-            mother: {
-              name: "",
-              dob: "",
-              occupation: "",
-              employerName: "",
-              alive: true,
-              entitledToMedicalScheme: false,
-              nic_passport: "",
-              contactNumber: "",
-              address: ""
-            }
-          },
-          livingSituation: {
-            livingWith: "",
-            monthlyIncome: 0,
-            numberOfDependants: 0,
-            numberOfChildren: 0
-          }
-        },
-        work: {
-          employeeNumbers: {
-            number: 0,
-            epfNumber: 0,
-            etfNumber: 0,
-            attendanceIdNumber: 0,
-            previousEpfNumber: 0
-          },
-          organization: {
-            company: {
-              name1: "",
-              name2: "",
-              department: ""
-            }
-          },
-          general: {
-            designation: "",
-            joinedDesignation: "",
-            reportingPerson: "",
-            reportingDesignation: "",
-            location: "",
-            jobDescription: "",
-            costCenterCode: "",
-            functionalReportingPersons: ""
-          },
-          "employementDetails": {
-            info: {
-              basicSalary: 0,
-              housingAmount: 0,
-              budgetaryReliefAllowance: 0,
-              methodJoined: "",
-              pensionScheme: "",
-              participatedToInducation: "",
-              shift: ""
-            },
-            appointment: {
-              status: false,
-              doa: "",
-              employmentType: "",
-              priorNoticePeriod: "",
-              confirmationDueOn: "",
-              orvertime: false,
-              dor: ""
-            }
-          }
-        },
-        contact: {
-          address: {
-            building: "",
-            street: "",
-            city: "",
-            postalCode: "",
-            district: "",
-            country: ""
-          },
-          contactInfo: {
-            officePhone: "",
-            extensionNumber: "",
-            officeEmail: "",
-            personalMobile: "",
-            personalEmail: ""
-          },
-          location: {
-            province: "",
-            district: "",
-            electorate: "",
-            pollingDivision: "",
-            distanceToWorkPlace: "",
-            travelMode: ""
-          },
-          emergencyContact: [
-            {
-              name: "",
-              relationship: "",
-              mobileNumber: "",
-              address: {
-                building: "",
-                street: "",
-                city: "",
-                postalCode: "",
-                district: "",
-                country: "",
-                telephone: ""
-              }
-            },
-            {
-              name: "",
-              relationship: "",
-              mobileNumber: "",
-              address: {
-                building: "",
-                street: "",
-                city: "",
-                postalCode: "",
-                district: "",
-                country: "",
-                telephone: ""
-              }
-            }
-          ]
-        }
-      }
-    },
-    create: function () {
-
-    },
-    update: function () {
-
-    },
     removeEmployee: function (data) {
       //Remove Employee
       $(".container-loader").removeClass("hidden").addClass("show");
@@ -270,6 +102,14 @@ export default {
     },
     staffModalOperation: function (mode, employee) {
       //Create or Update process call
+      if (mode == 'add') {
+        console.log(employee);
+        store.dispatch("addStaff", employee).then((result) => {
+          console.log(result);
+          // this.staff = result.data;
+          this.$router.go(0);
+        });
+      }
     },
   },
   mounted: async function () {

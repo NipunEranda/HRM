@@ -30,6 +30,12 @@ exports.insertStaff = async (event) => {
         const clientPromise = mongoClient.connect();
         const data = auth.getUserDataFromToken(event);
         const database = (await clientPromise).db(process.env.MONGO_DB);
+        if (data) {
+            const staffData = JSON.parse(event.body);
+            await database.collection("staff").insertOne(staffData);
+            const staff = await database.collection('staff').find({ deleted: false }).toArray();
+            return { status: 200, response: { data: staff, error: null } };
+        }
     } catch (e) {
         console.log(e);
         return { status: 500, response: { data: null, error: err } };

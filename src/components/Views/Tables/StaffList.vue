@@ -14,7 +14,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="pointer" v-for="employee in filteredStaff">
+                    <tr class="pointer" v-for="(employee,e) in filteredStaff" :key="e">
                         <td v-text="employee.personal.info.fullName" @click="openEditModal(employee)"></td>
                         <td v-text="employee.personal.info.email" @click="openEditModal(employee)"></td>
                         <td v-text="employee.contact.address.country" @click="openEditModal(employee)"></td>

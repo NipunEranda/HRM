@@ -151,41 +151,43 @@ exports.systemLogin = async (event) => {
 };
 
 exports.verifyToken = function () {
-  try {
-    return {
-      before: (handler, next) => {
-        const bearerHeader =
-          handler.event.headers["authorization"] != undefined
-            ? handler.event.headers["authorization"]
-            : handler.event.headers.authroization != undefined
-              ? handler.event.headers.authroization
-              : null;
-        if (bearerHeader != null) {
-          const bearer = bearerHeader.split(" ");
-          const bearerToken = bearer[1];
+  return {
+    before: (handler, next) => {
+
+      const bearerHeader =
+        handler.event.headers["authorization"] != undefined
+          ? handler.event.headers["authorization"]
+          : handler.event.headers.authroization != undefined
+            ? handler.event.headers.authroization
+            : null;
+
+      if (bearerHeader != null) {
+        const bearer = bearerHeader.split(" ");
+        const bearerToken = bearer[1];
+        try {
           jwt.verify(bearerToken, process.env.SECRET);
           next();
-        } else {
+        } catch (e) {
+          if (e.name === "TokenExpiredError") {
+            e.message = "Token Expired";
+          }
           return handler.callback(null, {
             statusCode: 403,
-            body: JSON.stringify({
-              auth: "no",
-              message: "Access Denied",
-            }),
+            body: JSON.stringify(e),
           });
         }
-      },
-    };
-  } catch (e) {
-    if (e.name === "TokenExpiredError") {
-      e.message = "Token Expired";
-    }
-    console.log(e);
-    return handler.callback(null, {
-      statusCode: 403,
-      body: JSON.stringify({}),
-    });
-  }
+      } else {
+        return handler.callback(null, {
+          statusCode: 403,
+          body: JSON.stringify({
+            auth: "no",
+            message: "Access Denied",
+          }),
+        });
+      }
+
+    },
+  };
 };
 
 exports.getUserDataFromToken = function (event) {

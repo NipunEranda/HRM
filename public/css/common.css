@@ -1,5 +1,16 @@
 /* General */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+*:focus {
+    outline: 0;
+}
+
 .w-25 {
     width: 25% !important;
 }
@@ -38,8 +49,10 @@
     border: 1px solid transparent;
 }
 
-.btn:hover, .btn:focus, .btn:active{
-    box-shadow: none!important;
+.btn:hover,
+.btn:focus,
+.btn:active {
+    box-shadow: none !important;
     outline-color: transparent;
     outline-style: solid;
     box-shadow: 0 0 0 4px var(--btn-primary-background-color);
@@ -53,7 +66,9 @@
     color: var(--btn-primary-color);
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
     background-color: var(--btn-primary-background-color-hover);
     border: 1px solid var(--btn-primary-border-transparent);
 }
@@ -214,7 +229,7 @@
     scrollbar-width: none;
 }
 
-#modal-body #message{
+#modal-body #message {
     font-size: 15px;
 }
 
@@ -385,19 +400,19 @@
 
 .dropdown-menu li a:active {
     background-color: var(--secondary-background-color);
-    color: var(--white);
+    color: var(--primary-text-color);
 }
 
 /* Inputs */
 .form-control,
-.form-select {
+.select {
     background-color: var(--searchBar-background-color);
     color: var(--searchBar-text-color);
     border-color: var(--searchBar-border-color);
 }
 
 .form-control:focus,
-.form-select:focus {
+.select:focus {
     background-color: var(--searchBar-background-color);
     color: var(--searchBar-text-color);
     border-color: var(--searchBar-border-color);
@@ -425,7 +440,7 @@ table tbody tr td {
     white-space: nowrap;
 }
 
-.nav-link{
+.nav-link {
     transition: none;
 }
 
@@ -451,33 +466,57 @@ table tbody tr td {
 }
 
 /* Cards */
-.card-body{
+.card-body {
     color: var(--card-text-color);
     background-color: var(--card-body-color);
 }
 
-.card-body input{
+.card-body input {
     color: var(--card-text-color);
     background-color: var(--card-body-color) !important;
 }
 
-.card-header{
+.card-body select {
+    color: var(--card-text-color);
+    background-color: var(--card-body-color) !important;
+}
+
+.card-body select:focus,
+.card-body select:active,
+.card-body select:visited {
+    box-shadow: none;
+}
+
+.card-header {
     color: var(--card-text-color);
     background-color: var(--card-body-header-color);
 }
 
-.card-title{
+.card-title {
     margin: 0.5rem 0;
 }
 
-.card{
+.card {
     padding: 0 !important;
     border: none;
     border-left: 2px solid var(--primary);
 }
 
 /* hr */
-hr{
+hr {
     background-color: var(--hr-color);
     opacity: 1;
+}
+
+/* Date Picker */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 1;
+}
+
+input[type="date"] {
+    color: var(--date-picker-text-color);
+    color-scheme: var(--color-scheme);
 }

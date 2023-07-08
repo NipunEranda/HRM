@@ -36,7 +36,22 @@ export default {
                 });
                 context.commit("setStaff", response.data.data);
             } catch (e) {
+                index.dispatch("handleRequestErrors", e);
                 return [];
+            }
+        },
+        async addStaff(context, data) {
+            try {
+                const response = await axios.post('/.netlify/functions/staff', data, {
+                    headers: {
+                        Authorization: `Bearer ${index.getters.getCurrentUser.token}`
+                    }
+                });
+                context.commit("setStaff", response.data.data);
+                return response.data;
+            } catch (e) {
+                console.log(e);
+                index.dispatch("handleRequestErrors", e);
             }
         },
         // async addExpense(context, data) {
