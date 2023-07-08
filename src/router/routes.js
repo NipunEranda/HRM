@@ -34,7 +34,7 @@ const routes = [
     {
       path: "/staff",
       name: "staff",
-      accessBy: ["admin", "hr"],
+      // accessBy: ["admin", "hr"],
       component: Staff,
     },
   ];

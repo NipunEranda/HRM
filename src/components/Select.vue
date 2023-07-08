@@ -86,6 +86,7 @@ export default {
 .custom-select .items {
     color: var(--primary-text-color);
     border-radius: 0px 0px 6px 6px;
+    margin-top: 3px;
     overflow: hidden;
     position: absolute;
     background-color: var(--card-body-color);

@@ -43,14 +43,15 @@ export default {
       //   }
       // });
     },
-    hasAccess(context, data) {
+    hasAccess({context, state}, data) {
       let accessGranted = false;
       if (data.routes.filter(r => r.path == data.to)[0].accessBy) {
         if (data.routes.filter(r => r.path == data.to)[0].accessBy.includes("admin")) {
-          accessGranted = process.env.VUE_APP_SYSTEM_ADMINS.split(",").includes(context.getters.getCurrentUser.email);
+          accessGranted = state.currentUser.role == 'admin';
         }
         if (data.routes.filter(r => r.path == data.to)[0].accessBy.includes("hr")) {
-          accessGranted = process.env.VUE_APP_SYSTEM_ADMINS.split(",").includes(context.getters.getCurrentUser.email);
+          if(!accessGranted)
+            accessGranted = state.currentUser.role == 'hr';
         }
       } else
         return true;

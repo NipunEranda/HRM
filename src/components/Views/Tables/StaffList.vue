@@ -9,7 +9,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Country</th>
                         <th scope="col">Location</th>
-                        <th scope="col" class="table-row-delete-col"></th>
+                        <th scope="col" class="table-row-delete-col" v-if="user.role == 'admin'"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,7 +20,7 @@
                         <td v-text="((!employee.contact.address.city) ? '' : employee.contact.address.city) + ((!employee.contact.address.country) ? '' : ((employee.contact.address.city ? (employee.contact.address.city == '' ? '' : ', ') : '') + employee.contact.address.country))"
                             @click="openEditModal(employee)">
                         </td>
-                        <td class="table-row-delete-col"><font-awesome-icon icon="fa-trash" @click="openActionModal(employee)" /></td>
+                        <td class="table-row-delete-col" v-if="user.role == 'admin'"><font-awesome-icon icon="fa-trash" @click="openActionModal(employee)" /></td>
                     </tr>
                 </tbody>
             </table>
