@@ -12,7 +12,7 @@ exports.getStaffList = async (event) => {
         const database = (await clientPromise).db(process.env.MONGO_DB);
         const staff = await database.collection('staff').find({ deleted: false }).toArray();
         if (data) {
-            return { status: 200, response: { data: staff, error: null } };
+            return { status: 200, response: { data: filterDataForUsers(data, staff), error: null } };
         }
         return { status: 500, response: { data: null, error: 'something went wrong' } };
     } catch (e) {
@@ -111,6 +111,33 @@ const handler = async function (event, context) {
             statusCode: 500 || e.status,
             body: e.message,
         }
+    }
+}
+
+function filterDataForUsers(data, staff) {
+    let temp = [];
+    if (data.user.role == 'user') {
+        staff.map(s => {
+            temp.push({
+                _id: s._id,
+                personal: {
+                    info: {
+                        fullName: s.personal.info.fullName,
+                        email: s.personal.info.email
+                    }
+                },
+                contact: {
+                    address: {
+                        country: s.contact.address.country,
+                        city: s.contact.address.city
+                    }
+                },
+                deleted: s.deleted
+            });
+        });
+        return temp;
+    } else {
+        return staff;
     }
 }
 

@@ -34,6 +34,7 @@ export default {
                         Authorization: `Bearer ${index.getters.getCurrentUser.token}`
                     }
                 });
+                console.log(response.data.data);
                 context.commit("setStaff", response.data.data);
             } catch (e) {
                 index.dispatch("handleRequestErrors", e);
