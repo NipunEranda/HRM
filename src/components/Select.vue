@@ -5,7 +5,7 @@
             {{ options[selected] }}
         </div>
         <div class="items" :class="{ selectHide: !open }">
-            <div class="item" v-for="(option, o) of options" :key="o" @click="
+            <div class="item" :class="{ 'selected-item': selected == o }" v-for="(option, o) of options" :key="o" @click="
                 selected = o;
             open = false;
             $emit('output', o);
@@ -24,10 +24,10 @@ export default {
             type: Array,
             required: true,
         },
-        default: {
+        selected: {
             type: Number,
             required: false,
-            default: null,
+            default: 0,
         },
         tabindex: {
             type: Number,
@@ -37,7 +37,6 @@ export default {
     },
     data() {
         return {
-            selected: this.default ? this.default : 0,
             open: false,
         };
     },
@@ -87,13 +86,14 @@ export default {
 .custom-select .items {
     color: var(--primary-text-color);
     border-radius: 0px 0px 6px 6px;
+    margin-top: 3px;
     overflow: hidden;
     position: absolute;
     background-color: var(--card-body-color);
     left: 0;
     right: 0;
     z-index: 1;
-    max-height: 128px;
+    max-height: 134px;
     overflow: scroll;
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -121,5 +121,9 @@ export default {
 
 .selectHide {
     display: none;
+}
+
+.selected-item{
+    background-color: var(--primary);
 }
 </style>

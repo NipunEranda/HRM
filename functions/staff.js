@@ -36,6 +36,7 @@ exports.insertStaff = async (event) => {
             const staff = await database.collection('staff').find({ deleted: false }).toArray();
             return { status: 200, response: { data: staff, error: null } };
         }
+        return { status: 500, response: { data: null, error: 'something went wrong' } };
     } catch (e) {
         console.log(e);
         return { status: 500, response: { data: null, error: err } };
@@ -51,6 +52,13 @@ exports.updateStaff = async (event) => {
         const clientPromise = mongoClient.connect();
         const data = auth.getUserDataFromToken(event);
         const database = (await clientPromise).db(process.env.MONGO_DB);
+        if (data) {
+            const staffData = JSON.parse(event.body);
+            await database.collection('staff').updateOne({ _id: new ObjectId(staffData._id) }, { $set: { personal: staffData.personal, work: staffData.work, contact: staffData.contact } });
+            const staff = await database.collection('staff').find({ deleted: false }).toArray();
+            return { status: 200, response: { data: staff, error: null } };
+        }
+        return { status: 500, response: { data: null, error: 'something went wrong' } };
     } catch (e) {
         console.log(e);
         return { status: 500, response: { data: null, error: err } };
@@ -58,7 +66,7 @@ exports.updateStaff = async (event) => {
         await mongoClient.close();
     }
 
-    
+
 }
 
 exports.removeStaff = async (event) => {

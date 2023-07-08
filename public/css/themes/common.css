@@ -3,6 +3,7 @@
     --black: #000;
 
     --primary: #ff3c00f1;
+    --primary-hover: #ca2f00f1;
     --primary-transparent: #ff3c0085;
 
     /* Button */
@@ -12,10 +13,10 @@
     --primary-btn-text-color: #161b22;
 
     /* Bootstrap Buttons */
-    --btn-primary-background-color: #ff3c00f1;
-    --btn-primary-background-color-hover: #ca2f00f1;
+    --btn-primary-background-color: var(--primary);
+    --btn-primary-background-color-hover: var(--primary-hover);
     --btn-primary-color: #ffffff;
-    --btn-primary-border-transparent: #ff3c0085;
+    --btn-primary-border-transparent: var(--primary-transparent);
 
     /* Topbar */
     --primary-topbar-background-color: #161b22;
@@ -24,7 +25,7 @@
 
     /* Background / Border = bb */
     --secondary-bb-color: #ddd;
-    --secondary-background-color: #ff3c00f1;
+    --secondary-background-color: var(--primary);
 
     /* Loader */
     --loader-border-color: #343a40;

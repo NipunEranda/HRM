@@ -88,6 +88,7 @@ exports.systemLogin = async (event) => {
       loggedSystem: profileData.data
         ? profileData.data.system
         : profileData.system,
+      role: 'user',
       theme: "light-theme"
     };
 
