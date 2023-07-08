@@ -3,7 +3,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 
@@ -474,20 +474,17 @@ table tbody tr td {
 .card-body input {
     color: var(--card-text-color);
     background-color: var(--card-body-color) !important;
+    color-scheme: var(--color-scheme);
 }
 
-.card-body input:-webkit-autofill,
-.card-body input:-webkit-autofill:hover, 
-.card-body input:-webkit-autofill:focus,
-.card-body textarea:-webkit-autofill,
-.card-body textarea:-webkit-autofill:hover,
-.card-body textarea:-webkit-autofill:focus,
-.card-body select:-webkit-autofill,
-.card-body select:-webkit-autofill:hover,
-.card-body select:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--card-text-color);
-  transition: background-color 5000s ease-in-out 0s;
+.card-body input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--card-body-color) inset !important;
+    -webkit-text-fill-color: var(--card-text-color) !important;
 }
+
+/* .card-body input[data-autocompleted] {
+    background-color: var(--card-body-color) !important;
+} */
 
 .card-body select {
     color: var(--card-text-color);

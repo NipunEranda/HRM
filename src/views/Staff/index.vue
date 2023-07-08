@@ -3,18 +3,18 @@
 
     <!-- Options -->
     <div class="row m-0 pb-3">
-      <div class="col col-9 p-0 m-0" :class="{ 'col-12': user.role == 'user' }"><input
+      <div class="col col-9 p-0 m-0" :class="{ 'col-10': user.role == 'user' }"><input
           class="form-control form-control-sm" type="text" name="search" id="search" v-model="searchStaff"
           placeholder=" &#x1F50E; search..." /></div>
-      <div class="col col-3 p-0 m-0 ps-2">
+      <div class="col p-0 m-0 ps-2" :class="{ 'col-2': user.role == 'user', 'col-3': user.role == 'admin' || user.role == 'hr' }">
         <div class="row p-0 m-0">
-          <div class="col col-6 p-0 m-0" v-if="user.role == 'admin'">
+          <div class="col col-6 p-0 m-0" v-if="user.role == 'admin' || user.role == 'hr'">
             <div class="btn btn-sm btn-primary float-end w-100" @click="openCreateModal">
               <span class="d-none d-lg-block">Add</span>
               <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-plus" /></span>
             </div>
           </div>
-          <div class="col col-6 p-0 m-0 ps-2" v-if="user.role == 'admin'">
+          <div class="col p-0 m-0 ps-2" :class="{ 'col-12': user.role == 'user', 'col-6': user.role == 'admin' || user.role == 'hr' }">
             <div class="btn btn-sm float-end w-100" @click="loadStaff"
               :class="{ 'btn-secondary': user.theme == 'dark-theme', 'btn-dark': user.theme == 'light-theme' }">
               <span class="d-none d-lg-block">Refresh</span>
@@ -78,21 +78,21 @@ export default {
       $(".container-loader").removeClass("show").addClass("hidden");
     },
     openCreateModal: function () {
-      if (this.user.role == 'admin') {
+      if (this.user.role == 'admin' || this.user.role == 'hr') {
         this.selectedEmployee = utils.generateEmployee();
         this.modal = { modalTitle: 'Add Employee', buttonProcessName: 'Save', message: null, mode: 'add' };
         $('#staffModal').modal("show");
       }
     },
     openEditModal: function (employee) {
-      if (this.user.role == 'admin') {
+      if (this.user.role == 'admin' || this.user.role == 'hr') {
         this.selectedEmployee = employee;
         this.modal = { modalTitle: 'Edit Employee', buttonProcessName: 'Update', message: null, mode: 'edit' };
         $('#staffModal').modal("show");
       }
     },
     openActionModal: function (employee) {
-      if (this.user.role == 'admin') {
+      if (this.user.role == 'admin' || this.user.role == 'hr') {
         this.modal.modalTitle = "Remove Employee";
         this.modal = { modalTitle: 'Remove Employee', buttonProcessName: 'Remove', message: `Do you want to remove ${employee.personal.info.firstName} ${employee.personal.info.lastName} from the system.`, mode: 'delete', data: employee };
         $('#actionModal').modal("show");
