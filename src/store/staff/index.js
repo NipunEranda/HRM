@@ -29,7 +29,7 @@ export default {
         async loadStaff(context, data) {
             try {
                 let temp = [];
-                const response = await axios.get('/.netlify/functions/staff', {
+                const response = await axios.get(`${process.env.VUE_APP_API_URL}/staff`, {
                     headers: {
                         Authorization: `Bearer ${index.getters.getCurrentUser.token}`
                     }
@@ -43,7 +43,7 @@ export default {
         },
         async addStaff(context, data) {
             try {
-                const response = await axios.post('/.netlify/functions/staff', data, {
+                const response = await axios.post(`${process.env.VUE_APP_API_URL}/staff`, data, {
                     headers: {
                         Authorization: `Bearer ${index.getters.getCurrentUser.token}`
                     }
@@ -57,7 +57,7 @@ export default {
         },
         async updateStaff(context, data) {
             try {
-                const response = await axios.put(`/.netlify/functions/staff?id=${data._id}`, data, {
+                const response = await axios.put(`${process.env.VUE_APP_API_URL}/staff?id=${data._id}`, data, {
                     headers: {
                         Authorization: `Bearer ${index.getters.getCurrentUser.token}`
                     }
@@ -71,7 +71,7 @@ export default {
         },
         async deleteStaff(context, data) {
             try {
-                const response = await axios.delete(`/.netlify/functions/staff?id=${data._id}`, {
+                const response = await axios.delete(`${process.env.VUE_APP_API_URL}/staff?id=${data._id}`, {
                     headers: {
                         Authorization: `Bearer ${index.getters.getCurrentUser.token}`
                     }
@@ -85,7 +85,7 @@ export default {
         },
         // async updateExpense(context, data){
         //     try{
-        //         const response = await axios.put(`/.netlify/functions/transaction/expenses/update?id=${data._id}`, data);
+        //         const response = await axios.put(`${process.env.VUE_APP_API_URL}/transaction/expenses/update?id=${data._id}`, data);
         //         context.commit("setExpenses", response.data.data.expenses);
         //         return response.data;
         //     } catch (e) {

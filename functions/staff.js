@@ -93,13 +93,13 @@ exports.removeStaff = async (event) => {
 const handler = async function (event, context) {
     try {
         var result = null;
-        if (event.path == '/.netlify/functions/staff' && event.httpMethod == 'GET') {
+        if (event.path == `${process.env.VUE_APP_API_URL}/staff` && event.httpMethod == 'GET') {
             result = await exports.getStaffList(event);
-        } else if (event.path == '/.netlify/functions/staff' && event.httpMethod == 'DELETE') {
+        } else if (event.path == `${process.env.VUE_APP_API_URL}/staff` && event.httpMethod == 'DELETE') {
             result = await exports.removeStaff(event);
-        } else if (event.path == '/.netlify/functions/staff' && event.httpMethod == "PUT") {
+        } else if (event.path == `${process.env.VUE_APP_API_URL}/staff` && event.httpMethod == "PUT") {
             result = await exports.updateStaff(event);
-        } else if (event.path == '/.netlify/functions/staff' && event.httpMethod == "POST") {
+        } else if (event.path == `${process.env.VUE_APP_API_URL}/staff` && event.httpMethod == "POST") {
             result = await exports.insertStaff(event);
         }
         return {

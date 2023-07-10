@@ -46,7 +46,8 @@ import {
   faRefresh,
   faMoon,
   faSun,
-  faTrash
+  faTrash,
+  faUsersGear
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -84,7 +85,8 @@ library.add(
   faRefresh,
   faMoon,
   faSun,
-  faTrash
+  faTrash,
+  faUsersGear
 );
 
 createApp(App)

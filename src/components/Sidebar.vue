@@ -45,6 +45,17 @@
         </div>
       </div>
 
+      <!-- Users -->
+      <div v-if="menues['/users']" class="sideBarBtn sideBarBtn_dark w-100 row m-0 p-3 sideBarTitle text-start"
+        @click="navigateTo('/users')" :class="{ sideBarBtn_dark_nav_active: activeTab == '/users' }">
+        <div class="col col-1 col-md-2 p-0">
+          <font-awesome-icon class="icon float" icon="fa-users-gear" />
+        </div>
+        <div class="col col-11 col-md-10 p-0">
+          <span>Users</span>
+        </div>
+      </div>
+
       <!-- User Options -->
       <div class="w-100 row m-0 sideBarTitle sideBarTitle_small text-start">
         <div class="sideBarBtn sideBarBtn_dark row p-0 m-0 p-3 col col-6"
@@ -94,7 +105,8 @@ export default {
         "/dashboard": false,
         "/leaves": false,
         "/timeTracking": false,
-        "/staff": false
+        "/staff": false,
+        "/users": false
       }
     };
   },
