@@ -81,21 +81,24 @@
                       </div>
                       <div class="col col-12 col-sm-6 p-0 m-0 mt-4 ps-sm-1">
                         <label for="maritalStatus" class="form-label float-start">Marital Status</label>
-                        <Select :options="dropdownData.maritalStatusList"
+                        <br/>
+                        <Custom-Select :classes="['mt-2']" :options="dropdownData.maritalStatusList"
                           :selected="staff.personal.info.maritalStatus ? staff.personal.info.maritalStatus : 0" @output="(output) => setSelect('maritalStatus', output)
-                            "></Select>
+                            "></Custom-Select>
                       </div>
                       <div class="col col-12 col-sm-6 p-0 m-0 mt-4 pe-1">
                         <label for="gender" class="form-label float-start">Gender</label>
-                        <Select :options="dropdownData.genderList"
+                        <br/>
+                        <Custom-Select :classes="['mt-2']" :options="dropdownData.genderList"
                           :selected="staff.personal.info.gender ? staff.personal.info.gender : 0"
-                          @output="(output) => setSelect('gender', output)"></Select>
+                          @output="(output) => setSelect('gender', output)"></Custom-Select>
                       </div>
                       <div class="col col-12 col-sm-6 p-0 m-0 mt-4 ps-sm-1">
                         <label for="title" class="form-label float-start">Title</label>
-                        <Select :options="dropdownData.titleList"
+                        <br/>
+                        <Custom-Select :classes="['mt-2']" :options="dropdownData.titleList"
                           :selected="staff.personal.info.title ? staff.personal.info.title : 0"
-                          @output="(output) => setSelect('title', output)"></Select>
+                          @output="(output) => setSelect('title', output)"></Custom-Select>
                       </div>
                       <div class="col col-12 col-sm-6 p-0 m-0 mt-4 pe-1">
                         <label for="bloodGroup" class="form-label float-start">Blood Group</label>
@@ -319,9 +322,10 @@
                       <hr class="m-0" />
                       <div class="col col-12 col-sm-6 p-0 m-0 mt-4 pe-1">
                         <label for="appointmentStatus" class="form-label float-start">Status</label>
-                        <Select :options="dropdownData.booleans"
+                        <br/>
+                        <Custom-Select :classes="['mt-2']" :options="dropdownData.booleans"
                           :selected="staff.work.employementDetails.appointment.status ? staff.work.employementDetails.appointment.status : 0"
-                          @output="(output) => setSelect('appointmentStatus', output)"></Select>
+                          @output="(output) => setSelect('appointmentStatus', output)"></Custom-Select>
                       </div>
                       <div class="col col-12 col-sm-6 p-0 m-0 mt-4 ps-sm-1">
                         <label for="doa" class="form-label float-start">Date Of Appointment</label>
@@ -350,9 +354,10 @@
                       </div>
                       <div class="col col-12 col-sm-6 p-0 m-0 mt-4 ps-sm-1">
                         <label for="orvertime" class="form-label float-start">Overtime</label>
-                        <Select :options="dropdownData.booleans" :selected="staff.work.employementDetails.appointment
+                        <br/>
+                        <Custom-Select :classes="['mt-2']" :options="dropdownData.booleans" :selected="staff.work.employementDetails.appointment
                           .orvertime ? staff.work.employementDetails.appointment
-                          .orvertime : 0" @output="(output) => setSelect('appointmentOvertime', output)"></Select>
+                          .orvertime : 0" @output="(output) => setSelect('appointmentOvertime', output)"></Custom-Select>
                       </div>
                       <div class="col col-12 col-sm-6 p-0 m-0 mt-4 pe-1">
                         <label for="firstName" class="form-label float-start">Date of Retirement</label>
@@ -660,7 +665,6 @@
 </template>
 
 <script>
-import Select from "@/components/Select.vue";
 import utils from "@/utils";
 export default {
   setup: () => { },
@@ -698,9 +702,6 @@ export default {
   },
   mounted: function () {
     // this.staff = $.extend(true, {}, this.staff);
-  },
-  components: {
-    Select,
   },
 };
 </script>

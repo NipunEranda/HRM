@@ -88,7 +88,7 @@ export default {
     openActionModal() {},
   },
   mounted: async function () {
-    if (this.users.length == 0) await this.loadUsers();
+    await this.loadUsers();
   },
   components: {
     UsersList,
