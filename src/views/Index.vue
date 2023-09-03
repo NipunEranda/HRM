@@ -81,7 +81,7 @@ export default {
     const codeString = urlParams.get("code");
     if (codeString) {
       axios
-        .post(`/.netlify/functions/auth/login`, {
+        .post(`${process.env.VUE_APP_API_URL}/auth/login`, {
           code: codeString,
           type: "microsoft",
         })
@@ -120,7 +120,7 @@ export default {
             )
             .then((response) => {
               axios
-                .post(`/.netlify/functions/auth/login`, {
+                .post(`${process.env.VUE_APP_API_URL}/auth/login`, {
                   user: response.data,
                   type: "google",
                 })

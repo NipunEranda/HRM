@@ -5,7 +5,8 @@
     <div class="row m-0 pb-3">
       <div class="col col-9 p-0 m-0" :class="{ 'col-10': user.role == 'user' }"><input
           class="form-control form-control-sm" type="text" name="search" id="search" v-model="searchStaff"
-          placeholder=" &#x1F50E; search..." /></div>
+          placeholder=" &#x1F50E; search..." />
+      </div>
       <div class="col p-0 m-0 ps-2" :class="{ 'col-2': user.role == 'user', 'col-3': user.role == 'admin' || user.role == 'hr' }">
         <div class="row p-0 m-0">
           <div class="col col-6 p-0 m-0" v-if="user.role == 'admin' || user.role == 'hr'">

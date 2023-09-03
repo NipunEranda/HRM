@@ -211,7 +211,7 @@ const handler = async function (event, context) {
   try {
     var result = null;
     if (
-      event.path == "/.netlify/functions/auth/login" &&
+      event.path == `${process.env.VUE_APP_API_URL}/auth/login` &&
       event.httpMethod == "POST"
     ) {
       result = await exports.systemLogin(event);

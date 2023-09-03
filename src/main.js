@@ -4,6 +4,8 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 
+import Select from "./components/Select.vue";
+
 /* import the fontawesome core */
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -46,7 +48,8 @@ import {
   faRefresh,
   faMoon,
   faSun,
-  faTrash
+  faTrash,
+  faUsersGear
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -84,11 +87,13 @@ library.add(
   faRefresh,
   faMoon,
   faSun,
-  faTrash
+  faTrash,
+  faUsersGear
 );
 
 createApp(App)
   .use(store)
   .use(router)
   .component("font-awesome-icon", FontAwesomeIcon)
+  .component('Custom-Select', Select)
   .mount("#app");
