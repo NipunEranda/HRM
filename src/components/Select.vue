@@ -107,7 +107,6 @@ export default {
 
 .custom-select .selected:after {
   position: absolute;
-  content: "";
   top: 1rem;
   right: 1em;
   width: 0;
