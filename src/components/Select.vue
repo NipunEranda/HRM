@@ -26,9 +26,6 @@
 </template>
 
 <script>
-import AppVue from '@/App.vue';
-import App from '@/App.vue';
-
 export default {
   emits: ["output", "manual"],
   props: {
