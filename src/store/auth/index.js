@@ -25,9 +25,11 @@ export default {
     },
     updateCurrentUser(state, data) {
       state.currentUser = data;
+      state.currentUser.theme = localStorage.getItem("theme") ? localStorage.getItem("theme") : data.theme;
     },
     setUserTheme(state, data) {
       state.currentUser.theme = data;
+      localStorage.setItem("theme", data);
     },
     setUsers(state, data) {
       state.users = data;
@@ -42,7 +44,6 @@ export default {
     },
     async setUserTheme(context, data) {
       context.commit("setUserTheme", data);
-
       // Set themes in profile. Just set menu in local here to save request quota
       // axios.put(`${process.env.VUE_APP_API_URL}/user/theme?value=${data}`, {}, {
       //   headers: {
