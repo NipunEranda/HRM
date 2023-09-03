@@ -31,7 +31,7 @@ export default {
     },
     setUsers(state, data) {
       state.users = data;
-    },
+    }
   },
   actions: {
     resetState({ commit }) {
@@ -54,6 +54,41 @@ export default {
       try {
         const response = await axios.get(
           `${process.env.VUE_APP_API_URL}/user/list`,
+          {
+            headers: {
+              Authorization: `Bearer ${index.getters.getCurrentUser.token}`,
+            },
+          }
+        );
+        context.commit("setUsers", response.data.data);
+        return response.data;
+      } catch (e) {
+        console.log(e);
+        index.dispatch("handleRequestErrors", e);
+      }
+    },
+    async deleteUser(context, data) {
+      try {
+        const response = await axios.delete(
+          `${process.env.VUE_APP_API_URL}/user?id=${data._id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${index.getters.getCurrentUser.token}`,
+            },
+          }
+        );
+        context.commit("setUsers", response.data.data);
+        return response.data;
+      } catch (e) {
+        console.log(e);
+        index.dispatch("handleRequestErrors", e);
+      }
+    },
+    async updateUserRole(context, data){
+      try{
+        const response = await axios.put(
+          `${process.env.VUE_APP_API_URL}/user?id=${data.id}`,
+          data,
           {
             headers: {
               Authorization: `Bearer ${index.getters.getCurrentUser.token}`,

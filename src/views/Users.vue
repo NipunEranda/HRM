@@ -43,6 +43,9 @@
       :openActionModal="openActionModal"
       :currentUser="user"
     />
+
+    <!-- Action Modal -->
+    <ActionModal :modal="modal" :action="removeUser" />
   </div>
 </template>
 
@@ -58,8 +61,8 @@ export default {
     return {
       store: useStore(),
       user: store.getters.getCurrentUser,
-      users: store.getters.getUsers,
-      filteredUsers: store.getters.getUsers,
+      users: [],
+      filteredUsers: [],
       searchUser: "",
       modal: {
         modalTitle: "",
@@ -82,16 +85,35 @@ export default {
   },
   methods: {
     async loadUsers() {
-      this.users = await store.dispatch("loadUsers");
+      $(".container-loader").removeClass("hidden").addClass("show");
+      this.users = (await store.dispatch("loadUsers")).data;
+      this.filteredUsers = $.extend(true, [], this.users);
+      $(".container-loader").removeClass("show").addClass("hidden");
     },
     openEditModal() {},
-    openActionModal() {},
+    openActionModal(user) {
+      if (this.user.role == 'admin') {
+        this.modal.modalTitle = "Remove User";
+        this.modal = { modalTitle: 'Remove User', buttonProcessName: 'Remove', message: `Do you want to remove ${user.name} from the system.`, mode: 'delete', data: user };
+        $('#actionModal').modal("show");
+      }
+    },
+    removeUser: function (data) {
+      //Remove User
+      $(".container-loader").removeClass("hidden").addClass("show");
+      store.dispatch("deleteUser", data).then((result) => {
+        this.users = result.data;
+        this.$router.go(0);
+      });
+      $(".container-loader").removeClass("show").addClass("hidden");
+    },
   },
   mounted: async function () {
     await this.loadUsers();
   },
   components: {
     UsersList,
+    ActionModal
   },
 };
 </script>

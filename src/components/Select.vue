@@ -22,6 +22,8 @@
         @click="
           selected = o;
           open = false;
+          manual = $event;
+          $emit('manual', $event);
           $emit('output', o);
         "
       >
@@ -33,7 +35,7 @@
 
 <script>
 export default {
-  emits: ["output"],
+  emits: ["output", "manual"],
   props: {
     options: {
       type: Array,
@@ -43,6 +45,11 @@ export default {
       type: Number,
       required: false,
       default: 0,
+    },
+    manual: {
+      type: Object,
+      required: false,
+      default: null,
     },
     tabindex: {
       type: Number,
@@ -67,12 +74,9 @@ export default {
   },
   mounted() {
     this.$emit("output", this.selected);
+    this.$emit("manual", this.manual);
   },
 };
-
-$( document ).ready(function() {
-    console.log($('.custom-select').height());
-});
 </script>
 
 <style>
