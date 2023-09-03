@@ -91,7 +91,7 @@ library.add(
   faUsersGear
 );
 
-createApp(App)
+export const mainApp = createApp(App)
   .use(store)
   .use(router)
   .component("font-awesome-icon", FontAwesomeIcon)

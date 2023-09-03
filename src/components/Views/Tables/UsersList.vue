@@ -23,7 +23,7 @@
             <td>
               <Custom-Select :options="roleOptions" :selected="user.role ? roleOptions.indexOf(user.role.toLowerCase()) : 0
                 " @output="(output) => setSelect('maritalStatus', output, u)"
-                @manual="(manual) => manual ? this.manual = true : this.manual = false"></Custom-Select>
+                @manual="(manual) => manual ? this.manual = true : this.manual = false" :id="u" :search="false"></Custom-Select>
             </td>
             <td class="table-row-delete-col" v-if="currentUser.role == 'admin'">
               <font-awesome-icon icon="fa-trash" @click="openActionModal(user)" />

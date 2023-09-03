@@ -1,32 +1,24 @@
 <template>
-  <div
-    class="custom-select"
-    :tabindex="tabindex"
-    @blur="open = false"
-    :class="classes.join(' ')"
-  >
+  <div class="custom-select" :tabindex="tabindex" @blur="open = false" :class="classes.join(' ')">
     <div
       class="selected"
       :class="{ open: open }"
       @click="open = !open"
-      v-if="!top"
+      v-if="!search"
     >
       {{ options[selected] }}
     </div>
-    <div class="items" :class="{ selectHide: !open }">
-      <div
-        class="item"
-        :class="{ 'selected-item': selected == o }"
-        v-for="(option, o) of options"
-        :key="o"
-        @click="
-          selected = o;
-          open = false;
-          manual = $event;
-          $emit('manual', $event);
-          $emit('output', o);
-        "
-      >
+    <input type="text" class="form-control form-control-sm float-start selected inputText" :class="{ open: open }" id="iputText"
+      v-model="input" @click="open = !open" v-if="search" @blur="hideMenu"/>
+    <div class="items" :class="{ selectHide: !open }" :style="{ 'margin-top': search ? 'calc(1.5em + (0.5rem + 2px))' : 0 }">
+      <div class="item" :class="{ 'selected-item': selected == o }" v-for="(option, o) of options" :key="o" @click="
+        selected = o;
+      input = options[selected]
+      open = false;
+      manual = $event;
+      $emit('manual', $event);
+      $emit('output', o);
+      ">
         {{ option }}
       </div>
     </div>
@@ -34,6 +26,9 @@
 </template>
 
 <script>
+import AppVue from '@/App.vue';
+import App from '@/App.vue';
+
 export default {
   emits: ["output", "manual"],
   props: {
@@ -61,14 +56,15 @@ export default {
       required: false,
       default: [],
     },
-    top: {
+    search: {
       type: Boolean,
       required: false,
       default: false,
-    },
+    }
   },
   data() {
     return {
+      input: this.options[this.selected],
       open: false,
     };
   },
@@ -76,6 +72,11 @@ export default {
     this.$emit("output", this.selected);
     this.$emit("manual", this.manual);
   },
+  methods: {
+    hideMenu(){
+      setTimeout( () => this.open = false, 100)
+    }
+  }
 };
 </script>
 
