@@ -90,6 +90,19 @@ exports.removeStaff = async (event) => {
     }
 }
 
+exports.importStaff = async (event) => {
+    let mongoClient;
+    try{
+        console.log(event.body);
+        return { status: 200, response: { status: 'Success', data: null, error: null } };
+    } catch (e) {
+        console.log(e);
+        return { status: 500, response: { data: null, error: err } };
+    } finally {
+        // await mongoClient.close();
+    }
+}
+
 const handler = async function (event, context) {
     try {
         var result = null;
@@ -101,6 +114,8 @@ const handler = async function (event, context) {
             result = await exports.updateStaff(event);
         } else if (event.path == `${process.env.VUE_APP_API_URL}/staff` && event.httpMethod == "POST") {
             result = await exports.insertStaff(event);
+        } else if (event.path == `${process.env.VUE_APP_API_URL}/staff/upload` && event.httpMethod == "POST"){
+            result = await exports.importStaff(event);   
         }
         return {
             statusCode: result ? result.status ? result.status : 500 : 500,

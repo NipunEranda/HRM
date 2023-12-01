@@ -147,7 +147,7 @@ export default {
                 reader.readAsArrayBuffer(this.staffFile);
               });
               this.data = new Uint8Array(result);
-              this.staffFile = await store.dispatch("readStaffFile", this.data);
+              this.data = await store.dispatch("readStaffFile", this.data);
             } else
               alert("This browser doesn't support HTML5");
           } else
@@ -157,7 +157,10 @@ export default {
           mode = 'sync';
         }
         
-        console.log(this.staffFile.rows);
+        if(this.data){
+          await store.dispatch("importStaff", this.data);
+          await this.loadStaff();
+        }
       } catch (e) {
         console.log(e);
       }

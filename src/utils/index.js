@@ -55,18 +55,18 @@ exports.generateEmployee = function (selectedEmployee) {
         },
         livingSituation: {
           livingWith: "",
-          monthlyIncome: 0,
-          numberOfDependants: 0,
-          numberOfChildren: 0,
+          monthlyIncome: "",
+          numberOfDependants: "",
+          numberOfChildren: "",
         },
       },
       work: {
         employeeNumbers: {
-          number: 0,
-          epfNumber: 0,
-          etfNumber: 0,
-          attendanceIdNumber: 0,
-          previousEpfNumber: 0,
+          number: "",
+          epfNumber: "",
+          etfNumber: "",
+          attendanceIdNumber: "",
+          previousEpfNumber: "",
         },
         organization: {
           company: {
@@ -87,9 +87,9 @@ exports.generateEmployee = function (selectedEmployee) {
         },
         employementDetails: {
           info: {
-            basicSalary: 0,
-            housingAmount: 0,
-            budgetaryReliefAllowance: 0,
+            basicSalary: "",
+            housingAmount: "",
+            budgetaryReliefAllowance: "",
             methodJoined: "",
             pensionScheme: "",
             participatedToInducation: "",

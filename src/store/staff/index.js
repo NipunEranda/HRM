@@ -92,6 +92,19 @@ export default {
                 return { columns: worksheet.data.splice(0, 1)[0], rows: worksheet.data.splice(0, worksheet.data.length) };
             else
                 return null;
+        },
+        async importStaff(context, data){
+            try{
+                const response = await axios.post(`${process.env.VUE_APP_API_URL}/staff/upload`, data, {
+                    headers: {
+                        Authorization: `Bearer ${index.getters.getCurrentUser.token}`
+                    }
+                });
+                return response.data;
+            }catch(e){
+                console.log(e);
+                index.dispatch("handleRequestErrors", e);
+            }
         }
         // async updateExpense(context, data){
         //     try{
