@@ -49,7 +49,8 @@ import {
   faMoon,
   faSun,
   faTrash,
-  faUsersGear
+  faUsersGear,
+  faUpload
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -88,7 +89,8 @@ library.add(
   faMoon,
   faSun,
   faTrash,
-  faUsersGear
+  faUsersGear,
+  faUpload
 );
 
 export const mainApp = createApp(App)

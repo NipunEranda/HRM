@@ -7,7 +7,7 @@ const router = createRouter({
   routes: routes
 });
 
-router.beforeEach((to, from) => {
+router.beforeEach(async (to, from) => {
   if(Object.keys($(".container-loader")[0].classList).filter(i => ($(".container-loader")[0].classList[i] == 'hidden' || $(".container-loader")[0].classList[i] == 'show')).length == 0){
     $(".container-loader").addClass("hidden");
   }else{
@@ -15,7 +15,7 @@ router.beforeEach((to, from) => {
   }
   if (routes.filter(r => r.path == to.path)[0]) {
     if (routes.filter(r => r.path == to.path)[0].accessBy) {
-      let accessGranted = store.dispatch("hasAccess", { routes: routes, to: to.path });
+      let accessGranted = await store.dispatch("hasAccess", { routes: routes, to: to.path });
       if (!accessGranted)
         return '/dashboard'
     }

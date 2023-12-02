@@ -3,24 +3,31 @@
 
     <!-- Options -->
     <div class="row m-0 pb-3">
-      <div class="col col-9 p-0 m-0" :class="{ 'col-10': user.role == 'user' }"><input
+      <div class="col col-8 p-0 m-0" :class="{ 'col-10': user.role == 'user' }"><input
           class="form-control form-control-sm" type="text" name="search" id="search" v-model="searchStaff"
           placeholder=" &#x1F50E; search..." />
       </div>
-      <div class="col p-0 m-0 ps-2" :class="{ 'col-2': user.role == 'user', 'col-3': user.role == 'admin' || user.role == 'hr' }">
+      <div class="col p-0 m-0 ps-2"
+        :class="{ 'col-2': user.role == 'user', 'col-4': user.role == 'admin' || user.role == 'hr' }">
         <div class="row p-0 m-0">
-          <div class="col col-6 p-0 m-0" v-if="user.role == 'admin' || user.role == 'hr'">
+          <div class="col col-4 p-0 m-0" v-if="user.role == 'admin' || user.role == 'hr'">
             <div class="btn btn-sm btn-primary float-end w-100" @click="openCreateModal">
               <span class="d-none d-lg-block">Add</span>
               <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-plus" /></span>
             </div>
           </div>
-          <div class="col p-0 m-0 ps-2" :class="{ 'col-12': user.role == 'user', 'col-6': user.role == 'admin' || user.role == 'hr' }">
+          <div class="col p-0 m-0 ps-2"
+            :class="{ 'col-12': user.role == 'user', 'col-4': user.role == 'admin' || user.role == 'hr' }">
             <div class="btn btn-sm float-end w-100" @click="loadStaff"
               :class="{ 'btn-secondary': user.theme == 'dark-theme', 'btn-dark': user.theme == 'light-theme' }">
               <span class="d-none d-lg-block">Refresh</span>
               <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-refresh" /></span>
             </div>
+          </div>
+          <div class="col col-4 p-0 m-0 ps-2" v-if="user.role == 'admin' || user.role == 'hr'">
+            <label class="btn btn-primary btn-sm float-end w-100"><span class="d-none d-lg-block">Import</span>
+              <span class="d-block d-lg-none text-center"><font-awesome-icon icon="fa-upload" /></span> <input type="file"
+                @change="openFileUpload($event)" onclick="this.value = null" hidden></label>
           </div>
         </div>
       </div>
@@ -58,12 +65,14 @@ export default {
       searchStaff: "",
       modal: { modalTitle: '', buttonProcessName: '', message: null, mode: '', data: null },
       selectedEmployee: utils.generateEmployee(),
+      staffFile: null,
+      data: null,
     };
   },
   watch: {
     searchStaff: function () {
       if (this.searchStaff.trim() != '') {
-        this.filteredStaff = this.staff.filter(emp => emp.personal.info.fullName.toLowerCase().includes(this.searchStaff.toLowerCase()));
+        this.filteredStaff = this.staff.filter(emp => emp.full_name.toLowerCase().includes(this.searchStaff.toLowerCase()));
       } else
         this.filteredStaff = this.staff;
     },
@@ -74,8 +83,8 @@ export default {
       await store.dispatch("loadStaff");
       this.staff = await store.getters.getStaff;
       this.filteredStaff = $.extend(true, [], this.staff);
-      this.staff = this.staff.sort((a, b) => a.personal.info.fullName.localeCompare(b.personal.info.fullName));
-      this.filteredStaff = this.filteredStaff.sort((a, b) => a.personal.info.fullName.localeCompare(b.personal.info.fullName));
+      this.staff = this.staff.sort((a, b) => a.full_name.localeCompare(b.full_name));
+      this.filteredStaff = this.filteredStaff.sort((a, b) => a.full_name.localeCompare(b.full_name));
       $(".container-loader").removeClass("show").addClass("hidden");
     },
     openCreateModal: function () {
@@ -95,7 +104,7 @@ export default {
     openActionModal: function (employee) {
       if (this.user.role == 'admin' || this.user.role == 'hr') {
         this.modal.modalTitle = "Remove Employee";
-        this.modal = { modalTitle: 'Remove Employee', buttonProcessName: 'Remove', message: `Do you want to remove ${employee.personal.info.firstName} ${employee.personal.info.lastName} from the system.`, mode: 'delete', data: employee };
+        this.modal = { modalTitle: 'Remove Employee', buttonProcessName: 'Remove', message: `Do you want to remove ${employee.first_name} ${employee.last_name} from the system.`, mode: 'delete', data: employee };
         $('#actionModal').modal("show");
       }
     },
@@ -124,6 +133,38 @@ export default {
         });
       }
     },
+    openFileUpload: async function (e) {
+      try {
+        let mode;
+        if (e) {
+          mode = 'upload';
+          this.staffFile = e.target.files[0];
+          if (this.staffFile.name.toLowerCase().split(".")[this.staffFile.name.toLowerCase().split(".").length - 1] == 'xlsx') {
+            if (typeof (FileReader) != "undefined") {
+              const result = await new Promise(resolve => {
+                var reader = new FileReader();
+                reader.addEventListener('load', () => resolve(reader.result), false);
+                reader.readAsArrayBuffer(this.staffFile);
+              });
+              this.data = new Uint8Array(result);
+              this.data = await store.dispatch("readStaffFile", this.data);
+            } else
+              alert("This browser doesn't support HTML5");
+          } else
+            alert("Please upload a valid Excel file.");
+        } else {
+          this.data = null;
+          mode = 'sync';
+        }
+        
+        if(this.data){
+          await store.dispatch("importStaff", this.data);
+          await this.loadStaff();
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
   },
   mounted: async function () {
     if (this.staff.length == 0)

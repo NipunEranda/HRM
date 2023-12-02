@@ -5,6 +5,7 @@ import Leave from "@/views/Leave/index.vue";
 import Staff from "@/views/Staff/index.vue";
 import TimeTracking from "@/views/TimeTracking/index.vue";
 import Users from "@/views/Users.vue";
+import adminTime from "@/views/Admin/Time/index.vue";
 
 const routes = [
     {
@@ -37,13 +38,20 @@ const routes = [
       name: "staff",
       // accessBy: ["admin", "hr"],
       component: Staff,
-    },,
+    },
     {
       path: "/users",
       name: "users",
       accessBy: ["admin"],
       component: Users,
     },
+    //Admin
+    {
+      path: "/admin-time",
+      name: "adminTime",
+      accessBy: ["admin"],
+      component: adminTime,
+    }
   ];
 
   export default routes;
