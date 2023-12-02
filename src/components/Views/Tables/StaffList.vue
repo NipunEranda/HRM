@@ -14,10 +14,10 @@
                 </thead>
                 <tbody>
                     <tr class="pointer" v-for="(employee,e) in filteredStaff" :key="e">
-                        <td v-text="employee.personal.info.fullName" @click="openEditModal(employee)"></td>
-                        <td v-text="employee.personal.info.email" @click="openEditModal(employee)"></td>
-                        <td v-text="employee.contact.address.country" @click="openEditModal(employee)"></td>
-                        <td v-text="((!employee.contact.address.city) ? '' : employee.contact.address.city) + ((!employee.contact.address.country) ? '' : ((employee.contact.address.city ? (employee.contact.address.city == '' ? '' : ', ') : '') + employee.contact.address.country))"
+                        <td v-text="employee.full_name" @click="openEditModal(employee)"></td>
+                        <td v-text="employee.email" @click="openEditModal(employee)"></td>
+                        <td v-text="employee.country" @click="openEditModal(employee)"></td>
+                        <td v-text="((!employee.city) ? '' : employee.city) + ((!employee.country) ? '' : ((employee.city ? (employee.city == '' ? '' : ', ') : '') + employee.country))"
                             @click="openEditModal(employee)">
                         </td>
                         <td class="table-row-delete-col" v-if="user.role == 'admin'"><font-awesome-icon icon="fa-trash" @click="openActionModal(employee)" /></td>

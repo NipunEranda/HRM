@@ -72,7 +72,7 @@ export default {
   watch: {
     searchStaff: function () {
       if (this.searchStaff.trim() != '') {
-        this.filteredStaff = this.staff.filter(emp => emp.personal.info.fullName.toLowerCase().includes(this.searchStaff.toLowerCase()));
+        this.filteredStaff = this.staff.filter(emp => emp.full_name.toLowerCase().includes(this.searchStaff.toLowerCase()));
       } else
         this.filteredStaff = this.staff;
     },
@@ -83,8 +83,8 @@ export default {
       await store.dispatch("loadStaff");
       this.staff = await store.getters.getStaff;
       this.filteredStaff = $.extend(true, [], this.staff);
-      this.staff = this.staff.sort((a, b) => a.personal.info.fullName.localeCompare(b.personal.info.fullName));
-      this.filteredStaff = this.filteredStaff.sort((a, b) => a.personal.info.fullName.localeCompare(b.personal.info.fullName));
+      this.staff = this.staff.sort((a, b) => a.full_name.localeCompare(b.full_name));
+      this.filteredStaff = this.filteredStaff.sort((a, b) => a.full_name.localeCompare(b.full_name));
       $(".container-loader").removeClass("show").addClass("hidden");
     },
     openCreateModal: function () {
@@ -104,7 +104,7 @@ export default {
     openActionModal: function (employee) {
       if (this.user.role == 'admin' || this.user.role == 'hr') {
         this.modal.modalTitle = "Remove Employee";
-        this.modal = { modalTitle: 'Remove Employee', buttonProcessName: 'Remove', message: `Do you want to remove ${employee.personal.info.firstName} ${employee.personal.info.lastName} from the system.`, mode: 'delete', data: employee };
+        this.modal = { modalTitle: 'Remove Employee', buttonProcessName: 'Remove', message: `Do you want to remove ${employee.first_name} ${employee.last_name} from the system.`, mode: 'delete', data: employee };
         $('#actionModal').modal("show");
       }
     },
