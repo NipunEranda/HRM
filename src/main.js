@@ -50,7 +50,8 @@ import {
   faSun,
   faTrash,
   faUsersGear,
-  faUpload
+  faUpload,
+  faAnglesRight
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -90,7 +91,8 @@ library.add(
   faSun,
   faTrash,
   faUsersGear,
-  faUpload
+  faUpload,
+  faAnglesRight
 );
 
 export const mainApp = createApp(App)

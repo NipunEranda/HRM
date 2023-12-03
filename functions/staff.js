@@ -128,8 +128,8 @@ exports.importStaff = async (event) => {
                 else
                     emp[column.split(" ").join("_").toLowerCase()] = (row[c] ? row[c] != '' ? row[c] : null : null);
             });
-            
-            if(!allStaff.filter(s => s.email == emp.email && s.nic == emp.nic)[0])
+
+            if (!allStaff.filter(s => s.email == emp.email && s.nic == emp.nic)[0])
                 // Insert if staff member doesn't exist
                 await database.collection("staff").insertOne(emp);
             else
@@ -141,7 +141,7 @@ exports.importStaff = async (event) => {
 
         await Promise.all(allStaff.map(async (staff, s) => {
             // Remove staff member
-            if(!staffFileData.filter(sfd => sfd.email == staff.email && sfd.nic == staff.nic)[0])
+            if (!staffFileData.filter(sfd => sfd.email == staff.email && sfd.nic == staff.nic)[0])
                 await database.collection('staff').updateOne({ "_id": new ObjectId(staff._id) }, { $set: { deleted: true } });
         }));
 
@@ -187,18 +187,10 @@ function filterDataForUsers(data, staff) {
         staff.map(s => {
             temp.push({
                 _id: s._id,
-                personal: {
-                    info: {
-                        fullName: s.full_name,
-                        email: s.email
-                    }
-                },
-                contact: {
-                    address: {
-                        country: s.country,
-                        city: s.city
-                    }
-                },
+                full_name: s.full_name,
+                email: s.email,
+                country: s.country,
+                city: s.city,
                 deleted: s.deleted
             });
         });

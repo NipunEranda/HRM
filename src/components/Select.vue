@@ -80,7 +80,6 @@ export default {
 <style>
 .custom-select {
   position: relative;
-  width: 100%;
   text-align: left;
   outline: none;
 }

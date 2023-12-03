@@ -39,6 +39,6 @@ export default {
         filteredStaff: Array,
         openEditModal: { type: Function },
         openActionModal: { type: Function },
-    },
+    }
 }
 </script>

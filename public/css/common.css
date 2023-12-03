@@ -459,6 +459,7 @@ table tbody tr td {
     border: none;
     background-color: var(--nav-tab-active-background-color) !important;
     color: var(--nav-tab-active-color-color) !important;
+    font-weight: bold;
 }
 
 .nav-tabs {
